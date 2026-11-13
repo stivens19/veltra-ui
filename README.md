@@ -1,6 +1,7 @@
 # VeltraUI — Enterprise Admin UI Suite
 
 <p align="left">
+  <a href="https://veltra-ui.stivensespinoza.dev"><img src="https://img.shields.io/badge/Demo_Web-veltra--ui.stivensespinoza.dev-06b6d4?style=flat-square" alt="Demo Web" /></a>
   <img src="https://img.shields.io/badge/Tailwind_CSS-v4.3-06b6d4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS v4" />
   <img src="https://img.shields.io/badge/TypeScript-5.8-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Vite-8.3-646cff?style=flat-square&logo=vite&logoColor=white" alt="Vite" />
@@ -10,6 +11,9 @@
 </p>
 
 **VeltraUI** es una suite de interfaz de administración empresarial de alto rendimiento, diseñada con **Tailwind CSS v4** nativo y **Vanilla JavaScript**. Ha sido concebida para superar la deuda técnica de plantillas heredadas, prescindiendo por completo de Sass y dependencias pesadas para integrarse sin fricción en proyectos modernos de **Laravel (Blade)**, **React**, **Vue** o **HTML estático**.
+
+🌐 **Sitio Web Oficial y Demostración en Vivo**: [https://veltra-ui.stivensespinoza.dev](https://veltra-ui.stivensespinoza.dev)  
+📦 **Repositorio GitHub**: [https://github.com/stivens19/veltra-ui](https://github.com/stivens19/veltra-ui)
 
 ---
 
@@ -60,7 +64,7 @@ veltra-ui/
 ### Instalación
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/tu-usuario/veltra-ui.git
+git clone https://github.com/stivens19/veltra-ui.git
 cd veltra-ui
 
 # 2. Instalar dependencias del monorepo

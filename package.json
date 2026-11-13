@@ -4,6 +4,11 @@
   "description": "Enterprise-grade, ultra-lightweight Admin UI Suite built with pure Tailwind CSS v4 and Vanilla JS",
   "private": true,
   "author": "Stivens Espinoza <stivens70espinoza@gmail.com>",
+  "homepage": "https://veltra-ui.stivensespinoza.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stivens19/veltra-ui.git"
+  },
   "license": "MIT",
   "keywords": [
     "veltra-ui",
