@@ -2,7 +2,11 @@
 # VeltraUI — Configuración de Servidor para Namecheap cPanel (Apache / LiteSpeed)
 # ======================================================================
 
-# 1. SEGURIDAD Y REGLAS DE REESCRITURA
+# 1. ARCHIVO ÍNDICE POR DEFECTO
+# Asegura que al entrar al dominio o raíz se abra directamente index.html
+DirectoryIndex index.html index.htm
+
+# 2. SEGURIDAD Y REGLAS DE REESCRITURA
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -11,6 +15,9 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+  # Redirección de la raíz al index.html
+  RewriteRule ^$ index.html [L]
+
   # URLs limpias opcionales (permite entrar a /docs o /dashboard1 sin escribir .html)
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
@@ -18,10 +25,10 @@
   RewriteRule ^([^\.]+)$ $1.html [NC,L]
 </IfModule>
 
-# 2. PÁGINA DE ERROR 404 PERSONALIZADA
+# 3. PÁGINA DE ERROR 404 PERSONALIZADA
 ErrorDocument 404 /pages-404.html
 
-# 3. TIPOS MIME (Asegura correcta entrega de fuentes, módulos JS y SVGs)
+# 4. TIPOS MIME (Asegura correcta entrega de fuentes, módulos JS y SVGs)
 <IfModule mod_mime.c>
   AddType application/javascript js mjs
   AddType text/css css
@@ -31,7 +38,7 @@ ErrorDocument 404 /pages-404.html
   AddType application/zip zip
 </IfModule>
 
-# 4. COMPRESIÓN GZIP / DEFLATE (Acelera la carga un 70%-85%)
+# 5. COMPRESIÓN GZIP / DEFLATE (Acelera la carga un 70%-85%)
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
   AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json
@@ -39,7 +46,7 @@ ErrorDocument 404 /pages-404.html
   AddOutputFilterByType DEFLATE font/woff font/woff2
 </IfModule>
 
-# 5. CACHÉ DEL NAVEGADOR (Para máxima velocidad en visitas repetidas)
+# 6. CACHÉ DEL NAVEGADOR (Para máxima velocidad en visitas repetidas)
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"
@@ -67,12 +74,12 @@ ErrorDocument 404 /pages-404.html
   ExpiresByType application/zip "access plus 1 month"
 </IfModule>
 
-# 6. CABECERAS DE SEGURIDAD BÁSICA
+# 7. CABECERAS DE SEGURIDAD BÁSICA
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# 7. DESACTIVAR EXPLORACIÓN DE DIRECTORIOS
+# 8. DESACTIVAR EXPLORACIÓN DE DIRECTORIOS
 Options -Indexes
