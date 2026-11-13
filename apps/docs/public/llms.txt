@@ -7,14 +7,15 @@
 - Full Documentation: https://veltra-ui.stivensespinoza.dev/docs.html
 - Live Dashboard: https://veltra-ui.stivensespinoza.dev/dashboard1.html
 
-## AI & Developer Resources
+## AI & Vibe Coding Resources
 - AI Skill Reference (Markdown): https://veltra-ui.stivensespinoza.dev/ai/veltra-ai-skill.md
 - Full 39-Template Context (Markdown): https://veltra-ui.stivensespinoza.dev/ai/veltra-context.md
 - Downloadable Bundle (ZIP): https://veltra-ui.stivensespinoza.dev/veltra-ui.zip
 
-## Key Features
-- Pure Tailwind CSS v4 (@import "tailwindcss"; native, zero tailwind.config.js)
-- Zero heavy dependencies (no jQuery, no legacy preprocessors)
-- Persistent Anti-FOUC Dark Mode (localStorage + head script)
-- 39 Ready-to-use HTML Templates
-- Framework-agnostic: Works natively in HTML, Laravel Blade (<x-ui.*>), React, Next.js, Vue, and Angular.
+## Architecture Rules for AI Agents
+1. Pure Tailwind CSS v4 (@import "tailwindcss"; native, zero tailwind.config.js, zero legacy preprocessors).
+2. Pure Lucide Icons (<i data-lucide="..."></i> only; no FontAwesome, no Flaticon).
+3. Anti-FOUC Dark Mode script in the <head> of every document.
+4. CSS Custom Properties prefixed with --vlt-* for colors, layout dimensions, and typography.
+5. Component structure namespaced with .vlt-* classes (.vlt-card, .vlt-sidebar, .vlt-nav, .vlt-modal).
+6. Multi-framework ready: Works out-of-the-box in HTML, Laravel Blade (<x-ui.*>), React, Next.js, Vue, and Angular.
