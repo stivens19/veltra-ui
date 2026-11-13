@@ -1,0 +1,60 @@
+.vlt-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold leading-none transition-colors;
+}
+
+.vlt-badge-primary,
+.vlt-badge-cyan {
+    @apply bg-cyan-50 text-cyan-700 border border-cyan-200/80 dark:bg-cyan-950/50 dark:text-cyan-300 dark:border-cyan-800/60;
+}
+
+.vlt-badge-secondary {
+    @apply bg-slate-100 text-slate-700 border border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700;
+}
+
+.vlt-badge-success,
+.vlt-badge-emerald {
+    @apply bg-emerald-50 text-emerald-700 border border-emerald-200/80 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-800/60;
+}
+
+.vlt-badge-warning {
+    @apply bg-amber-50 text-amber-700 border border-amber-200/80 dark:bg-amber-950/50 dark:text-amber-300 dark:border-amber-800/60;
+}
+
+.vlt-badge-danger {
+    @apply bg-rose-50 text-rose-700 border border-rose-200/80 dark:bg-rose-950/50 dark:text-rose-300 dark:border-rose-800/60;
+}
+
+/* Developer Pill Badges with Indicator Dot */
+.vlt-pill {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border shadow-2xs;
+}
+
+.vlt-pill .pill-dot {
+    @apply w-1.5 h-1.5 rounded-full shrink-0 animate-pulse;
+}
+
+.vlt-pill-cyan {
+    @apply bg-cyan-50/80 border-cyan-200 text-cyan-800 dark:bg-cyan-950/60 dark:border-cyan-800/80 dark:text-cyan-300;
+}
+.vlt-pill-cyan .pill-dot {
+    @apply bg-cyan-500;
+}
+
+.vlt-pill-emerald {
+    @apply bg-emerald-50/80 border-emerald-200 text-emerald-800 dark:bg-emerald-950/60 dark:border-emerald-800/80 dark:text-emerald-300;
+}
+.vlt-pill-emerald .pill-dot {
+    @apply bg-emerald-500;
+}
+
+.vlt-pill-slate {
+    @apply bg-white border-slate-200 text-slate-700 dark:bg-slate-800/80 dark:border-slate-700 dark:text-slate-200;
+}
+.vlt-pill-slate .pill-dot {
+    @apply bg-slate-400;
+}
+
+/* Monospace Code Pill */
+.vlt-tag-code {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-white border border-slate-200 text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 shadow-2xs;
+}

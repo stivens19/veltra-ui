@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="es" >
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veltra UI - General Elements</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="/src/style.css" />
+  
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('veltra-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body class="vlt-grid-bg text-slate-800 antialiased selection:bg-cyan-500 selection:text-white bg-slate-50 dark:bg-slate-950 dark:text-slate-100">
+  <div class="vlt-wrapper">
+    <!-- Mobile Backdrop -->
+    <div class="vlt-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+        <!-- Sidebar Navigation -->
+        <!-- Sidebar Navigation -->
+    <aside class="vlt-sidebar border-r border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md">
+      <!-- Sidebar Brand Header -->
+      <div class="vlt-sidebar-brand">
+        <a href="/index.html" class="brand-link">
+          <img src="/logo.png" alt="VeltraUI" class="brand-logo" />
+          <span class="brand-text">
+            Veltra<span class="text-cyan-500">UI</span>
+          </span>
+        </a>
+        
+      </div>
+
+      <!-- User Panel -->
+      <div class="vlt-sidebar-user">
+        <div class="relative shrink-0">
+          <img class="user-avatar" src="/avatar.jpg" alt="Stivens Espinoza" />
+          <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white dark:border-slate-800 rounded-full"></span>
+        </div>
+        <div class="user-info">
+          <p class="user-name">Stivens Espinoza</p>
+          <span class="user-role">Administrator</span>
+        </div>
+      </div>
+
+      <!-- Sidebar Search -->
+      <div class="px-3 py-2">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 pointer-events-none"></i>
+          <input type="text" placeholder="Search menu..." class="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:bg-slate-950 dark:text-slate-100" />
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <ul class="vlt-nav">
+        <li class="vlt-nav-header">MAIN NAVIGATION</li>
+
+        <!-- Item: Dashboard -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="gauge" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Dashboard</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/index.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v1</span></a></li>
+            <li class="vlt-nav-item"><a href="/index2.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v2</span></a></li>
+            <li class="vlt-nav-item"><a href="/index3.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v3</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Widgets -->
+        <li class="vlt-nav-item">
+          <a href="/widgets.html" class="vlt-nav-link ">
+            <i data-lucide="layout-grid" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Widgets</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-danger">New</span>
+          </a>
+        </li>
+
+        <!-- Item: Layout Options -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="copy" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Layout Options</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">6</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/layout-top-nav.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Top Navigation</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-top-nav-sidebar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Top Nav + Sidebar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-boxed.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Boxed</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-fixed-sidebar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Fixed Sidebar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-fixed-navbar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Fixed Navbar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-collapsed-sidebar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Collapsed Sidebar</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Page Start -->
+        <li class="vlt-nav-item">
+          <a href="/page-start.html" class="vlt-nav-link ">
+            <i data-lucide="play-circle" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Page Start</span>
+          </a>
+        </li>
+        <!-- Item: Documentation -->
+        <li class="vlt-nav-item ">
+          <a href="/docs.html" class="vlt-nav-link text-cyan-600 dark:text-cyan-400 font-semibold">
+            <i data-lucide="book-open" class="vlt-nav-icon text-cyan-500"></i>
+            <span class="vlt-nav-text">Documentation</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-primary">ES/EN</span>
+          </a>
+        </li>
+
+<li class="vlt-nav-header">COMPONENTS</li>
+
+        <!-- Item: UI Elements -->
+        <li class="vlt-nav-item is-open">
+          <a class="vlt-nav-link active" data-vlt-toggle="treeview">
+            <i data-lucide="palette" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">UI Elements</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/ui-general.html" class="vlt-nav-link active font-bold text-cyan-600"><i data-lucide="circle-dot" class="w-3.5 h-3.5 text-cyan-500"></i><span class="vlt-nav-text">General</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-icons.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Icons</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-buttons.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Buttons</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-modals.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Modals & Alerts</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-navbar-tabs.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Navbar & Tabs</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Forms -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="file-edit" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Forms</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/forms-general.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">General Elements</span></a></li>
+            <li class="vlt-nav-item"><a href="/forms-advanced.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Advanced Elements</span></a></li>
+            <li class="vlt-nav-item"><a href="/forms-validation.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Validation</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Tables -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="table" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Tables</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/tables-simple.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Simple Tables</span></a></li>
+            <li class="vlt-nav-item"><a href="/tables-datatables.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">DataTables</span></a></li>
+            <li class="vlt-nav-item"><a href="/tables-jsgrid.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">jsGrid</span></a></li>
+          </ul>
+        </li>
+
+        <li class="vlt-nav-header">EXAMPLES</li>
+
+        <!-- Item: Calendar -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="calendar" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Calendar</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">3</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/calendar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Calendario General</span></a></li>
+            <li class="vlt-nav-item"><a href="/calendar-team.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Equipo & Reuniones</span></a></li>
+            <li class="vlt-nav-item"><a href="/calendar-workload.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Carga Horaria & Heatmap</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Kanban Board -->
+        <li class="vlt-nav-item">
+          <a href="/kanban.html" class="vlt-nav-link ">
+            <i data-lucide="trello" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Kanban Board</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">7</span>
+          </a>
+        </li>
+
+        <!-- Item: Pages -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="book-open" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Pages</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/pages-pos.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">POS Terminal</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-invoice.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Invoice</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-profile.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Profile</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-ecommerce.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">E-commerce</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-projects.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Projects</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-contacts.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Contacts</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-pricing.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Pricing</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-faq.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">FAQ</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-login.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Login</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-register.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Register</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-lockscreen.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Lockscreen</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-forgot-password.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Forgot Password</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-404.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Error 404</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-500.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Error 500</span></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Bottom System Status Pill -->
+      <div class="p-4 border-t border-slate-200/60 dark:border-slate-800">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+          <span class="vlt-pill vlt-pill-emerald py-0.5 px-2.5">
+            <span class="pill-dot"></span>
+            <span>Online</span>
+          </span>
+          <span class="font-mono text-[11px] text-slate-400">v1.0.0</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="vlt-main">
+      <!-- Header -->
+                  <header class="vlt-header">
+        <div class="flex items-center gap-3">
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="sidebar" title="Colapsar Menú"><i data-lucide="menu" class="w-4 h-4"></i></button>
+
+          <div class="hidden sm:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
+            <a href="/index.html" class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <span>OP 1</span>
+            </a>
+            <a href="/index2.html" class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <span>OP 2</span>
+            </a>
+            <a href="/pages-pos.html" class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <i data-lucide="shopping-cart" class="w-3.5 h-3.5 text-slate-400"></i><span>POS</span>
+            </a>
+          </div>
+
+                    <a href="/docs.html" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-xl bg-cyan-50 dark:bg-cyan-950/60 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 text-cyan-700 dark:text-cyan-300 border border-cyan-200/80 dark:border-cyan-800 transition-colors shadow-xs" title="Documentation">
+            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+            <span>Documentation</span>
+          </a>
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="search-modal" title="Buscar (Ctrl+K)"><i data-lucide="search" class="w-4 h-4"></i></button>
+        </div>
+
+        <div class="flex items-center gap-1.5">
+          <!-- Messages Dropdown -->
+          <div class="vlt-dropdown hidden sm:inline-block">
+            <button type="button" class="vlt-btn-icon relative" data-vlt-toggle="dropdown" title="Messages">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full"></span>
+            </button>
+            <div class="vlt-dropdown-menu vlt-dropdown-menu-lg">
+              <div class="vlt-dropdown-header"><span class="font-bold text-slate-800 dark:text-slate-100">3 Messages</span></div>
+              <a href="#" class="vlt-dropdown-item">
+                <img class="w-8 h-8 rounded-full object-cover shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" alt="Avatar" />
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="font-bold text-slate-900 dark:text-white truncate">Brad Diesel</span>
+                    <span class="text-[10px] text-rose-500 font-semibold">4 hrs</span>
+                  </div>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">Llamada técnica a las 4:00 PM...</p>
+                </div>
+              </a>
+              <div class="vlt-dropdown-footer"><a href="#">Ver todos los mensajes</a></div>
+            </div>
+          </div>
+
+          <!-- Notifications Dropdown -->
+          <div class="vlt-dropdown">
+            <button type="button" class="vlt-btn-icon relative" data-vlt-toggle="dropdown" title="Notifications">
+              <i data-lucide="bell" class="w-4 h-4"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-amber-500 rounded-full"></span>
+            </button>
+            <div class="vlt-dropdown-menu vlt-dropdown-menu-md">
+              <div class="vlt-dropdown-header"><span class="font-bold text-slate-800 dark:text-slate-100">15 Notificaciones</span></div>
+              <a href="#" class="vlt-dropdown-item"><i data-lucide="mail" class="w-4 h-4 text-cyan-500 mr-2 shrink-0"></i><span class="flex-1 text-xs">4 nuevos mensajes</span></a>
+              <a href="#" class="vlt-dropdown-item"><i data-lucide="user-plus" class="w-4 h-4 text-emerald-500 mr-2 shrink-0"></i><span class="flex-1 text-xs">8 solicitudes</span></a>
+              <div class="vlt-dropdown-footer"><a href="#">Ver todas las notificaciones</a></div>
+            </div>
+          </div>
+
+          <!-- Fullscreen Toggle -->
+          <button type="button" class="vlt-btn-icon hidden sm:inline-flex" data-vlt-toggle="fullscreen" title="Pantalla Completa"><i data-lucide="maximize" class="w-4 h-4"></i></button>
+
+          <!-- Theme Toggle -->
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="theme" title="Alternar Tema Claro/Oscuro"><i data-lucide="sun-medium" class="w-4 h-4"></i></button>
+
+          <!-- User Menu -->
+          <div class="vlt-dropdown">
+            <button type="button" class="flex items-center gap-2 p-1 pl-1.5 pr-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ml-1 cursor-pointer" data-vlt-toggle="dropdown">
+              <img class="w-7 h-7 rounded-full object-cover ring-2 ring-cyan-500/40" src="/avatar.jpg" alt="Stivens Espinoza" />
+              <div class="hidden md:block text-left text-xs leading-tight">
+                <span class="font-bold text-slate-800 dark:text-slate-100 block">Stivens Espinoza</span>
+                <span class="text-[10px] text-slate-500 dark:text-slate-400">Admin</span>
+              </div>
+            </button>
+            <div class="vlt-dropdown-menu w-56">
+              <div class="px-4 py-3 border-b border-slate-100 dark:border-slate-800">
+                <p class="text-xs text-slate-500 dark:text-slate-400">Conectado como</p>
+                <p class="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">admin@example.com</p>
+              </div>
+              <a href="/pages-profile.html" class="vlt-dropdown-item"><i data-lucide="user" class="w-4 h-4 mr-2 text-slate-400"></i>Perfil</a>
+              <a href="/pages-invoice.html" class="vlt-dropdown-item"><i data-lucide="receipt" class="w-4 h-4 mr-2 text-slate-400"></i>Facturación</a>
+              <div class="vlt-dropdown-divider"></div>
+              <a href="/pages-login.html" class="vlt-dropdown-item text-rose-500 hover:text-rose-600"><i data-lucide="log-out" class="w-4 h-4 mr-2"></i>Cerrar Sesión</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      <main class="vlt-content p-4 sm:p-6 lg:p-8 space-y-8">
+        <!-- Page Title & Breadcrumbs -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">General UI Elements</h1>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">Alertas dismissibles, callouts informativos, barras de progreso y acordeones.</p>
+          </div>
+          <nav class="flex items-center gap-2 text-xs font-semibold text-slate-400">
+            <a href="/" class="hover:text-cyan-600 transition-colors">Home</a>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            <span>UI Elements</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            <span class="text-cyan-600">General</span>
+          </nav>
+        </div>
+
+        <!-- Section 1: Dismissible Alerts -->
+        <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h2 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <i data-lucide="bell-ring" class="w-4 h-4 text-cyan-500"></i>
+              Alertas del Sistema (Dismissibles)
+            </h2>
+            <span class="text-xs text-slate-400 font-mono">.vlt-alert</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Alert Cyan -->
+            <div class="vlt-alert vlt-alert-cyan">
+              <i data-lucide="info" class="vlt-alert-icon"></i>
+              <div class="vlt-alert-content">
+                <h4 class="vlt-alert-title">Información Importante</h4>
+                <p>Nueva versión de VeltraUI disponible con componentes en arquitectura pura light mode.</p>
+              </div>
+              <button type="button" class="vlt-alert-close" title="Cerrar"><i data-lucide="x" class="w-4 h-4"></i></button>
+            </div>
+
+            <!-- Alert Emerald -->
+            <div class="vlt-alert vlt-alert-emerald">
+              <i data-lucide="check-circle-2" class="vlt-alert-icon"></i>
+              <div class="vlt-alert-content">
+                <h4 class="vlt-alert-title">Transacción Exitosa</h4>
+                <p>El balance y las métricas de suscripción fueron actualizadas en la base de datos principal.</p>
+              </div>
+              <button type="button" class="vlt-alert-close" title="Cerrar"><i data-lucide="x" class="w-4 h-4"></i></button>
+            </div>
+
+            <!-- Alert Amber -->
+            <div class="vlt-alert vlt-alert-amber">
+              <i data-lucide="alert-triangle" class="vlt-alert-icon"></i>
+              <div class="vlt-alert-content">
+                <h4 class="vlt-alert-title">Advertencia de Capacidad</h4>
+                <p>El cluster de Redis superó el 80% de memoria. Considera incrementar la cuota de caché.</p>
+              </div>
+              <button type="button" class="vlt-alert-close" title="Cerrar"><i data-lucide="x" class="w-4 h-4"></i></button>
+            </div>
+
+            <!-- Alert Rose -->
+            <div class="vlt-alert vlt-alert-rose">
+              <i data-lucide="alert-circle" class="vlt-alert-icon"></i>
+              <div class="vlt-alert-content">
+                <h4 class="vlt-alert-title">Error en Microservicio</h4>
+                <p>El worker de RabbitMQ perdió la conexión temporal con el nodo de procesamiento.</p>
+              </div>
+              <button type="button" class="vlt-alert-close" title="Cerrar"><i data-lucide="x" class="w-4 h-4"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Callouts -->
+        <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h2 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <i data-lucide="message-square-quote" class="w-4 h-4 text-cyan-500"></i>
+              Callouts (.vlt-callout)
+            </h2>
+            <span class="text-xs text-slate-400 font-mono">border-l-4</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="vlt-callout vlt-callout-info">
+              <h4 class="vlt-callout-title"><i data-lucide="info" class="w-4 h-4 text-cyan-500"></i> Callout Informativo</h4>
+              <p class="vlt-callout-text">Ideal para tips de configuración, mejores prácticas arquitecturales y notas para desarrolladores en formularios complejos.</p>
+            </div>
+
+            <div class="vlt-callout vlt-callout-success">
+              <h4 class="vlt-callout-title"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i> Callout de Éxito</h4>
+              <p class="vlt-callout-text">Notifica a los usuarios que sus credenciales API fueron emitidas y los permisos de lectura han sido asignados.</p>
+            </div>
+
+            <div class="vlt-callout vlt-callout-warning">
+              <h4 class="vlt-callout-title"><i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500"></i> Callout de Precaución</h4>
+              <p class="vlt-callout-text">Se recomienda regenerar la clave de encriptación cada 90 días para mitigar riesgos de vulnerabilidades.</p>
+            </div>
+
+            <div class="vlt-callout vlt-callout-danger">
+              <h4 class="vlt-callout-title"><i data-lucide="shield-alert" class="w-4 h-4 text-rose-500"></i> Callout de Alerta Crítica</h4>
+              <p class="vlt-callout-text">Esta acción eliminará de forma irreversible todos los esquemas de tablas seleccionados.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Progress Bars -->
+        <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h2 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <i data-lucide="activity" class="w-4 h-4 text-cyan-500"></i>
+              Barras de Progreso & Indicadores de Carga
+            </h2>
+            <span class="text-xs text-slate-400 font-mono">.vlt-progress</span>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
+                <span>Migración de Esquemas de Base de Datos</span>
+                <span class="text-cyan-600">75%</span>
+              </div>
+              <div class="vlt-progress vlt-progress-md">
+                <div class="vlt-progress-bar" style="width: 75%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
+                <span>Sincronización con Redis & RabbitMQ</span>
+                <span class="text-emerald-600">92%</span>
+              </div>
+              <div class="vlt-progress vlt-progress-md">
+                <div class="vlt-progress-bar vlt-progress-bar-emerald" style="width: 92%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
+                <span>Capacidad de Almacenamiento NVMe</span>
+                <span class="text-amber-600">60%</span>
+              </div>
+              <div class="vlt-progress vlt-progress-md">
+                <div class="vlt-progress-bar vlt-progress-bar-amber" style="width: 60%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
+                <span>Uso de Cuota en Producción (Rayas Animadas)</span>
+                <span class="text-rose-600">45%</span>
+              </div>
+              <div class="vlt-progress vlt-progress-lg">
+                <div class="vlt-progress-bar vlt-progress-bar-rose vlt-progress-bar-striped" style="width: 45%">45%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Accordion & Collapsible FAQs -->
+        <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h2 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <i data-lucide="layers" class="w-4 h-4 text-cyan-500"></i>
+              Acordeón & Paneles Colapsables (.vlt-accordion)
+            </h2>
+            <span class="text-xs text-slate-400 font-mono">Interactive</span>
+          </div>
+
+          <div class="vlt-accordion">
+            <div class="vlt-accordion-item is-open">
+              <button type="button" class="vlt-accordion-header">
+                <span class="flex items-center gap-2">
+                  <i data-lucide="cpu" class="w-4 h-4 text-cyan-500"></i>
+                  ¿Cómo funciona la arquitectura por capas en VeltraUI?
+                </span>
+                <i data-lucide="chevron-down" class="vlt-accordion-arrow"></i>
+              </button>
+              <div class="vlt-accordion-content">
+                VeltraUI separa estrictamente los tokens de diseño (Sass / Tailwind v4), los controladores TypeScript nativos (@veltra-ui/vanilla-js) y las vistas para garantizar cero dependencias pesadas y tiempos de carga instantáneos en cualquier navegador.
+              </div>
+            </div>
+
+            <div class="vlt-accordion-item">
+              <button type="button" class="vlt-accordion-header">
+                <span class="flex items-center gap-2">
+                  <i data-lucide="palette" class="w-4 h-4 text-emerald-500"></i>
+                  ¿Se puede personalizar el color principal de cyan a otra paleta?
+                </span>
+                <i data-lucide="chevron-down" class="vlt-accordion-arrow"></i>
+              </button>
+              <div class="vlt-accordion-content">
+                Sí. Todas las variables de color están mapeadas como CSS Custom Properties en <code>--vlt-primary: 6 182 212</code>. Cambiar este valor en la raíz actualiza inmediatamente botones, badges, barras de progreso y bordes activos en toda la aplicación.
+              </div>
+            </div>
+
+            <div class="vlt-accordion-item">
+              <button type="button" class="vlt-accordion-header">
+                <span class="flex items-center gap-2">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-amber-500"></i>
+                  ¿Es compatible con React, Vue o Laravel Blade?
+                </span>
+                <i data-lucide="chevron-down" class="vlt-accordion-arrow"></i>
+              </button>
+              <div class="vlt-accordion-content">
+                Al estar empaquetado como HTML semántico con atributos <code>data-vlt-*</code> estándar, puede integrarse limpiamente con cualquier framework frontend o backend como Laravel, Symfony, Django o Rails.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 6: Loaders, Spinners & Skeletons -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Circular & Dots Spinners -->
+          <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h2 class="font-bold text-slate-900 text-base flex items-center gap-2">
+                <i data-lucide="loader-2" class="w-4 h-4 text-cyan-500 animate-spin"></i>
+                Spinners & Bouncing Dots
+              </h2>
+              <span class="text-xs text-slate-400 font-mono">.vlt-spinner</span>
+            </div>
+
+            <div>
+              <p class="text-xs font-semibold text-slate-700 mb-2">Tamaños & Variantes de Color:</p>
+              <div class="flex flex-wrap items-center gap-4">
+                <span class="vlt-spinner vlt-spinner-sm"></span>
+                <span class="vlt-spinner"></span>
+                <span class="vlt-spinner vlt-spinner-lg vlt-spinner-emerald"></span>
+                <span class="vlt-spinner vlt-spinner-lg vlt-spinner-amber"></span>
+                <span class="vlt-spinner vlt-spinner-xl vlt-spinner-rose"></span>
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-slate-100">
+              <p class="text-xs font-semibold text-slate-700 mb-2">Bouncing Pulse Dots (.vlt-dots-loader):</p>
+              <div class="flex items-center gap-6">
+                <div class="vlt-dots-loader">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-900 text-white flex items-center gap-3 text-xs">
+                  <span>Procesando cola</span>
+                  <div class="vlt-dots-loader"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shimmer Skeleton -->
+            <div class="pt-2 border-t border-slate-100 space-y-2.5">
+              <p class="text-xs font-semibold text-slate-700 mb-2">Skeleton Loaders (Shimmer Effect):</p>
+              <div class="flex items-center gap-3">
+                <div class="vlt-skeleton vlt-skeleton-avatar"></div>
+                <div class="flex-1 space-y-2">
+                  <div class="vlt-skeleton vlt-skeleton-text w-3/4"></div>
+                  <div class="vlt-skeleton vlt-skeleton-text w-1/2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Loading Overlay -->
+          <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-4 relative overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+                <h2 class="font-bold text-slate-900 text-base flex items-center gap-2">
+                  <i data-lucide="refresh-cw" class="w-4 h-4 text-cyan-500"></i>
+                  Card Overlay Loader
+                </h2>
+                <button type="button" class="vlt-btn vlt-btn-secondary vlt-btn-xs" data-simulate-refresh>
+                  <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
+                  <span>Simular Recarga</span>
+                </button>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                Este componente ofrece refresco de tarjetas bloqueando el contenido con un backdrop semitransparente mientras se esperan respuestas asíncronas de la API.
+              </p>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/60 space-y-2 text-xs dark:bg-slate-950 dark:text-slate-100">
+                <div class="flex justify-between"><span>CPU Core 0:</span><strong class="text-cyan-600">42%</strong></div>
+                <div class="flex justify-between"><span>Memoria Asignada:</span><strong class="text-emerald-600">8.4 / 16 GB</strong></div>
+                <div class="flex justify-between"><span>Conexiones Sockets:</span><strong class="text-slate-800">1,240 Activas</strong></div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100">
+              <button type="button" class="vlt-btn vlt-btn-primary vlt-btn-block" data-simulate-refresh>
+                <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                <span>Probar Animación de Overlay</span>
+              </button>
+            </div>
+
+            <!-- Overlay Loader Element -->
+            <div class="vlt-card-overlay hidden">
+              <span class="vlt-spinner vlt-spinner-lg"></span>
+              <p class="font-bold text-slate-800 text-xs">Sincronizando con clúster...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 7: Drag & Drop File Upload Zone -->
+        <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h2 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <i data-lucide="upload-cloud" class="w-4 h-4 text-cyan-500"></i>
+              Arrastrar & Soltar Archivos (Drag & Drop Dropzone)
+            </h2>
+            <span class="text-xs text-slate-400 font-mono">.vlt-dropzone</span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Dropzone Element -->
+            <div class="vlt-dropzone" data-preview-target="file-preview-list">
+              <input type="file" multiple class="absolute inset-0 opacity-0 cursor-pointer w-full h-full" />
+              <div class="vlt-dropzone-icon">
+                <i data-lucide="upload-cloud" class="w-6 h-6"></i>
+              </div>
+              <h3 class="vlt-dropzone-title">Arrastra y suelta tus archivos aquí</h3>
+              <p class="vlt-dropzone-desc">Soporta imágenes, documentos PDF, hojas de cálculo CSV y archivos comprimidos ZIP hasta 25MB.</p>
+              <button type="button" class="vlt-btn vlt-btn-primary vlt-btn-sm mt-4 pointer-events-none">
+                <i data-lucide="folder-search" class="w-3.5 h-3.5"></i>
+                <span>Examinar Archivos</span>
+              </button>
+            </div>
+
+            <!-- Upload Queue / Preview -->
+            <div class="space-y-3">
+              <h3 class="font-bold text-slate-800 text-xs uppercase tracking-wider text-slate-400">Archivos en Cola de Carga:</h3>
+              <div id="file-preview-list" class="space-y-2 max-h-56 overflow-y-auto pr-1">
+                <div class="vlt-file-item">
+                  <div class="vlt-file-icon"><i data-lucide="file-spreadsheet" class="w-5 h-5 text-emerald-500"></i></div>
+                  <div class="vlt-file-info">
+                    <span class="vlt-file-name">reporte_ingresos_q4.xlsx</span>
+                    <div class="vlt-file-meta"><span>4.2 MB</span><span class="w-1 h-1 rounded-full bg-slate-300"></span><span class="text-emerald-600 font-bold">100% Subido</span></div>
+                  </div>
+                  <button type="button" class="vlt-file-remove" onclick="this.closest('.vlt-file-item').remove()"><i data-lucide="x" class="w-4 h-4"></i></button>
+                </div>
+                <div class="vlt-file-item">
+                  <div class="vlt-file-icon"><i data-lucide="file-text" class="w-5 h-5 text-cyan-500"></i></div>
+                  <div class="vlt-file-info">
+                    <span class="vlt-file-name">especificacion_arquitectura_v2.pdf</span>
+                    <div class="vlt-file-meta"><span>1.8 MB</span><span class="w-1 h-1 rounded-full bg-slate-300"></span><span class="text-cyan-600 font-bold">Listo</span></div>
+                  </div>
+                  <button type="button" class="vlt-file-remove" onclick="this.closest('.vlt-file-item').remove()"><i data-lucide="x" class="w-4 h-4"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 8: Sortable Drag & Drop List -->
+        <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h2 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <i data-lucide="grip-vertical" class="w-4 h-4 text-cyan-500"></i>
+              Lista Reordenable (Sortable Drag & Drop)
+            </h2>
+            <span class="text-xs text-slate-400 font-mono">.vlt-sortable-list</span>
+          </div>
+          <p class="text-xs text-slate-500">Arrastra cualquier elemento desde su tirador para reordenar la prioridad de ejecución en tiempo real.</p>
+
+          <div class="vlt-sortable-list max-w-2xl">
+            <div class="vlt-sortable-item" draggable="true">
+              <div class="flex items-center gap-3">
+                <i data-lucide="grip-vertical" class="vlt-sortable-handle w-4 h-4"></i>
+                <div>
+                  <span class="font-bold text-xs text-slate-900">1. Ejecución de Migraciones de Base de Datos</span>
+                  <p class="text-[11px] text-slate-400">PostgreSQL Schema V1.4</p>
+                </div>
+              </div>
+              <span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-[10px]">Prioridad Alta</span>
+            </div>
+
+            <div class="vlt-sortable-item" draggable="true">
+              <div class="flex items-center gap-3">
+                <i data-lucide="grip-vertical" class="vlt-sortable-handle w-4 h-4"></i>
+                <div>
+                  <span class="font-bold text-xs text-slate-900">2. Purgado de Caché en Nodos Edge Cloudflare</span>
+                  <p class="text-[11px] text-slate-400">Invalidación de assets estáticos</p>
+                </div>
+              </div>
+              <span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-[10px]">Normal</span>
+            </div>
+
+            <div class="vlt-sortable-item" draggable="true">
+              <div class="flex items-center gap-3">
+                <i data-lucide="grip-vertical" class="vlt-sortable-handle w-4 h-4"></i>
+                <div>
+                  <span class="font-bold text-xs text-slate-900">3. Notificación a Webhooks de Terceros</span>
+                  <p class="text-[11px] text-slate-400">Eventos de pago y facturación</p>
+                </div>
+              </div>
+              <span class="vlt-pill vlt-pill-amber py-0.5 px-2 text-[10px]">Media</span>
+            </div>
+
+            <div class="vlt-sortable-item" draggable="true">
+              <div class="flex items-center gap-3">
+                <i data-lucide="grip-vertical" class="vlt-sortable-handle w-4 h-4"></i>
+                <div>
+                  <span class="font-bold text-xs text-slate-900">4. Generación de Snapshot Diario en S3</span>
+                  <p class="text-[11px] text-slate-400">Copia de seguridad en frío</p>
+                </div>
+              </div>
+              <span class="vlt-pill vlt-pill-rose py-0.5 px-2 text-[10px]">Crítico</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 9: Toggles, Sliders, Ratings & Tooltips -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Switches / Toggles -->
+          <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-4">
+            <h3 class="font-bold text-slate-900 text-sm border-b border-slate-100 pb-2">Switches / Toggles (.vlt-switch)</h3>
+            <div class="space-y-3">
+              <label class="flex items-center justify-between text-xs cursor-pointer">
+                <span class="font-semibold text-slate-700">Modo Telemetría</span>
+                <span class="vlt-switch"><input type="checkbox" checked /><span class="vlt-switch-track"></span></span>
+              </label>
+              <label class="flex items-center justify-between text-xs cursor-pointer">
+                <span class="font-semibold text-slate-700">Backups Automáticos</span>
+                <span class="vlt-switch vlt-switch-emerald"><input type="checkbox" checked /><span class="vlt-switch-track"></span></span>
+              </label>
+              <label class="flex items-center justify-between text-xs cursor-pointer">
+                <span class="font-semibold text-slate-700">Modo Depuración</span>
+                <span class="vlt-switch vlt-switch-amber"><input type="checkbox" /><span class="vlt-switch-track"></span></span>
+              </label>
+              <label class="flex items-center justify-between text-xs cursor-pointer">
+                <span class="font-semibold text-slate-700">Bloqueo de Escritura</span>
+                <span class="vlt-switch vlt-switch-rose"><input type="checkbox" checked /><span class="vlt-switch-track"></span></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Range Slider & Ratings -->
+          <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-4">
+            <h3 class="font-bold text-slate-900 text-sm border-b border-slate-100 pb-2">Sliders & Calificación</h3>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between text-xs font-semibold text-slate-700 mb-1.5">
+                  <span>Sensibilidad de Alertado</span>
+                  <span class="text-cyan-600 font-bold" id="slider-val">75%</span>
+                </div>
+                <input type="range" class="vlt-slider" value="75" min="0" max="100" oninput="document.getElementById('slider-val').textContent = this.value + '%'" />
+              </div>
+
+              <div class="pt-2 border-t border-slate-100">
+                <p class="text-xs font-semibold text-slate-700 mb-2">Valoración Interactiva (.vlt-rating):</p>
+                <div class="vlt-rating text-lg">
+                  <i data-lucide="star" class="star active w-5 h-5"></i>
+                  <i data-lucide="star" class="star active w-5 h-5"></i>
+                  <i data-lucide="star" class="star active w-5 h-5"></i>
+                  <i data-lucide="star" class="star active w-5 h-5"></i>
+                  <i data-lucide="star" class="star w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] text-slate-400 block mt-1">Haz clic en las estrellas para puntuar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pure CSS Tooltips -->
+          <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-4">
+            <h3 class="font-bold text-slate-900 text-sm border-b border-slate-100 pb-2">Tooltips Nativos ([data-tooltip])</h3>
+            <p class="text-xs text-slate-500">Pasa el cursor por encima de los botones para ver el tooltip flotante.</p>
+            <div class="flex flex-wrap gap-2.5 pt-2">
+              <button type="button" class="vlt-btn vlt-btn-secondary vlt-btn-sm" data-tooltip="Genera un snapshot del estado actual">Guardar</button>
+              <button type="button" class="vlt-btn vlt-btn-primary vlt-btn-sm" data-tooltip="Despliega cambios en clúster">Desplegar</button>
+              <button type="button" class="vlt-btn vlt-btn-danger vlt-btn-sm" data-tooltip="Peligro: esta acción es irreversible">Destruir</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Badges & Status Pills -->
+          <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-4">
+            <h3 class="font-bold text-slate-800 text-sm border-b border-slate-100 pb-2">Status Pills & Badges</h3>
+            <div class="flex flex-wrap gap-2.5 items-center">
+              <span class="vlt-pill vlt-pill-cyan py-1 px-3 text-xs"><span class="pill-dot"></span>Producción Activa</span>
+              <span class="vlt-pill vlt-pill-emerald py-1 px-3 text-xs"><span class="pill-dot"></span>Microservicios OK</span>
+              <span class="vlt-pill vlt-pill-amber py-1 px-3 text-xs"><span class="pill-dot"></span>Mantenimiento</span>
+              <span class="vlt-pill vlt-pill-rose py-1 px-3 text-xs"><span class="pill-dot"></span>Fallo de Red</span>
+            </div>
+            <div class="flex flex-wrap gap-2 items-center pt-2">
+              <span class="vlt-badge vlt-badge-cyan">Badge Cyan</span>
+              <span class="vlt-badge vlt-badge-success">Badge 24</span>
+              <span class="vlt-badge vlt-badge-danger">Nuevo</span>
+              <span class="vlt-badge vlt-badge-warning">Pendiente</span>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-4 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-slate-800 text-sm border-b border-slate-100 pb-2 mb-3">Paginación Semántica</h3>
+              <p class="text-xs text-slate-500 mb-4">Paginadores simétricos con estados activo, deshabilitado y hover suave.</p>
+            </div>
+            <div class="vlt-pagination">
+              <a href="#" class="vlt-page-link disabled"><i data-lucide="chevron-left" class="w-4 h-4"></i></a>
+              <a href="#" class="vlt-page-link active">1</a>
+              <a href="#" class="vlt-page-link">2</a>
+              <a href="#" class="vlt-page-link">3</a>
+              <a href="#" class="vlt-page-link">4</a>
+              <a href="#" class="vlt-page-link"><i data-lucide="chevron-right" class="w-4 h-4"></i></a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="vlt-footer">
+        <div class="flex items-center gap-2">
+          <strong>Copyright &copy; 2026 <a href="#" class="text-cyan-600 hover:underline">Veltra UI</a>.</strong>
+          <span>All rights reserved.</span>
+        </div>
+        <div>
+          <b>Version</b> 1.0.0
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div id="vlt-search-modal" class="fixed inset-0 z-50 hidden items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-950/50 backdrop-blur-sm animate-in fade-in duration-150">
+    <div class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200/80 overflow-hidden">
+      <div class="p-4 border-b border-slate-100 flex items-center gap-3">
+        <i data-lucide="search" class="w-5 h-5 text-cyan-500"></i>
+        <input type="text" id="vlt-modal-search-input" placeholder="Escribe para buscar componentes, dashboards o layouts..." class="w-full text-sm outline-none text-slate-800 placeholder:text-slate-400 bg-transparent" />
+        <button type="button" data-vlt-close="search-modal" class="vlt-btn-icon text-slate-400 hover:text-slate-700" title="Cerrar"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <div id="vlt-search-results" class="max-h-96 overflow-y-auto p-3 space-y-1 text-xs">
+        <a href="/" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-cyan-50/70 text-slate-700 hover:text-cyan-700 transition-colors"><i data-lucide="gauge" class="w-4 h-4 text-cyan-500"></i><span>Dashboard v1 (Resumen General & Métricas)</span></a>
+        <a href="/ui-general.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-cyan-50/70 text-slate-700 hover:text-cyan-700 transition-colors"><i data-lucide="palette" class="w-4 h-4 text-cyan-500"></i><span>UI Elements: General (Alertas & Callouts)</span></a>
+        <a href="/ui-buttons.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-cyan-50/70 text-slate-700 hover:text-cyan-700 transition-colors"><i data-lucide="mouse-pointer-click" class="w-4 h-4 text-cyan-500"></i><span>UI Elements: Buttons (Botones & Acciones)</span></a>
+        <a href="/ui-modals.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-cyan-50/70 text-slate-700 hover:text-cyan-700 transition-colors"><i data-lucide="layers" class="w-4 h-4 text-cyan-500"></i><span>UI Elements: Modals & Alerts (Ventanas & Toasts)</span></a>
+        <a href="/ui-navbar-tabs.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-cyan-50/70 text-slate-700 hover:text-cyan-700 transition-colors"><i data-lucide="columns-2" class="w-4 h-4 text-cyan-500"></i><span>UI Elements: Navbar & Tabs (Pestañas Dinámicas)</span></a>
+        <a href="/ui-icons.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-cyan-50/70 text-slate-700 hover:text-cyan-700 transition-colors"><i data-lucide="smile" class="w-4 h-4 text-cyan-500"></i><span>UI Elements: Icons (Galería Lucide)</span></a>
+        <a href="/forms.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-cyan-50/70 text-slate-700 hover:text-cyan-700 transition-colors"><i data-lucide="file-edit" class="w-4 h-4 text-cyan-500"></i><span>Formularios & Validaciones</span></a>
+        <a href="/tables.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-cyan-50/70 text-slate-700 hover:text-cyan-700 transition-colors"><i data-lucide="table" class="w-4 h-4 text-cyan-500"></i><span>Tablas & DataTables</span></a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
+

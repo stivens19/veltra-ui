@@ -1,0 +1,30 @@
+{
+  "name": "@veltra-ui/vanilla-js",
+  "version": "1.0.0",
+  "description": "Zero-dependency, accessible vanilla interactive controllers and micro-interactions for VeltraUI",
+  "author": "Stivens Espinoza <stivens70espinoza@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/veltra.umd.js",
+  "module": "./dist/veltra.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/veltra.es.js",
+      "require": "./dist/veltra.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build && tsc --emitDeclarationOnly"
+  },
+  "dependencies": {
+    "@floating-ui/dom": "^1.7.0",
+    "lucide": "^0.500.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "vite": "^8.3.8"
+  }
+}

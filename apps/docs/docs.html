@@ -1,0 +1,2459 @@
+<!DOCTYPE html>
+<html lang="es" data-docs-lang="es" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation & Component Reference - VeltraUI</title>
+  <link rel="icon" type="image/svg+xml" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    html[data-docs-lang="es"] .lang-en {
+      display: none !important;
+    }
+    html[data-docs-lang="en"] .lang-es {
+      display: none !important;
+    }
+    .doc-section {
+      scroll-margin-top: 5.5rem;
+    }
+    pre code {
+      scrollbar-width: thin;
+    }
+    .preview-box {
+      background-image: radial-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+    .dark .preview-box {
+      background-image: radial-gradient(rgba(51, 65, 85, 0.4) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="/src/style.css" />
+  <script type="module" src="/src/main.js"></script>
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('veltra-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+
+        const savedLang = localStorage.getItem('veltra-lang') || 'es';
+        document.documentElement.setAttribute('data-docs-lang', savedLang);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="vlt-body bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased">
+  <div class="vlt-wrapper">
+
+    <!-- Sidebar Navigation -->
+    <aside class="vlt-sidebar border-r border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md">
+      <!-- Sidebar Brand Header -->
+      <div class="vlt-sidebar-brand">
+        <a href="/index.html" class="brand-link">
+          <img src="/logo.png" alt="VeltraUI" class="brand-logo" />
+          <span class="brand-text">
+            Veltra<span class="text-cyan-500">UI</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- User Panel -->
+      <div class="vlt-sidebar-user">
+        <div class="relative shrink-0">
+          <img class="user-avatar" src="/avatar.jpg" alt="Stivens Espinoza" />
+          <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white dark:border-slate-800 rounded-full"></span>
+        </div>
+        <div class="user-info">
+          <p class="user-name">Stivens Espinoza</p>
+          <span class="user-role">Administrator</span>
+        </div>
+      </div>
+
+      <!-- Quick Docs Search Filter -->
+      <div class="px-3 py-2">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 pointer-events-none"></i>
+          <input type="text" id="docs-sidebar-search" placeholder="Filtrar temas..." class="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500 text-slate-800 dark:text-slate-100 placeholder:text-slate-400" oninput="filterDocsNav(this.value)" />
+        </div>
+      </div>
+
+      <!-- Docs Navigation Menu -->
+      <ul class="vlt-nav" id="docs-nav-list">
+        <li class="vlt-nav-header">
+          <span class="lang-es">PRIMEROS PASOS</span>
+          <span class="lang-en">GETTING STARTED</span>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#intro" class="vlt-nav-link active font-bold text-cyan-600 dark:text-cyan-400">
+            <i data-lucide="book-open" class="vlt-nav-icon text-cyan-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Introducción & Visión</span>
+              <span class="lang-en">Introduction & Vision</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#quickstart" class="vlt-nav-link">
+            <i data-lucide="zap" class="vlt-nav-icon text-amber-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Instalación & Setup</span>
+              <span class="lang-en">Installation & Setup</span>
+            </span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-warning">pnpm</span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#dist-liveserver" class="vlt-nav-link">
+            <i data-lucide="server" class="vlt-nav-icon text-emerald-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Uso de dist/ & Live Server</span>
+              <span class="lang-en">dist/ & Live Server</span>
+            </span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-success">dist</span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#portability" class="vlt-nav-link">
+            <i data-lucide="share-2" class="vlt-nav-icon text-purple-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Portabilidad a React & Angular</span>
+              <span class="lang-en">React & Angular Porting</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#monorepo" class="vlt-nav-link">
+            <i data-lucide="folder-tree" class="vlt-nav-icon text-blue-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Estructura del Monorepo</span>
+              <span class="lang-en">Monorepo Architecture</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-header">
+          <span class="lang-es">INGENIERÍA & ESTILOS</span>
+          <span class="lang-en">CORE & STYLING</span>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#zero-sass" class="vlt-nav-link">
+            <i data-lucide="wind" class="vlt-nav-icon text-cyan-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Tailwind v4 & Zero-Sass</span>
+              <span class="lang-en">Tailwind v4 & Zero-Sass</span>
+            </span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-success">v4</span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#tailwind-faq" class="vlt-nav-link">
+            <i data-lucide="help-circle" class="vlt-nav-icon text-amber-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">¿Dónde está tailwind.css?</span>
+              <span class="lang-en">Where is tailwind.css?</span>
+            </span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-warning">FAQ</span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#tokens" class="vlt-nav-link">
+            <i data-lucide="palette" class="vlt-nav-icon text-purple-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Tokens & Variables CSS</span>
+              <span class="lang-en">Tokens & CSS Variables</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#dark-mode" class="vlt-nav-link">
+            <i data-lucide="moon" class="vlt-nav-icon text-indigo-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Dark Mode Anti-FOUC</span>
+              <span class="lang-en">Anti-FOUC Dark Mode</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#layouts-shell" class="vlt-nav-link">
+            <i data-lucide="layout-template" class="vlt-nav-icon text-pink-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Layouts & Shell</span>
+              <span class="lang-en">Layouts & Shell</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-header">
+          <span class="lang-es">JAVASCRIPT & APIS</span>
+          <span class="lang-en">JAVASCRIPT & APIS</span>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#js-controllers" class="vlt-nav-link">
+            <i data-lucide="code-2" class="vlt-nav-icon text-emerald-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Controladores Vanilla TS</span>
+              <span class="lang-en">Vanilla TS Controllers</span>
+            </span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-info">API</span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#laravel" class="vlt-nav-link">
+            <i data-lucide="box" class="vlt-nav-icon text-rose-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Integración Laravel Blade</span>
+              <span class="lang-en">Laravel Blade Setup</span>
+            </span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-danger">PHP</span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-header">
+          <span class="lang-es">CATÁLOGO INTERACTIVO</span>
+          <span class="lang-en">LIVE COMPONENTS</span>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#comp-buttons" class="vlt-nav-link">
+            <i data-lucide="mouse-pointer-click" class="vlt-nav-icon text-cyan-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Botones & Acciones</span>
+              <span class="lang-en">Buttons & Actions</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#comp-statboxes" class="vlt-nav-link">
+            <i data-lucide="trending-up" class="vlt-nav-icon text-emerald-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Stat Boxes & Métricas</span>
+              <span class="lang-en">Stat Boxes & Metrics</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#comp-cards" class="vlt-nav-link">
+            <i data-lucide="credit-card" class="vlt-nav-icon text-blue-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Cards & Herramientas</span>
+              <span class="lang-en">Cards & Tools</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#comp-alerts" class="vlt-nav-link">
+            <i data-lucide="bell" class="vlt-nav-icon text-amber-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Alertas & Badges</span>
+              <span class="lang-en">Alerts & Badges</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#comp-forms" class="vlt-nav-link">
+            <i data-lucide="check-square" class="vlt-nav-icon text-purple-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Formularios & Toggles</span>
+              <span class="lang-en">Forms & Toggles</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#comp-modals" class="vlt-nav-link">
+            <i data-lucide="picture-in-picture" class="vlt-nav-icon text-teal-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Modales & Diálogos</span>
+              <span class="lang-en">Modals & Dialogs</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#comp-tabs" class="vlt-nav-link">
+            <i data-lucide="folder-minus" class="vlt-nav-icon text-indigo-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Pestañas (Tabs)</span>
+              <span class="lang-en">Tab Panes</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="#comp-tables" class="vlt-nav-link">
+            <i data-lucide="table" class="vlt-nav-icon text-orange-500"></i>
+            <span class="vlt-nav-text">
+              <span class="lang-es">Tablas de Datos</span>
+              <span class="lang-en">Data Tables</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-header">
+          <span class="lang-es">VOLVER AL PANEL</span>
+          <span class="lang-en">RETURN TO APP</span>
+        </li>
+
+        <li class="vlt-nav-item">
+          <a href="/index.html" class="vlt-nav-link">
+            <i data-lucide="gauge" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Dashboard v1</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Bottom System Status Pill -->
+      <div class="p-4 border-t border-slate-200/60 dark:border-slate-800">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+          <span class="vlt-pill vlt-pill-emerald py-0.5 px-2.5">
+            <span class="pill-dot"></span>
+            <span>Docs v1.0.0</span>
+          </span>
+          <span class="font-mono text-[11px] text-slate-400">MIT</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="vlt-main flex flex-col min-h-screen">
+      <!-- Header -->
+      <header class="vlt-header sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800">
+        <div class="flex items-center gap-3">
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="sidebar" title="Colapsar Menú">
+            <i data-lucide="menu" class="w-4 h-4"></i>
+          </button>
+
+          <a href="/dashboard1.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 text-xs rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-semibold transition-colors">
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+            <span class="lang-es">Ver Dashboards</span>
+            <span class="lang-en">View Dashboards</span>
+          </a>
+          <a href="/index.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 text-xs rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 font-semibold transition-colors">
+            <i data-lucide="home" class="w-3.5 h-3.5"></i>
+            <span class="lang-es">Portada / Web</span>
+            <span class="lang-en">Landing Page</span>
+          </a>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <!-- Language Switcher (ES / EN) -->
+          <div class="inline-flex items-center p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-xs" id="lang-switch-container">
+            <button type="button" id="btn-lang-es" class="px-2.5 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1.5" onclick="switchLanguage('es')">
+              <span>🇪🇸</span>
+              <span>ES</span>
+            </button>
+            <button type="button" id="btn-lang-en" class="px-2.5 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1.5" onclick="switchLanguage('en')">
+              <span>🇺🇸</span>
+              <span>EN</span>
+            </button>
+          </div>
+
+          <!-- Fullscreen Toggle -->
+          <button type="button" class="vlt-btn-icon hidden sm:inline-flex" data-vlt-toggle="fullscreen" title="Pantalla Completa">
+            <i data-lucide="maximize" class="w-4 h-4"></i>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="theme" title="Alternar Tema Claro/Oscuro">
+            <i data-lucide="sun-medium" class="w-4 h-4"></i>
+          </button>
+
+          <!-- User Menu -->
+          <div class="vlt-dropdown">
+            <button type="button" class="flex items-center gap-2 p-1 pl-1.5 pr-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ml-1 cursor-pointer" data-vlt-toggle="dropdown">
+              <img class="w-7 h-7 rounded-full object-cover ring-2 ring-cyan-500/40" src="/avatar.jpg" alt="Stivens Espinoza" />
+              <div class="hidden md:block text-left text-xs leading-tight">
+                <span class="font-bold text-slate-800 dark:text-slate-100 block">Stivens Espinoza</span>
+                <span class="text-[10px] text-slate-500 dark:text-slate-400">Admin</span>
+              </div>
+            </button>
+            <div class="vlt-dropdown-menu w-56">
+              <div class="px-4 py-3 border-b border-slate-100 dark:border-slate-800">
+                <p class="text-xs text-slate-500 dark:text-slate-400">Conectado como</p>
+                <p class="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">admin@example.com</p>
+              </div>
+              <a href="/pages-profile.html" class="vlt-dropdown-item"><i data-lucide="user" class="w-4 h-4 mr-2 text-slate-400"></i>Perfil</a>
+              <div class="vlt-dropdown-divider"></div>
+              <a href="/index.html" class="vlt-dropdown-item"><i data-lucide="layout-dashboard" class="w-4 h-4 mr-2 text-slate-400"></i>Dashboard</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Header (Hero Banner) -->
+      <section class="bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950 text-white px-6 lg:px-12 py-12 border-b border-slate-800 relative overflow-hidden">
+        <div class="absolute -right-24 -bottom-24 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute left-1/3 -top-24 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-6xl mx-auto relative z-10">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div class="space-y-4 max-w-3xl">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                  VeltraUI v1.0.0
+                </span>
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+                  Tailwind CSS v4 (Oxide)
+                </span>
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-400/30">
+                  0% Sass Preprocessors
+                </span>
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-400/30">
+                  TypeScript & Vanilla JS
+                </span>
+              </div>
+
+              <!-- Hero Titles in ES / EN -->
+              <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+                <span class="lang-es">Centro de Documentación y Referencia Técnica</span>
+                <span class="lang-en">Technical Documentation & Component Hub</span>
+              </h1>
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                <span class="lang-es">
+                  Aprende a dominar VeltraUI: desde la arquitectura monorepo, tokens en variables nativas de CSS y script anti-parpadeo de modo oscuro, hasta la creación de componentes Blade para Laravel 11/12 y el uso de los controladores interactivos.
+                </span>
+                <span class="lang-en">
+                  Master VeltraUI: from monorepo architecture, native CSS design tokens, and anti-FOUC dark mode, to creating reusable Laravel 11/12 Blade components and utilizing interactive TypeScript controllers.
+                </span>
+              </p>
+
+              <div class="flex flex-wrap items-center gap-3 pt-2">
+                <a href="#quickstart" class="px-5 py-2.5 text-xs font-bold rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 transition-all shadow-lg shadow-cyan-500/25 flex items-center gap-2">
+                  <i data-lucide="zap" class="w-4 h-4"></i>
+                  <span class="lang-es">Empezar Ahora</span>
+                  <span class="lang-en">Get Started</span>
+                </a>
+                <a href="#laravel" class="px-5 py-2.5 text-xs font-bold rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-2">
+                  <i data-lucide="box" class="w-4 h-4 text-rose-400"></i>
+                  <span class="lang-es">Guía Laravel Blade</span>
+                  <span class="lang-en">Laravel Blade Guide</span>
+                </a>
+                <a href="#comp-buttons" class="px-5 py-2.5 text-xs font-bold rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-2">
+                  <i data-lucide="layers" class="w-4 h-4 text-emerald-400"></i>
+                  <span class="lang-es">Componentes en Vivo</span>
+                  <span class="lang-en">Live Components</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Language Switch Hero Card -->
+            <div class="bg-white/10 backdrop-blur-md p-5 rounded-3xl border border-white/15 flex flex-col items-start gap-4 shrink-0 shadow-2xl">
+              <div>
+                <span class="text-xs font-bold text-slate-300 flex items-center gap-1.5 uppercase tracking-wider">
+                  <i data-lucide="languages" class="w-4 h-4 text-cyan-400"></i>
+                  <span class="lang-es">Idioma del Documento</span>
+                  <span class="lang-en">Document Language</span>
+                </span>
+                <p class="text-[11px] text-slate-400 mt-1">
+                  <span class="lang-es">Cambia en tiempo real sin recargar</span>
+                  <span class="lang-en">Switch in real-time without reloading</span>
+                </p>
+              </div>
+              <div class="grid grid-cols-2 gap-2 w-full">
+                <button type="button" onclick="switchLanguage('es')" id="hero-btn-es" class="px-4 py-2.5 text-xs font-bold rounded-xl border border-white/20 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                  <span>🇪🇸</span><span>Español (ES)</span>
+                </button>
+                <button type="button" onclick="switchLanguage('en')" id="hero-btn-en" class="px-4 py-2.5 text-xs font-bold rounded-xl border border-white/20 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                  <span>🇺🇸</span><span>English (EN)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Documentation Layout -->
+      <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-10 w-full flex-1">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+          <!-- Table of contents sticky on desktop -->
+          <div class="hidden lg:block lg:col-span-1">
+            <div class="sticky top-24 space-y-4">
+              <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xs">
+                <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3 flex items-center gap-2">
+                  <i data-lucide="list" class="w-3.5 h-3.5 text-cyan-500"></i>
+                  <span class="lang-es">Índice Temático</span>
+                  <span class="lang-en">Table of Contents</span>
+                </h3>
+                <nav class="space-y-1 text-xs max-h-[70vh] overflow-y-auto pr-1">
+                  <a href="#intro" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    1. <span class="lang-es">Introducción & Visión</span><span class="lang-en">Introduction</span>
+                  </a>
+                  <a href="#quickstart" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    2. <span class="lang-es">Instalación & Setup</span><span class="lang-en">Installation</span>
+                  </a>
+                  <a href="#dist-liveserver" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    3. <span class="lang-es">dist/ & Live Server</span><span class="lang-en">dist/ & Live Server</span>
+                  </a>
+                  <a href="#portability" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    4. <span class="lang-es">React & Angular</span><span class="lang-en">React & Angular</span>
+                  </a>
+                  <a href="#monorepo" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    5. <span class="lang-es">Estructura Monorepo</span><span class="lang-en">Monorepo Arch</span>
+                  </a>
+                  <a href="#zero-sass" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    6. <span class="lang-es">Zero-Sass & Tailwind v4</span><span class="lang-en">Zero-Sass Architecture</span>
+                  </a>
+                  <a href="#tailwind-faq" class="block py-1 px-2 rounded-lg text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-950/40 font-semibold transition-colors">
+                    • <span class="lang-es">FAQ: ¿Dónde está tailwind.css?</span><span class="lang-en">FAQ: Where is tailwind.css?</span>
+                  </a>
+                  <a href="#tokens" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    7. <span class="lang-es">Tokens & Variables CSS</span><span class="lang-en">Tokens & Variables</span>
+                  </a>
+                  <a href="#dark-mode" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    8. <span class="lang-es">Modo Oscuro Anti-FOUC</span><span class="lang-en">Anti-FOUC Dark Mode</span>
+                  </a>
+                  <a href="#layouts-shell" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    9. <span class="lang-es">Layouts & Shell</span><span class="lang-en">Layouts & Shell</span>
+                  </a>
+                  <a href="#js-controllers" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    10. <span class="lang-es">Controladores JS Vanilla</span><span class="lang-en">Vanilla JS APIs</span>
+                  </a>
+                  <a href="#laravel" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    11. <span class="lang-es">Integración Laravel Blade</span><span class="lang-en">Laravel Blade Setup</span>
+                  </a>
+                  <div class="pt-2 border-t border-slate-100 dark:border-slate-800 font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider text-[10px]">
+                    <span class="lang-es">Componentes</span><span class="lang-en">Components</span>
+                  </div>
+                  <a href="#comp-buttons" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    • <span class="lang-es">Botones & Acciones</span><span class="lang-en">Buttons</span>
+                  </a>
+                  <a href="#comp-statboxes" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    • <span class="lang-es">Stat Boxes</span><span class="lang-en">Stat Boxes</span>
+                  </a>
+                  <a href="#comp-cards" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    • <span class="lang-es">Cards con Herramientas</span><span class="lang-en">Cards</span>
+                  </a>
+                  <a href="#comp-alerts" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    • <span class="lang-es">Alertas & Badges</span><span class="lang-en">Alerts & Badges</span>
+                  </a>
+                  <a href="#comp-forms" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    • <span class="lang-es">Formularios & Toggles</span><span class="lang-en">Forms</span>
+                  </a>
+                  <a href="#comp-modals" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    • <span class="lang-es">Modales</span><span class="lang-en">Modals</span>
+                  </a>
+                  <a href="#comp-tabs" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    • <span class="lang-es">Pestañas (Tabs)</span><span class="lang-en">Tabs</span>
+                  </a>
+                  <a href="#comp-tables" class="block py-1 px-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 font-medium transition-colors">
+                    • <span class="lang-es">Tablas</span><span class="lang-en">Tables</span>
+                  </a>
+                </nav>
+              </div>
+
+              <!-- Quick Info Card -->
+              <div class="p-4 rounded-2xl bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-200 dark:border-cyan-800/50 text-xs space-y-2">
+                <span class="font-bold text-cyan-800 dark:text-cyan-300 flex items-center gap-1.5">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-cyan-500"></i>
+                  <span class="lang-es">VeltraUI en Números</span>
+                  <span class="lang-en">VeltraUI At a Glance</span>
+                </span>
+                <div class="space-y-1 text-slate-600 dark:text-slate-300 text-[11px]">
+                  <div class="flex justify-between">
+                    <span>Vite Build HMR:</span>
+                    <strong class="text-cyan-600 dark:text-cyan-400">~120ms</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Plantillas HTML:</span>
+                    <strong>39 completas</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Dependencia Sass:</span>
+                    <strong class="text-emerald-600">0% (Pure CSS)</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Framework JS:</span>
+                    <strong>Vanilla TS (0kb libs)</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Documentation Sections Stream -->
+          <div class="lg:col-span-3 space-y-12">
+
+            <!-- SECTION 1: INTRO -->
+            <section id="intro" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-black">
+                  1
+                </div>
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 dark:text-white">
+                    <span class="lang-es">1. Introducción y Visión de VeltraUI</span>
+                    <span class="lang-en">1. Introduction & VeltraUI Vision</span>
+                  </h2>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <span class="lang-es">Filosofía de diseño moderna, alto rendimiento y sin deuda técnica</span>
+                    <span class="lang-en">Modern design philosophy, high performance, and zero technical debt</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="lang-es space-y-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                <p>
+                  <strong>VeltraUI</strong> es un sistema de diseño y suite de plantillas administrativas de última generación concebido para resolver las limitaciones históricas de las plantillas de panel de control. A diferencia de las herramientas del pasado que acumulaban capas pesadas de jQuery, preprocesadores Sass incompatibles con herramientas modernas y hojas de estilo infladas con miles de selectores en desuso, VeltraUI adopta los estándares web contemporáneos:
+                </p>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+                  <li class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80">
+                    <strong class="text-cyan-600 dark:text-cyan-400 block text-xs uppercase tracking-wider mb-1">Tailwind CSS v4 Nativo</strong>
+                    Aprovecha el nuevo motor Oxide y LightningCSS para compilar en milisegundos sin configuraciones engorrosas.
+                  </li>
+                  <li class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80">
+                    <strong class="text-emerald-600 dark:text-emerald-400 block text-xs uppercase tracking-wider mb-1">Cero Dependencia de Sass</strong>
+                    Variables CSS nativas en tiempo de ejecución y selectores anidados compatibles con Laravel Vite, React, Vue y Angular.
+                  </li>
+                  <li class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80">
+                    <strong class="text-purple-600 dark:text-purple-400 block text-xs uppercase tracking-wider mb-1">Modo Oscuro Anti-FOUC</strong>
+                    Algoritmo de inicialización ultra-temprana que previene el destello blanco antes del primer frame de renderizado.
+                  </li>
+                  <li class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80">
+                    <strong class="text-amber-600 dark:text-amber-400 block text-xs uppercase tracking-wider mb-1">TypeScript Declarativo</strong>
+                    Controladores interactivos ligeros mediante atributos HTML <code>data-vlt-*</code> sin necesidad de escribir código JavaScript manual para cada componente.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="lang-en space-y-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                <p>
+                  <strong>VeltraUI</strong> is a cutting-edge administrative design system and dashboard template suite built to overcome legacy hurdles in admin panels. Instead of relying on legacy jQuery plugins, heavy Sass preprocessors incompatible with modern bundlers, or bloated CSS bundles, VeltraUI is built directly on contemporary web standards:
+                </p>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+                  <li class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80">
+                    <strong class="text-cyan-600 dark:text-cyan-400 block text-xs uppercase tracking-wider mb-1">Native Tailwind CSS v4</strong>
+                    Leverages the Oxide engine and LightningCSS to bundle styles in milliseconds with zero configuration overhead.
+                  </li>
+                  <li class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80">
+                    <strong class="text-emerald-600 dark:text-emerald-400 block text-xs uppercase tracking-wider mb-1">Zero Sass Dependency</strong>
+                    Pure native CSS runtime variables and nesting, ready for immediate use in Laravel Vite, React, Vue, and Angular.
+                  </li>
+                  <li class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80">
+                    <strong class="text-purple-600 dark:text-purple-400 block text-xs uppercase tracking-wider mb-1">Anti-FOUC Dark Mode</strong>
+                    Ultra-early head script execution preventing white flashes before the browser renders the first frame.
+                  </li>
+                  <li class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80">
+                    <strong class="text-amber-600 dark:text-amber-400 block text-xs uppercase tracking-wider mb-1">Declarative TypeScript</strong>
+                    Lightweight controllers triggered via declarative HTML attributes <code>data-vlt-*</code> without requiring bespoke JS code for every element.
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- SECTION 2: QUICKSTART -->
+            <section id="quickstart" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-black">
+                  2
+                </div>
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 dark:text-white">
+                    <span class="lang-es">2. Instalación y Flujo de Trabajo</span>
+                    <span class="lang-en">2. Installation & Developer Workflow</span>
+                  </h2>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <span class="lang-es">Comandos del espacio de trabajo pnpm monorepo</span>
+                    <span class="lang-en">Workspace commands for the pnpm monorepo</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-xs text-slate-600 dark:text-slate-300">
+                  <span class="lang-es">Requisitos del sistema: <strong>Node.js 18.0.0 o superior</strong> y gestor de paquetes <strong>pnpm 9+</strong>.</span>
+                  <span class="lang-en">System prerequisites: <strong>Node.js 18.0.0 or higher</strong> and <strong>pnpm 9+</strong> package manager.</span>
+                </div>
+
+                <!-- Code block 1 -->
+                <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md">
+                  <div class="flex items-center justify-between px-4 py-2.5 bg-slate-800/80 border-b border-slate-700 text-xs">
+                    <span class="font-mono text-slate-300 font-semibold flex items-center gap-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+                      Terminal — Clonar y Desarrollar
+                    </span>
+                    <button type="button" class="px-2.5 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                      Copiar
+                    </button>
+                  </div>
+                  <pre class="p-4 text-xs font-mono overflow-x-auto text-emerald-400 leading-relaxed"><code># 1. Clonar el repositorio
+git clone https://github.com/stivens-espinoza/veltra-ui.git
+cd veltra-ui
+
+# 2. Instalar dependencias en todo el monorepo
+pnpm install
+
+# 3. Iniciar el servidor local de Vite con Hot Module Replacement (puerto 3000)
+pnpm docs:dev</code></pre>
+                </div>
+
+                <!-- Code block 2 -->
+                <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md">
+                  <div class="flex items-center justify-between px-4 py-2.5 bg-slate-800/80 border-b border-slate-700 text-xs">
+                    <span class="font-mono text-slate-300 font-semibold flex items-center gap-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+                      Terminal — Compilación para Producción
+                    </span>
+                    <button type="button" class="px-2.5 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                      Copiar
+                    </button>
+                  </div>
+                  <pre class="p-4 text-xs font-mono overflow-x-auto text-cyan-300 leading-relaxed"><code># Compilar todos los paquetes en paralelo (Core Styles, Vanilla JS con tipos TS, y 39 HTML templates)
+pnpm build:all
+
+# Comandos de compilación individuales por paquete:
+pnpm --filter @veltra-ui/core-styles build   # Genera dist/veltra.css
+pnpm --filter @veltra-ui/vanilla-js build    # Genera dist/veltra.es.js y dist/index.d.ts
+pnpm --filter docs build                     # Genera dist/ con todas las páginas HTML optimizadas</code></pre>
+                </div>
+              </div>
+            </section>
+
+            <!-- SECTION 3: DIST & LIVE SERVER -->
+            <section id="dist-liveserver" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black">
+                  3
+                </div>
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 dark:text-white">
+                    <span class="lang-es">3. Uso de la Carpeta dist/ y Live Server</span>
+                    <span class="lang-en">3. Using dist/ & Live Server Setup</span>
+                  </h2>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <span class="lang-es">Cómo previsualizar las plantillas compiladas evitando restricciones de seguridad CORS</span>
+                    <span class="lang-en">How to preview compiled templates without local browser CORS restrictions</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- ES Content -->
+              <div class="lang-es space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>
+                  Si descargaste la carpeta precompilada <code>dist/</code> o se la compartes a un cliente o compañero de equipo, encontrarás las <strong>39 plantillas HTML optimizadas</strong>, las hojas de estilo CSS compiladas y los activos estáticos listos para usar sin necesidad de configurar Node ni pnpm.
+                </p>
+
+                <div class="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 text-xs text-amber-900 dark:text-amber-200 space-y-2">
+                  <strong class="flex items-center gap-1.5 font-bold text-amber-800 dark:text-amber-300">
+                    <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600"></i>
+                    ¿Por qué se debe usar Live Server al abrir la carpeta dist/?
+                  </strong>
+                  <p>
+                    Aunque los estilos CSS y la maquetación visual cargan al abrir los archivos HTML con doble clic directo, los navegadores modernos (Chrome, Edge, Firefox, Safari) cuentan con una estricta política de seguridad (<strong>CORS</strong>) que <strong>bloquea la ejecución de módulos JavaScript (<code>&lt;script type="module"&gt;</code>)</strong> cuando se abren bajo el protocolo local de disco <code>file:///</code>.
+                  </p>
+                  <p>
+                    Para que todas las interactividades dinámicas funcionen al 100% (gráficos interactivos de Chart.js, menús desplegables, modales y renderizado reactivo de iconos), <strong>se debe servir la carpeta <code>dist/</code> a través de un servidor HTTP local</strong>.
+                  </p>
+                </div>
+
+                <div class="space-y-3 pt-1">
+                  <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-slate-200">
+                    4 Opciones Sencillas para Ejecutar con Servidor Local:
+                  </h4>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                    <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                      <strong class="text-cyan-600 dark:text-cyan-400 font-bold block">1. Live Server de VS Code (Recomendado)</strong>
+                      <p class="text-slate-500 dark:text-slate-400">Abre la carpeta <code>dist</code> en VS Code, haz clic derecho sobre <code>index.html</code> y pulsa <em>"Open with Live Server"</em>.</p>
+                    </div>
+
+                    <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                      <strong class="text-emerald-600 dark:text-emerald-400 font-bold block">2. Node / npx (Sin instalación previa)</strong>
+                      <p class="text-slate-500 dark:text-slate-400">Abre una terminal dentro de <code>dist</code> y ejecuta:<br><code class="font-mono text-emerald-600 dark:text-emerald-400 font-bold">npx serve .</code></p>
+                    </div>
+
+                    <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                      <strong class="text-purple-600 dark:text-purple-400 font-bold block">3. Python (Si tienes Python instalado)</strong>
+                      <p class="text-slate-500 dark:text-slate-400">Dentro de la carpeta <code>dist</code> ejecuta:<br><code class="font-mono text-purple-600 dark:text-purple-400 font-bold">python -m http.server 3000</code></p>
+                    </div>
+
+                    <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                      <strong class="text-blue-600 dark:text-blue-400 font-bold block">4. Directo con pnpm (En el monorepo)</strong>
+                      <p class="text-slate-500 dark:text-slate-400">Desde la raíz del repositorio ejecuta:<br><code class="font-mono text-blue-600 dark:text-blue-400 font-bold">pnpm docs:preview</code></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- EN Content -->
+              <div class="lang-en space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>
+                  If you downloaded the pre-built <code>dist/</code> package or share it with clients and team members, you will find all <strong>39 production-ready HTML templates</strong>, compiled CSS bundles, and static assets ready to use without requiring Node or pnpm.
+                </p>
+
+                <div class="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 text-xs text-amber-900 dark:text-amber-200 space-y-2">
+                  <strong class="flex items-center gap-1.5 font-bold text-amber-800 dark:text-amber-300">
+                    <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600"></i>
+                    Why you must use Live Server when testing the dist/ folder:
+                  </strong>
+                  <p>
+                    While layout styling and CSS render properly when double-clicking HTML files, modern browsers (Chrome, Edge, Firefox, Safari) enforce a strict <strong>CORS security policy</strong> that <strong>blocks JavaScript ES modules (<code>&lt;script type="module"&gt;</code>)</strong> when loaded from the local disk scheme <code>file:///</code>.
+                  </p>
+                  <p>
+                    To ensure all dynamic behaviors execute at 100% (Chart.js graphs, dropdown menus, modals, and reactive Lucide icons), <strong>always serve the <code>dist/</code> folder over a local HTTP server</strong>.
+                  </p>
+                </div>
+
+                <div class="space-y-3 pt-1">
+                  <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-slate-200">
+                    4 Simple Ways to Serve with a Local Server:
+                  </h4>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                    <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                      <strong class="text-cyan-600 dark:text-cyan-400 font-bold block">1. VS Code Live Server (Recommended)</strong>
+                      <p class="text-slate-500 dark:text-slate-400">Open the <code>dist</code> folder in VS Code, right click on <code>index.html</code>, and select <em>"Open with Live Server"</em>.</p>
+                    </div>
+
+                    <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                      <strong class="text-emerald-600 dark:text-emerald-400 font-bold block">2. Node / npx (Zero installation)</strong>
+                      <p class="text-slate-500 dark:text-slate-400">Open your terminal inside <code>dist</code> and run:<br><code class="font-mono text-emerald-600 dark:text-emerald-400 font-bold">npx serve .</code></p>
+                    </div>
+
+                    <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                      <strong class="text-purple-600 dark:text-purple-400 font-bold block">3. Python (If Python is installed)</strong>
+                      <p class="text-slate-500 dark:text-slate-400">Inside the <code>dist</code> folder execute:<br><code class="font-mono text-purple-600 dark:text-purple-400 font-bold">python -m http.server 3000</code></p>
+                    </div>
+
+                    <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                      <strong class="text-blue-600 dark:text-blue-400 font-bold block">4. Monorepo pnpm command</strong>
+                      <p class="text-slate-500 dark:text-slate-400">From the workspace root directory execute:<br><code class="font-mono text-blue-600 dark:text-blue-400 font-bold">pnpm docs:preview</code></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- SECTION 4: PORTABILITY TO REACT & ANGULAR -->
+            <section id="portability" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-black">
+                  4
+                </div>
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 dark:text-white">
+                    <span class="lang-es">4. Portabilidad a Frameworks: React, Next.js, Angular y Vue</span>
+                    <span class="lang-en">4. Framework Portability: React, Next.js, Angular & Vue</span>
+                  </h2>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <span class="lang-es">Cómo desacoplar y consumir el HTML, CSS y JS en cualquier arquitectura moderna</span>
+                    <span class="lang-en">How to decouple and consume HTML, CSS, and JS components in modern stacks</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>
+                  <span class="lang-es">
+                    A diferencia de plantillas legadas que amarran el código a librerías propietarias o scripts de manipulación directa del DOM, VeltraUI te permite portar cualquier componente a <strong>React (JSX/TSX)</strong> o <strong>Angular (Templates/Signals)</strong> en cuestión de segundos:
+                  </span>
+                  <span class="lang-en">
+                    Unlike legacy UI kits that tightly bind your markup to proprietary DOM plugins, VeltraUI allows you to port any component into <strong>React (JSX/TSX)</strong> or <strong>Angular (Templates/Signals)</strong> in seconds:
+                  </span>
+                </p>
+
+                <!-- React Guide -->
+                <div class="space-y-3 pt-2">
+                  <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                    <i data-lucide="code" class="w-4 h-4 text-cyan-500"></i>
+                    <span>Modo React / Next.js: Creando Componentes Reutilizables</span>
+                  </h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    Importa <code>veltra.css</code> en tu archivo de entrada y convierte cualquier bloque HTML sustituyendo <code>class</code> por <code>className</code>:
+                  </p>
+
+                  <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700 text-xs">
+                      <span class="font-mono text-slate-300">src/components/StatBox.jsx</span>
+                      <button type="button" class="px-2.5 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                        Copiar
+                      </button>
+                    </div>
+                    <pre class="p-4 text-xs font-mono overflow-x-auto text-cyan-300 leading-relaxed"><code>import React from 'react';
+import { ArrowRight } from 'lucide-react';
+
+export function StatBox({ color = 'cyan', title, value, meta, icon: Icon, link = '#' }) {
+  return (
+    &lt;div className={`vlt-stat-box vlt-stat-box-${color}`}&gt;
+      &lt;div className="vlt-stat-box-inner"&gt;
+        &lt;div className="stat-top"&gt;
+          &lt;div className="stat-icon-wrapper"&gt;
+            {Icon &amp;&amp; &lt;Icon className="w-6 h-6" /&gt;}
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className="stat-value"&gt;{value}&lt;/div&gt;
+        &lt;div className="stat-title"&gt;{title}&lt;/div&gt;
+        {meta &amp;&amp; &lt;div className="stat-meta"&gt;&lt;span&gt;{meta}&lt;/span&gt;&lt;/div&gt;}
+      &lt;/div&gt;
+      &lt;a href={link} className="vlt-stat-box-footer"&gt;
+        &lt;span&gt;Más información&lt;/span&gt;
+        &lt;ArrowRight className="w-3.5 h-3.5 footer-arrow" /&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+                  </div>
+                </div>
+
+                <!-- Angular Guide -->
+                <div class="space-y-3 pt-4">
+                  <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                    <i data-lucide="layers" class="w-4 h-4 text-rose-500"></i>
+                    <span>Modo Angular (v17/v18+): Componente Standalone</span>
+                  </h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    Agrega <code>veltra.css</code> en tu archivo <code>angular.json</code> y vincula propiedades con <code>@Input()</code>:
+                  </p>
+
+                  <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700 text-xs">
+                      <span class="font-mono text-slate-300">src/app/components/stat-box/stat-box.component.ts</span>
+                      <button type="button" class="px-2.5 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                        Copiar
+                      </button>
+                    </div>
+                    <pre class="p-4 text-xs font-mono overflow-x-auto text-rose-300 leading-relaxed"><code>import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-stat-box',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    &lt;div class="vlt-stat-box" [ngClass]="'vlt-stat-box-' + color"&gt;
+      &lt;div class="vlt-stat-box-inner"&gt;
+        &lt;div class="stat-value"&gt;{{ value }}&lt;/div&gt;
+        &lt;div class="stat-title"&gt;{{ title }}&lt;/div&gt;
+        &lt;div class="stat-meta" *ngIf="meta"&gt;&lt;span&gt;{{ meta }}&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;a href="#" class="vlt-stat-box-footer"&gt;&lt;span&gt;Ver detalles&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  `
+})
+export class StatBoxComponent {
+  @Input() color: string = 'cyan';
+  @Input() title: string = '';
+  @Input() value: string = '0';
+  @Input() meta: string = '';
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- SECTION 5: MONOREPO -->
+            <section id="monorepo" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-black">
+                  5
+                </div>
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 dark:text-white">
+                    <span class="lang-es">5. Arquitectura del Monorepo</span>
+                    <span class="lang-en">5. Monorepo Architecture</span>
+                  </h2>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <span class="lang-es">Estructura modular en pnpm workspaces</span>
+                    <span class="lang-en">Modular structure with pnpm workspaces</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md">
+                <pre class="p-4 text-xs font-mono overflow-x-auto text-slate-200 leading-relaxed"><code>veltra-ui/
+├── packages/
+│   ├── core-styles/                    # @veltra-ui/core-styles (CSS puro + Tailwind v4)
+│   │   ├── src/
+│   │   │   ├── tokens/
+│   │   │   │   └── variables.css       # Tokens CSS nativos (:root, modo oscuro)
+│   │   │   ├── layouts/
+│   │   │   │   └── shell.css           # Grid y layout (.vlt-wrapper, .vlt-sidebar, etc.)
+│   │   │   ├── components/             # 17 componentes CSS puros (buttons, cards, modals...)
+│   │   │   └── main.css                # Entrada que importa tokens, layouts y componentes
+│   │   └── package.json
+│   │
+│   └── vanilla-js/                     # @veltra-ui/vanilla-js (TypeScript sin frameworks)
+│       ├── src/
+│       │   ├── components/             # sidebar.ts, treeview.ts, modal.ts, tabs.ts, card.ts...
+│       │   └── index.ts                # Inicializador maestro VeltraUI.init()
+│       ├── tsconfig.json               # Configuración TypeScript con generación de .d.ts
+│       └── package.json
+│
+└── apps/
+    └── docs/                           # Demostración en vivo y catálogo de plantillas
+        ├── *.html                      # 39 plantillas HTML (Dashboards, POS, Kanban, Forms...)
+        ├── docs.html                   # Centro de documentación interactivo bilingüe
+        └── vite.config.js              # Configuración Vite 6 con @tailwindcss/vite</code></pre>
+              </div>
+            </section>
+
+            <!-- SECTION 6: ZERO SASS -->
+            <section id="zero-sass" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-black">
+                  6
+                </div>
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 dark:text-white">
+                    <span class="lang-es">6. Tailwind CSS v4 y Arquitectura Zero-Sass</span>
+                    <span class="lang-en">6. Tailwind CSS v4 & Zero-Sass Architecture</span>
+                  </h2>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <span class="lang-es">Por qué migrar de Sass a CSS nativo fue la decisión de ingeniería correcta</span>
+                    <span class="lang-en">Why dropping Sass for native CSS was the optimal engineering decision</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Content ES -->
+              <div class="lang-es space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>
+                  Históricamente, los desarrolladores utilizaban Sass por tres razones principales: <strong>variables</strong> (<code>$color</code>), <strong>anidamiento de selectores</strong> (<code>nesting</code>) y <strong>mixins</strong>. Con la especificación oficial de CSS moderno y el advenimiento de Tailwind CSS v4, estas razones ya no aplican:
+                </p>
+                
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left text-xs border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden">
+                    <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 uppercase font-bold text-[10px] tracking-wider">
+                      <tr>
+                        <th class="p-3 border-b border-slate-200 dark:border-slate-700">Característica</th>
+                        <th class="p-3 border-b border-slate-200 dark:border-slate-700 text-rose-500">Con Sass (Antipatrón)</th>
+                        <th class="p-3 border-b border-slate-200 dark:border-slate-700 text-emerald-500">Con VeltraUI (CSS + Tailwind v4)</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-600 dark:text-slate-300">
+                      <tr>
+                        <td class="p-3 font-bold text-slate-800 dark:text-white">Variables y Dark Mode</td>
+                        <td class="p-3">Variables estáticas en tiempo de compilación. No responden en vivo en el navegador.</td>
+                        <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">Variables CSS dinámicas en tiempo real (<code>--vlt-*</code>) con cambio de tema instantáneo.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-bold text-slate-800 dark:text-white">Dependencias y Vite</td>
+                        <td class="p-3">Obliga a instalar <code>sass</code> y <code>sass-loader</code> en Laravel/Vite, ralentizando el build.</td>
+                        <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">Cero dependencias extra. El motor LightningCSS procesa todo nativamente a hipervelocidad.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-bold text-slate-800 dark:text-white">Anidamiento (Nesting)</td>
+                        <td class="p-3">Requiere el preprocesador Sass.</td>
+                        <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">CSS Nesting nativo estándar del W3C soportado por todos los navegadores modernos.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-bold text-slate-800 dark:text-white">Portabilidad de Componentes</td>
+                        <td class="p-3">Bloqueado a proyectos que configuren Sass.</td>
+                        <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">100% portable a Blade, React, Vue, Svelte y Angular sin configurar nada.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Content EN -->
+              <div class="lang-en space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>
+                  Historically, developers depended on Sass for three primary reasons: <strong>variables</strong> (<code>$color</code>), <strong>selector nesting</strong>, and <strong>mixins</strong>. With modern native CSS standards and Tailwind CSS v4, these justifications are obsolete:
+                </p>
+                
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left text-xs border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden">
+                    <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 uppercase font-bold text-[10px] tracking-wider">
+                      <tr>
+                        <th class="p-3 border-b border-slate-200 dark:border-slate-700">Feature</th>
+                        <th class="p-3 border-b border-slate-200 dark:border-slate-700 text-rose-500">With Sass (Legacy)</th>
+                        <th class="p-3 border-b border-slate-200 dark:border-slate-700 text-emerald-500">With VeltraUI (CSS + Tailwind v4)</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-600 dark:text-slate-300">
+                      <tr>
+                        <td class="p-3 font-bold text-slate-800 dark:text-white">Variables & Dark Mode</td>
+                        <td class="p-3">Compile-time static variables. Cannot switch dynamically at runtime.</td>
+                        <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">Dynamic runtime CSS variables (<code>--vlt-*</code>) with instant zero-reload theme changes.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-bold text-slate-800 dark:text-white">Tooling & Vite</td>
+                        <td class="p-3">Forces users to install heavy <code>sass</code> binaries into their Laravel/Vite projects.</td>
+                        <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">Zero extra dependencies. LightningCSS parses everything natively at maximum speed.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-bold text-slate-800 dark:text-white">CSS Nesting</td>
+                        <td class="p-3">Requires a Sass compiler to unroll nested selectors.</td>
+                        <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">W3C native CSS nesting standard natively supported across all modern browsers.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-bold text-slate-800 dark:text-white">Component Portability</td>
+                        <td class="p-3">Locked into projects with explicit Sass configuration.</td>
+                        <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">100% portable to Blade, React, Vue, Svelte, and Angular out of the box.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- FAQ Card: Tailwind.css & React/Laravel Integration -->
+              <div id="tailwind-faq" class="doc-section mt-8 p-6 sm:p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-4 shadow-xs">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">
+                    <i data-lucide="help-circle" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-base text-slate-900 dark:text-white">
+                      <span class="lang-es">¿Por qué no veo un archivo tailwind.css y necesito instalarlo en Laravel o React?</span>
+                      <span class="lang-en">Why is there no tailwind.css file and do I need to install Tailwind in Laravel or React?</span>
+                    </h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                      <span class="lang-es">Todo lo que necesitas saber para integrar los estilos en proyectos nuevos o existentes</span>
+                      <span class="lang-en">Everything you need to know about consuming styles in new or existing projects</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- ES Details -->
+                <div class="lang-es space-y-6 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <p class="text-sm">
+                    En <strong>Tailwind CSS v4</strong> ya no existe un archivo <code>tailwind.css</code> tradicional ni un archivo <code>tailwind.config.js</code>. Ahora el framework opera de forma nativa mediante la directiva <code>@import "tailwindcss";</code>. Al compilar este monorepo con Vite, se genera un bundle CSS autónomo y completo: <code class="font-mono text-cyan-600 dark:text-cyan-400 font-bold">packages/core-styles/dist/veltra.css</code>.
+                  </p>
+
+                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Option 1: Plug & Play -->
+                    <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                      <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                          OPCIÓN 1: Tu proyecto NO TIENE Tailwind
+                        </span>
+                        <span class="text-[10px] font-mono font-bold text-slate-400">Plug & Play</span>
+                      </div>
+                      
+                      <div>
+                        <h5 class="font-bold text-slate-900 dark:text-white text-sm">Modo Cero Instalación (CSS Estático)</h5>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">
+                          <strong>No necesitas instalar Tailwind ni configurar Node/PostCSS.</strong> El archivo <code>veltra.css</code> ya viene 100% pre-compilado con todas las utilidades y componentes.
+                        </p>
+                      </div>
+
+                      <!-- Sub-tabs: React & Laravel -->
+                      <div class="space-y-4 pt-2 border-t border-slate-100 dark:border-slate-800">
+                        <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+                          <h6 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-xs">
+                            <span class="w-2 h-2 rounded-full bg-cyan-500"></span> Paso a paso en React (Vite / Next.js / CRA)
+                          </h6>
+                          <ol class="list-decimal list-inside space-y-2 text-[11px] text-slate-600 dark:text-slate-300">
+                            <li>
+                              <strong>Copiar el bundle compilado:</strong>
+                              Copia <code class="text-cyan-600 dark:text-cyan-400">packages/core-styles/dist/veltra.css</code> a la carpeta de tu app: <code class="text-slate-800 dark:text-slate-200">src/assets/veltra.css</code>.
+                            </li>
+                            <li>
+                              <strong>Importar en tu archivo raíz:</strong>
+                              En <code class="text-slate-800 dark:text-slate-200">src/main.jsx</code> o <code class="text-slate-800 dark:text-slate-200">src/App.tsx</code>:
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-cyan-300"><code>import './assets/veltra.css';</code></pre>
+                            </li>
+                            <li>
+                              <strong>Usar los componentes:</strong>
+                              Copia cualquier elemento HTML de VeltraUI (como <code>&lt;div className="vlt-card"&gt;</code>) y ya tendrá todos sus estilos, bordes, colores y modo oscuro funcionando.
+                            </li>
+                          </ol>
+                        </div>
+
+                        <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+                          <h6 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-xs">
+                            <span class="w-2 h-2 rounded-full bg-rose-500"></span> Paso a paso en Laravel (Blade)
+                          </h6>
+                          <ol class="list-decimal list-inside space-y-2 text-[11px] text-slate-600 dark:text-slate-300">
+                            <li>
+                              <strong>Copiar a la carpeta pública:</strong>
+                              Pega <code class="text-cyan-600 dark:text-cyan-400">veltra.css</code> en <code class="text-slate-800 dark:text-slate-200">public/css/veltra.css</code> y opcionalmente el script <code class="text-emerald-500">veltra.umd.js</code> en <code class="text-slate-800 dark:text-slate-200">public/js/veltra.js</code>.
+                            </li>
+                            <li>
+                              <strong>Cargar en tu Layout Blade:</strong>
+                              En <code class="text-slate-800 dark:text-slate-200">resources/views/layouts/app.blade.php</code> agrega en el <code>&lt;head&gt;</code>:
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-rose-300"><code>&lt;link rel="stylesheet" href="{{ asset('css/veltra.css') }}"&gt;
+&lt;script defer src="{{ asset('js/veltra.js') }}"&gt;&lt;/script&gt;</code></pre>
+                            </li>
+                            <li>
+                              <strong>¡Listo sin compilador!</strong>
+                              Tus vistas Blade renderizarán todas las tarjetas, modales y tablas sin necesidad de ejecutar <code>npm run dev</code>.
+                            </li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Option 2: Active Compiler -->
+                    <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                      <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                          OPCIÓN 2: Tu proyecto SÍ TIENE Tailwind v4
+                        </span>
+                        <span class="text-[10px] font-mono font-bold text-slate-400">Compilador Activo</span>
+                      </div>
+                      
+                      <div>
+                        <h5 class="font-bold text-slate-900 dark:text-white text-sm">Modo Integrado en Pipeline de Build</h5>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">
+                          Ideal si quieres compilar clases arbitrarias nuevas (ej. <code>p-[13px]</code>, <code>bg-[#06b6d4]</code>) y tener VeltraUI integrado en tu propio proceso Vite.
+                        </p>
+                      </div>
+
+                      <!-- Sub-tabs: React & Laravel -->
+                      <div class="space-y-4 pt-2 border-t border-slate-100 dark:border-slate-800">
+                        <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+                          <h6 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-xs">
+                            <span class="w-2 h-2 rounded-full bg-cyan-500"></span> Paso a paso en React + Vite + Tailwind v4
+                          </h6>
+                          <ol class="list-decimal list-inside space-y-2 text-[11px] text-slate-600 dark:text-slate-300">
+                            <li>
+                              <strong>Instalar plugin oficial Vite:</strong>
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-purple-300"><code>npm install tailwindcss @tailwindcss/vite</code></pre>
+                            </li>
+                            <li>
+                              <strong>Configurar <code>vite.config.js</code>:</strong>
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-cyan-300"><code>import tailwindcss from '@tailwindcss/vite';
+export default defineConfig({
+  plugins: [tailwindcss(), react()]
+});</code></pre>
+                            </li>
+                            <li>
+                              <strong>Importar en tu CSS principal (<code>src/index.css</code>):</strong>
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-emerald-300"><code>@import "tailwindcss";
+@import "./assets/veltra.css"; /* o @import "@veltra-ui/core-styles"; */</code></pre>
+                            </li>
+                          </ol>
+                        </div>
+
+                        <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+                          <h6 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-xs">
+                            <span class="w-2 h-2 rounded-full bg-rose-500"></span> Paso a paso en Laravel 11/12 + Vite + Tailwind v4
+                          </h6>
+                          <ol class="list-decimal list-inside space-y-2 text-[11px] text-slate-600 dark:text-slate-300">
+                            <li>
+                              <strong>Instalar en tu proyecto Laravel:</strong>
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-purple-300"><code>npm install tailwindcss @tailwindcss/vite --save-dev</code></pre>
+                            </li>
+                            <li>
+                              <strong>Configurar <code>vite.config.js</code>:</strong>
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-cyan-300"><code>import tailwindcss from '@tailwindcss/vite';
+// En plugins:
+plugins: [
+  laravel({ input: ['resources/css/app.css', 'resources/js/app.js'], refresh: true }),
+  tailwindcss()
+]</code></pre>
+                            </li>
+                            <li>
+                              <strong>Importar en <code>resources/css/app.css</code>:</strong>
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-rose-300"><code>@import "tailwindcss";
+@import "./veltra.css"; /* Copiado en resources/css/veltra.css */</code></pre>
+                            </li>
+                            <li>
+                              <strong>Compilar y visualizar:</strong>
+                              Ejecuta <code>npm run dev</code>. Laravel Vite compilará en vivo todas tus clases personalizadas junto con la biblioteca VeltraUI.
+                            </li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- EN Details -->
+                <div class="lang-en space-y-6 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <p class="text-sm">
+                    In <strong>Tailwind CSS v4</strong> there is no longer a dedicated <code>tailwind.css</code> file nor a <code>tailwind.config.js</code> file. The framework operates natively via <code>@import "tailwindcss";</code>. When compiled with Vite, this monorepo produces a standalone, self-contained CSS bundle: <code class="font-mono text-cyan-600 dark:text-cyan-400 font-bold">packages/core-styles/dist/veltra.css</code>.
+                  </p>
+
+                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Option 1: Plug & Play -->
+                    <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                      <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                          OPTION 1: Your project DOES NOT HAVE Tailwind
+                        </span>
+                        <span class="text-[10px] font-mono font-bold text-slate-400">Plug & Play</span>
+                      </div>
+                      
+                      <div>
+                        <h5 class="font-bold text-slate-900 dark:text-white text-sm">Zero Installation Mode (Static CSS)</h5>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">
+                          <strong>You DO NOT need to install Tailwind or configure PostCSS/Node build tools.</strong> The <code>veltra.css</code> bundle is already 100% pre-compiled with all utilities and components.
+                        </p>
+                      </div>
+
+                      <!-- Sub-tabs: React & Laravel -->
+                      <div class="space-y-4 pt-2 border-t border-slate-100 dark:border-slate-800">
+                        <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+                          <h6 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-xs">
+                            <span class="w-2 h-2 rounded-full bg-cyan-500"></span> Step-by-Step for React (Vite / Next.js / CRA)
+                          </h6>
+                          <ol class="list-decimal list-inside space-y-2 text-[11px] text-slate-600 dark:text-slate-300">
+                            <li>
+                              <strong>Copy the compiled bundle:</strong>
+                              Copy <code class="text-cyan-600 dark:text-cyan-400">packages/core-styles/dist/veltra.css</code> to your app folder: <code class="text-slate-800 dark:text-slate-200">src/assets/veltra.css</code>.
+                            </li>
+                            <li>
+                              <strong>Import into your root entrypoint:</strong>
+                              Inside <code class="text-slate-800 dark:text-slate-200">src/main.jsx</code> or <code class="text-slate-800 dark:text-slate-200">src/App.tsx</code>:
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-cyan-300"><code>import './assets/veltra.css';</code></pre>
+                            </li>
+                            <li>
+                              <strong>Use any component directly:</strong>
+                              Paste any HTML markup (e.g. <code>&lt;div className="vlt-card"&gt;</code>) and all layout, colors, and dark mode will work right away.
+                            </li>
+                          </ol>
+                        </div>
+
+                        <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+                          <h6 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-xs">
+                            <span class="w-2 h-2 rounded-full bg-rose-500"></span> Step-by-Step for Laravel (Blade)
+                          </h6>
+                          <ol class="list-decimal list-inside space-y-2 text-[11px] text-slate-600 dark:text-slate-300">
+                            <li>
+                              <strong>Copy to your public directory:</strong>
+                              Place <code class="text-cyan-600 dark:text-cyan-400">veltra.css</code> into <code class="text-slate-800 dark:text-slate-200">public/css/veltra.css</code> and the optional JS helper in <code class="text-slate-800 dark:text-slate-200">public/js/veltra.js</code>.
+                            </li>
+                            <li>
+                              <strong>Include in your Blade layout:</strong>
+                              Inside <code class="text-slate-800 dark:text-slate-200">resources/views/layouts/app.blade.php</code> add inside <code>&lt;head&gt;</code>:
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-rose-300"><code>&lt;link rel="stylesheet" href="{{ asset('css/veltra.css') }}"&gt;
+&lt;script defer src="{{ asset('js/veltra.js') }}"&gt;&lt;/script&gt;</code></pre>
+                            </li>
+                            <li>
+                              <strong>Ready without compilation!</strong>
+                              Your Blade views render cards, modals, and tables without needing <code>npm run dev</code>.
+                            </li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Option 2: Active Compiler -->
+                    <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                      <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                          OPTION 2: Your project HAS Tailwind v4
+                        </span>
+                        <span class="text-[10px] font-mono font-bold text-slate-400">Active Compiler</span>
+                      </div>
+                      
+                      <div>
+                        <h5 class="font-bold text-slate-900 dark:text-white text-sm">Integrated Build Pipeline Mode</h5>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">
+                          Ideal if you wish to generate custom arbitrary utilities (e.g. <code>p-[13px]</code>, <code>bg-[#06b6d4]</code>) alongside the VeltraUI design system.
+                        </p>
+                      </div>
+
+                      <!-- Sub-tabs: React & Laravel -->
+                      <div class="space-y-4 pt-2 border-t border-slate-100 dark:border-slate-800">
+                        <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+                          <h6 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-xs">
+                            <span class="w-2 h-2 rounded-full bg-cyan-500"></span> Step-by-Step for React + Vite + Tailwind v4
+                          </h6>
+                          <ol class="list-decimal list-inside space-y-2 text-[11px] text-slate-600 dark:text-slate-300">
+                            <li>
+                              <strong>Install Vite Tailwind v4 plugin:</strong>
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-purple-300"><code>npm install tailwindcss @tailwindcss/vite</code></pre>
+                            </li>
+                            <li>
+                              <strong>Configure <code>vite.config.js</code>:</strong>
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-cyan-300"><code>import tailwindcss from '@tailwindcss/vite';
+export default defineConfig({
+  plugins: [tailwindcss(), react()]
+});</code></pre>
+                            </li>
+                            <li>
+                              <strong>Import inside your main stylesheet (<code>src/index.css</code>):</strong>
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-emerald-300"><code>@import "tailwindcss";
+@import "./assets/veltra.css"; /* or @import "@veltra-ui/core-styles"; */</code></pre>
+                            </li>
+                          </ol>
+                        </div>
+
+                        <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+                          <h6 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-xs">
+                            <span class="w-2 h-2 rounded-full bg-rose-500"></span> Step-by-Step for Laravel 11/12 + Vite + Tailwind v4
+                          </h6>
+                          <ol class="list-decimal list-inside space-y-2 text-[11px] text-slate-600 dark:text-slate-300">
+                            <li>
+                              <strong>Install inside your Laravel directory:</strong>
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-purple-300"><code>npm install tailwindcss @tailwindcss/vite --save-dev</code></pre>
+                            </li>
+                            <li>
+                              <strong>Configure <code>vite.config.js</code>:</strong>
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-cyan-300"><code>import tailwindcss from '@tailwindcss/vite';
+// Inside plugins:
+plugins: [
+  laravel({ input: ['resources/css/app.css', 'resources/js/app.js'], refresh: true }),
+  tailwindcss()
+]</code></pre>
+                            </li>
+                            <li>
+                              <strong>Import in <code>resources/css/app.css</code>:</strong>
+                              <pre class="mt-1 p-2 rounded-xl bg-slate-900 text-[10px] font-mono text-rose-300"><code>@import "tailwindcss";
+@import "./veltra.css"; /* Copied to resources/css/veltra.css */</code></pre>
+                            </li>
+                            <li>
+                              <strong>Compile and view:</strong>
+                              Run <code>npm run dev</code>. Laravel Vite dynamically bundles all your custom classes with VeltraUI components.
+                            </li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- SECTION 7: TOKENS -->
+            <section id="tokens" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-black">
+                  7
+                </div>
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 dark:text-white">
+                    <span class="lang-es">7. Tokens y Variables CSS Nativas</span>
+                    <span class="lang-en">7. Design Tokens & CSS Custom Properties</span>
+                  </h2>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <span class="lang-es">Paleta de colores, superficies, tipografía y radios de borde</span>
+                    <span class="lang-en">Color palette, surfaces, typography, and border radiuses</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <p class="text-sm text-slate-600 dark:text-slate-300">
+                  <span class="lang-es">Para personalizar los colores primarios de tu marca o cambiar los radios de los contenedores, modifica las variables dentro de tu archivo CSS principal:</span>
+                  <span class="lang-en">To customize brand colors or modify container borders, simply override the native CSS variables in your root stylesheet:</span>
+                </p>
+
+                <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md">
+                  <div class="flex items-center justify-between px-4 py-2.5 bg-slate-800/80 border-b border-slate-700 text-xs">
+                    <span class="font-mono text-slate-300 font-semibold">packages/core-styles/src/tokens/variables.css</span>
+                    <button type="button" class="px-2.5 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                      Copiar
+                    </button>
+                  </div>
+                  <pre class="p-4 text-xs font-mono overflow-x-auto text-purple-300 leading-relaxed"><code>:root {
+  /* Marca Primaria (Cyan Veltra) */
+  --vlt-color-primary: #06b6d4;        /* Cyan 500 */
+  --vlt-color-primary-dark: #0891b2;   /* Cyan 600 */
+  --vlt-color-primary-light: #22d3ee;  /* Cyan 400 */
+  
+  /* Superficies en Modo Claro */
+  --vlt-bg-surface: #ffffff;
+  --vlt-bg-canvas: #f8fafc;           /* Slate 50 */
+  --vlt-text-primary: #0f172a;        /* Slate 900 */
+  --vlt-text-secondary: #64748b;      /* Slate 500 */
+  
+  /* Bordes y Geometría */
+  --vlt-border-color: #e2e8f0;        /* Slate 200 */
+  --vlt-radius-card: 1.25rem;          /* 20px */
+  --vlt-radius-btn: 0.75rem;           /* 12px */
+}
+
+/* Modo Oscuro Dinámico en Tiempo de Ejecución */
+:root[data-theme="dark"],
+.dark {
+  --vlt-bg-surface: #0f172a;           /* Slate 900 */
+  --vlt-bg-canvas: #020617;            /* Slate 950 */
+  --vlt-text-primary: #f8fafc;        /* Slate 50 */
+  --vlt-text-secondary: #94a3b8;      /* Slate 400 */
+  --vlt-border-color: #1e293b;        /* Slate 800 */
+}</code></pre>
+                </div>
+              </div>
+            </section>
+
+            <!-- SECTION 8: DARK MODE -->
+            <section id="dark-mode" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-black">
+                  8
+                </div>
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 dark:text-white">
+                    <span class="lang-es">8. Modo Oscuro Anti-FOUC Persistente</span>
+                    <span class="lang-en">8. Anti-FOUC Persistent Dark Mode Architecture</span>
+                  </h2>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <span class="lang-es">Cómo evitar el parpadeo blanco y sincronizar con localStorage</span>
+                    <span class="lang-en">How to prevent white flashes and sync with localStorage</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>
+                  <span class="lang-es">
+                    El <strong>FOUC (Flash of Unstyled Content)</strong> ocurre cuando el script que activa el modo oscuro se ejecuta después de que el navegador ya comenzó a pintar los elementos en pantalla con fondo blanco. Para erradicarlo al 100%, VeltraUI utiliza una función autoejecutable sincrónica en el <code>&lt;head&gt;</code> que evalúa el tema antes de renderizar el primer nodo HTML:
+                  </span>
+                  <span class="lang-en">
+                    <strong>FOUC (Flash of Unstyled Content)</strong> occurs when the dark mode script executes after the browser has already begun painting the initial light-themed DOM. To eliminate it completely, VeltraUI uses a synchronous self-invoking script in the document <code>&lt;head&gt;</code> that runs before the first HTML node is painted:
+                  </span>
+                </p>
+
+                <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md">
+                  <div class="flex items-center justify-between px-4 py-2.5 bg-slate-800/80 border-b border-slate-700 text-xs">
+                    <span class="font-mono text-slate-300 font-semibold">HTML &lt;head&gt; — Script Anti-FOUC Canónico</span>
+                    <button type="button" class="px-2.5 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                      Copiar
+                    </button>
+                  </div>
+                  <pre class="p-4 text-xs font-mono overflow-x-auto text-amber-300 leading-relaxed"><code>&lt;script&gt;
+  (function() {
+    try {
+      const savedTheme = localStorage.getItem('veltra-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {}
+  })();
+&lt;/script&gt;</code></pre>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/60 text-xs text-indigo-900 dark:text-indigo-200 space-y-1">
+                  <strong>Compatibilidad dual:</strong> VeltraUI actualiza al mismo tiempo tanto el atributo <code>data-theme="dark"</code> (para variables CSS) como la clase <code>.dark</code> (para utilidades de Tailwind como <code>dark:bg-slate-900</code>). De este modo, cualquier librería o componente de terceros funciona a la perfección.
+                </div>
+              </div>
+            </section>
+
+            <!-- SECTION 9: LAYOUTS & SHELL -->
+            <section id="layouts-shell" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center font-black">
+                  9
+                </div>
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 dark:text-white">
+                    <span class="lang-es">9. Layouts y Estructura Shell</span>
+                    <span class="lang-en">9. Layouts & Shell Architecture</span>
+                  </h2>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <span class="lang-es">Anatomía del envoltorio principal y variantes de diseño</span>
+                    <span class="lang-en">Wrapper anatomy and layout variations</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>
+                  El sistema de layout está compuesto por cuatro elementos clave que responden de forma fluida en todos los dispositivos:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                    <code class="font-bold text-xs text-cyan-600 dark:text-cyan-400">.vlt-wrapper</code>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Contenedor raíz que envuelve el sidebar y la sección principal.</p>
+                  </div>
+                  <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                    <code class="font-bold text-xs text-cyan-600 dark:text-cyan-400">.vlt-sidebar</code>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Barra lateral con logo, usuario, menú anidado y footer de estado.</p>
+                  </div>
+                  <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                    <code class="font-bold text-xs text-cyan-600 dark:text-cyan-400">.vlt-header</code>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Barra superior fija con botones rápidos, notificaciones y tema.</p>
+                  </div>
+                  <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                    <code class="font-bold text-xs text-cyan-600 dark:text-cyan-400">.vlt-main & .vlt-content</code>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Área de contenido con padding responsivo y scroll fluido.</p>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs space-y-2">
+                  <strong class="text-slate-800 dark:text-white block">Variantes de diseño disponibles listas para usar:</strong>
+                  <div class="flex flex-wrap gap-2">
+                    <a href="/layout-top-nav.html" class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-cyan-600 font-semibold hover:underline">Top Navigation (Sin sidebar)</a>
+                    <a href="/layout-boxed.html" class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-cyan-600 font-semibold hover:underline">Boxed Layout (Ancho fijo)</a>
+                    <a href="/layout-collapsed-sidebar.html" class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-cyan-600 font-semibold hover:underline">Sidebar Colapsado</a>
+                    <a href="/layout-fixed-sidebar.html" class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-cyan-600 font-semibold hover:underline">Sidebar Fijo</a>
+                    <a href="/layout-fixed-navbar.html" class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-cyan-600 font-semibold hover:underline">Navbar Fijo</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- SECTION 10: JS CONTROLLERS -->
+            <section id="js-controllers" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black">
+                  10
+                </div>
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 dark:text-white">
+                    <span class="lang-es">10. Controladores JavaScript Vanilla (TypeScript)</span>
+                    <span class="lang-en">10. Vanilla JavaScript & TypeScript Controllers</span>
+                  </h2>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <span class="lang-es">Interactividad sin dependencias de frameworks mediante <code>data-vlt-*</code></span>
+                    <span class="lang-en">Dependency-free declarative interactivity via <code>data-vlt-*</code></span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left text-xs border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden">
+                    <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 uppercase font-bold text-[10px] tracking-wider">
+                      <tr>
+                        <th class="p-3 border-b border-slate-200 dark:border-slate-700">Atributo HTML</th>
+                        <th class="p-3 border-b border-slate-200 dark:border-slate-700">Controlador</th>
+                        <th class="p-3 border-b border-slate-200 dark:border-slate-700">Acción Realizada</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-600 dark:text-slate-300">
+                      <tr>
+                        <td class="p-3 font-mono text-cyan-600 dark:text-cyan-400 font-bold">data-vlt-toggle="sidebar"</td>
+                        <td class="p-3 font-semibold">SidebarController</td>
+                        <td class="p-3">Alterna el estado colapsado en escritorio y abre el Drawer off-canvas con backdrop en móvil.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-mono text-cyan-600 dark:text-cyan-400 font-bold">data-vlt-toggle="treeview"</td>
+                        <td class="p-3 font-semibold">TreeviewController</td>
+                        <td class="p-3">Despliega y contrae acordeones de navegación multinivel con rotación automática del chevron.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-mono text-cyan-600 dark:text-cyan-400 font-bold">data-vlt-toggle="modal"<br>data-vlt-target="#id"</td>
+                        <td class="p-3 font-semibold">ModalController</td>
+                        <td class="p-3">Abre modales con animación suave, backdrop traslúcido, bloqueo de scroll en el body y cierre por tecla ESC.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-mono text-cyan-600 dark:text-cyan-400 font-bold">data-vlt-dismiss="modal"</td>
+                        <td class="p-3 font-semibold">ModalController</td>
+                        <td class="p-3">Cierra el modal activo y restaura el scroll.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-mono text-cyan-600 dark:text-cyan-400 font-bold">data-vlt-toggle="tab"<br>data-vlt-target="#tabId"</td>
+                        <td class="p-3 font-semibold">TabsController</td>
+                        <td class="p-3">Alterna paneles de pestañas activando el panel destino y actualizando el estilo de la pestaña.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-mono text-cyan-600 dark:text-cyan-400 font-bold">data-vlt-card="collapse|maximize|remove"</td>
+                        <td class="p-3 font-semibold">CardController</td>
+                        <td class="p-3">Permite minimizar el cuerpo de una card, expandirla a pantalla completa o eliminarla con fade out.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-mono text-cyan-600 dark:text-cyan-400 font-bold">data-vlt-toggle="dropdown"</td>
+                        <td class="p-3 font-semibold">DropdownController</td>
+                        <td class="p-3">Muestra menús desplegables con cierre inteligente al hacer clic en cualquier lugar externo.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-mono text-cyan-600 dark:text-cyan-400 font-bold">data-vlt-toggle="theme"</td>
+                        <td class="p-3 font-semibold">initThemeToggle</td>
+                        <td class="p-3">Alterna entre tema claro y oscuro, sincroniza localStorage y conmuta dinámicamente los iconos sun/moon.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-3 font-mono text-cyan-600 dark:text-cyan-400 font-bold">data-vlt-toggle="fullscreen"</td>
+                        <td class="p-3 font-semibold">FullscreenController</td>
+                        <td class="p-3">Solicita o sale del modo de pantalla completa a través de la API estándar del navegador.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Code block: Programmatic usage -->
+                <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md">
+                  <div class="flex items-center justify-between px-4 py-2.5 bg-slate-800/80 border-b border-slate-700 text-xs">
+                    <span class="font-mono text-slate-300 font-semibold">JavaScript / TypeScript — Uso Programático</span>
+                    <button type="button" class="px-2.5 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                      Copiar
+                    </button>
+                  </div>
+                  <pre class="p-4 text-xs font-mono overflow-x-auto text-emerald-300 leading-relaxed"><code>import { VeltraUI, ModalController } from '@veltra-ui/vanilla-js';
+
+// Inicializa todos los controladores automáticamente en el DOM
+VeltraUI.init();
+
+// O utiliza controladores de forma programática:
+const modalCtrl = new ModalController();
+modalCtrl.show('#mi-modal-personalizado');
+modalCtrl.hide('#mi-modal-personalizado');</code></pre>
+                </div>
+              </div>
+            </section>
+
+            <!-- SECTION 11: LARAVEL BLADE -->
+            <section id="laravel" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center font-black">
+                  11
+                </div>
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 dark:text-white">
+                    <span class="lang-es">11. Integración con Laravel 11 / 12 & Blade</span>
+                    <span class="lang-en">11. Integration with Laravel 11 / 12 & Blade</span>
+                  </h2>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <span class="lang-es">Paso a paso para crear componentes Blade encapsulados y limpios</span>
+                    <span class="lang-en">Step-by-step tutorial to create clean, reusable Blade components</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>
+                  <span class="lang-es">
+                    Integrar VeltraUI en un proyecto de Laravel moderno es sumamente directo porque no requiere dependencias de Sass ni configuraciones complejas de Webpack. Sigue estos pasos:
+                  </span>
+                  <span class="lang-en">
+                    Integrating VeltraUI into a modern Laravel application is straightforward because it has no Sass dependencies or complex Webpack configurations. Follow these steps:
+                  </span>
+                </p>
+
+                <!-- Step 1 -->
+                <div class="space-y-2">
+                  <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-slate-200">
+                    <span class="lang-es">Paso 1: Configurar Vite en tu proyecto Laravel</span>
+                    <span class="lang-en">Step 1: Configure Vite in your Laravel project</span>
+                  </h4>
+                  <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700 text-xs">
+                      <span class="font-mono text-slate-300">vite.config.js</span>
+                      <button type="button" class="px-2.5 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                        Copiar
+                      </button>
+                    </div>
+                    <pre class="p-4 text-xs font-mono overflow-x-auto text-cyan-300 leading-relaxed"><code>import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import tailwindcss from '@tailwindcss/vite';
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: true,
+        }),
+        tailwindcss(),
+    ],
+});</code></pre>
+                  </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="space-y-2">
+                  <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-slate-200">
+                    <span class="lang-es">Paso 2: Importar estilos y controladores en app.css y app.js</span>
+                    <span class="lang-en">Step 2: Import styles and controllers in app.css and app.js</span>
+                  </h4>
+                  <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700 text-xs">
+                      <span class="font-mono text-slate-300">resources/css/app.css</span>
+                      <button type="button" class="px-2.5 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                        Copiar
+                      </button>
+                    </div>
+                    <pre class="p-4 text-xs font-mono overflow-x-auto text-emerald-300 leading-relaxed"><code>@import "tailwindcss";
+@import "@veltra-ui/core-styles";</code></pre>
+                  </div>
+                </div>
+
+                <!-- Step 3: Blade Components -->
+                <div class="space-y-2">
+                  <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-slate-200">
+                    <span class="lang-es">Paso 3: Crear Componentes Blade Reutilizables</span>
+                    <span class="lang-en">Step 3: Create Reusable Blade Components</span>
+                  </h4>
+                  
+                  <!-- Component Button -->
+                  <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md mb-3">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700 text-xs">
+                      <span class="font-mono text-slate-300">resources/views/components/ui/button.blade.php</span>
+                      <button type="button" class="px-2.5 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                        Copiar
+                      </button>
+                    </div>
+                    <pre class="p-4 text-xs font-mono overflow-x-auto text-rose-300 leading-relaxed"><code>@props([
+    'variant' => 'primary',
+    'size' => 'md',
+    'icon' => null,
+])
+
+@php
+    $variantClass = match($variant) {
+        'primary'   => 'vlt-btn-primary',
+        'secondary' => 'vlt-btn-secondary',
+        'success'   => 'vlt-btn-success',
+        'danger'    => 'vlt-btn-danger',
+        'warning'   => 'vlt-btn-warning',
+        'outline'   => 'vlt-btn-outline',
+        default     => 'vlt-btn-primary',
+    };
+
+    $sizeClass = match($size) {
+        'sm'    => 'vlt-btn-sm',
+        'lg'    => 'vlt-btn-lg',
+        default => 'vlt-btn-md',
+    };
+@endphp
+
+&lt;button {{ $attributes->merge(['class' => "vlt-btn {$variantClass} {$sizeClass}"]) }}&gt;
+    @if($icon)
+        &lt;i data-lucide="{{ $icon }}" class="w-4 h-4"&gt;&lt;/i&gt;
+    @endif
+    &lt;span&gt;{{ $slot }}&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+                  </div>
+
+                  <!-- Component Stat Box -->
+                  <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700 text-xs">
+                      <span class="font-mono text-slate-300">resources/views/components/ui/stat-box.blade.php</span>
+                      <button type="button" class="px-2.5 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                        Copiar
+                      </button>
+                    </div>
+                    <pre class="p-4 text-xs font-mono overflow-x-auto text-amber-300 leading-relaxed"><code>@props([
+    'color' => 'cyan',
+    'title' => '',
+    'value' => '0',
+    'meta'  => '',
+    'icon'  => 'activity',
+    'link'  => '#'
+])
+
+&lt;div class="vlt-stat-box vlt-stat-box-{{ $color }}"&gt;
+    &lt;div class="vlt-stat-box-inner"&gt;
+        &lt;div class="stat-top"&gt;
+            &lt;div class="stat-icon-wrapper"&gt;
+                &lt;i data-lucide="{{ $icon }}"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="stat-value"&gt;{{ $value }}&lt;/div&gt;
+        &lt;div class="stat-title"&gt;{{ $title }}&lt;/div&gt;
+        @if($meta)
+            &lt;div class="stat-meta"&gt;
+                &lt;span&gt;{{ $meta }}&lt;/span&gt;
+            &lt;/div&gt;
+        @endif
+    &lt;/div&gt;
+    &lt;a href="{{ $link }}" class="vlt-stat-box-footer"&gt;
+        &lt;span&gt;Ver detalles&lt;/span&gt;
+        &lt;i data-lucide="arrow-right" class="w-3.5 h-3.5 footer-arrow"&gt;&lt;/i&gt;
+    &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+
+                <!-- Step 4: Blade View Usage -->
+                <div class="space-y-2">
+                  <h4 class="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-slate-200">
+                    <span class="lang-es">Paso 4: Uso Limpio en tus Vistas Blade</span>
+                    <span class="lang-en">Step 4: Clean Usage in your Blade Views</span>
+                  </h4>
+                  <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 shadow-md">
+                    <pre class="p-4 text-xs font-mono overflow-x-auto text-cyan-200 leading-relaxed"><code>{{-- Ejemplo en cualquier vista de tu app Laravel --}}
+&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-6"&gt;
+    &lt;x-ui.stat-box color="cyan" value="1,450" title="Nuevas Órdenes" icon="shopping-bag" meta="+12.4% este mes" /&gt;
+    &lt;x-ui.stat-box color="emerald" value="$45,200" title="Ingresos Totales" icon="dollar-sign" meta="Objetivo superado" /&gt;
+    &lt;x-ui.stat-box color="amber" value="340" title="Clientes Activos" icon="users" meta="En línea ahora" /&gt;
+&lt;/div&gt;
+
+&lt;x-ui.button variant="primary" icon="plus"&gt;
+    Crear Factura
+&lt;/x-ui.button&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- LIVE COMPONENT DEMOS -->
+            <div class="pt-6 border-t border-slate-200 dark:border-slate-800">
+              <h2 class="text-2xl font-black text-slate-900 dark:text-white mb-2 flex items-center gap-3">
+                <i data-lucide="layers" class="w-7 h-7 text-cyan-500"></i>
+                <span class="lang-es">Catálogo de Componentes VeltraUI en Vivo</span>
+                <span class="lang-en">VeltraUI Live Interactive Component Catalog</span>
+              </h2>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-8">
+                <span class="lang-es">Haz clic en los elementos para probar interactividad en tiempo real y copia el código HTML directo</span>
+                <span class="lang-en">Click elements to test real-time interactivity and copy exact HTML snippets</span>
+              </p>
+            </div>
+
+            <!-- COMPONENT 1: BUTTONS -->
+            <section id="comp-buttons" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i data-lucide="mouse-pointer" class="w-5 h-5 text-cyan-500"></i>
+                    <span>Botones y Variantes de Color</span>
+                  </h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Clases: <code>.vlt-btn</code>, <code>.vlt-btn-primary</code>, <code>.vlt-btn-success</code>, <code>.vlt-btn-outline</code></p>
+                </div>
+              </div>
+
+              <!-- Live Preview -->
+              <div class="p-6 rounded-2xl preview-box border border-slate-200 dark:border-slate-800 flex flex-wrap items-center gap-3">
+                <button type="button" class="vlt-btn vlt-btn-primary">
+                  <i data-lucide="check" class="w-4 h-4"></i> Primary
+                </button>
+                <button type="button" class="vlt-btn vlt-btn-secondary">
+                  <i data-lucide="sliders" class="w-4 h-4"></i> Secondary
+                </button>
+                <button type="button" class="vlt-btn vlt-btn-success">
+                  <i data-lucide="check-circle" class="w-4 h-4"></i> Success
+                </button>
+                <button type="button" class="vlt-btn vlt-btn-warning">
+                  <i data-lucide="alert-triangle" class="w-4 h-4"></i> Warning
+                </button>
+                <button type="button" class="vlt-btn vlt-btn-danger">
+                  <i data-lucide="trash-2" class="w-4 h-4"></i> Danger
+                </button>
+                <button type="button" class="vlt-btn vlt-btn-outline">
+                  <i data-lucide="download" class="w-4 h-4"></i> Outline
+                </button>
+                <button type="button" class="vlt-btn-icon" title="Icon Only">
+                  <i data-lucide="settings" class="w-4 h-4"></i>
+                </button>
+              </div>
+
+              <!-- HTML Code -->
+              <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100">
+                <div class="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700 text-xs">
+                  <span class="font-mono text-slate-400">HTML</span>
+                  <button type="button" class="px-2.5 py-1 rounded bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <pre class="p-4 text-xs font-mono overflow-x-auto text-cyan-300"><code>&lt;button type="button" class="vlt-btn vlt-btn-primary"&gt;
+  &lt;i data-lucide="check" class="w-4 h-4"&gt;&lt;/i&gt; Guardar Cambios
+&lt;/button&gt;
+
+&lt;button type="button" class="vlt-btn vlt-btn-outline"&gt;
+  &lt;i data-lucide="download" class="w-4 h-4"&gt;&lt;/i&gt; Exportar
+&lt;/button&gt;</code></pre>
+              </div>
+            </section>
+
+            <!-- COMPONENT 2: STAT BOXES -->
+            <section id="comp-statboxes" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <i data-lucide="trending-up" class="w-5 h-5 text-emerald-500"></i>
+                  <span>Stat Boxes & Tarjetas de Indicadores</span>
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Clases: <code>.vlt-stat-box</code> con modificadores <code>.vlt-stat-box-cyan</code>, <code>.vlt-stat-box-emerald</code>, <code>.vlt-stat-box-amber</code>, <code>.vlt-stat-box-rose</code></p>
+              </div>
+
+              <!-- Live Preview -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 preview-box p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+                <!-- Cyan Box -->
+                <div class="vlt-stat-box vlt-stat-box-cyan">
+                  <div class="vlt-stat-box-inner">
+                    <div class="stat-top">
+                      <div class="stat-icon-wrapper">
+                        <i data-lucide="shopping-bag"></i>
+                      </div>
+                      <span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-[10px]">+18.2%</span>
+                    </div>
+                    <div class="stat-value">1,500</div>
+                    <div class="stat-title">Nuevos Pedidos</div>
+                    <div class="stat-meta text-cyan-600 dark:text-cyan-400">
+                      <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                      <span>Sincronizado hoy</span>
+                    </div>
+                  </div>
+                  <a href="#" class="vlt-stat-box-footer">
+                    <span>Ver informe</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 footer-arrow"></i>
+                  </a>
+                </div>
+
+                <!-- Emerald Box -->
+                <div class="vlt-stat-box vlt-stat-box-emerald">
+                  <div class="vlt-stat-box-inner">
+                    <div class="stat-top">
+                      <div class="stat-icon-wrapper">
+                        <i data-lucide="bar-chart-2"></i>
+                      </div>
+                      <span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-[10px]">-4.1%</span>
+                    </div>
+                    <div class="stat-value">53<sup class="text-lg font-normal">%</sup></div>
+                    <div class="stat-title">Tasa de Rebote</div>
+                    <div class="stat-meta text-emerald-600 dark:text-emerald-400">
+                      <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                      <span>Nivel óptimo</span>
+                    </div>
+                  </div>
+                  <a href="#" class="vlt-stat-box-footer">
+                    <span>Ver métricas</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 footer-arrow"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- HTML Code -->
+              <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100">
+                <div class="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700 text-xs">
+                  <span class="font-mono text-slate-400">HTML</span>
+                  <button type="button" class="px-2.5 py-1 rounded bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <pre class="p-4 text-xs font-mono overflow-x-auto text-emerald-300"><code>&lt;div class="vlt-stat-box vlt-stat-box-cyan"&gt;
+  &lt;div class="vlt-stat-box-inner"&gt;
+    &lt;div class="stat-top"&gt;
+      &lt;div class="stat-icon-wrapper"&gt;&lt;i data-lucide="shopping-bag"&gt;&lt;/i&gt;&lt;/div&gt;
+      &lt;span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-[10px]"&gt;+18.2%&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="stat-value"&gt;1,500&lt;/div&gt;
+    &lt;div class="stat-title"&gt;Nuevos Pedidos&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;a href="#" class="vlt-stat-box-footer"&gt;
+    &lt;span&gt;Ver informe&lt;/span&gt;
+    &lt;i data-lucide="arrow-right" class="w-3.5 h-3.5 footer-arrow"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </section>
+
+            <!-- COMPONENT 3: CARDS & TOOLS -->
+            <section id="comp-cards" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <i data-lucide="credit-card" class="w-5 h-5 text-blue-500"></i>
+                  <span>Cards con Herramientas Interactivas</span>
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Prueba los botones de la cabecera: minimizar (<code>data-vlt-card="collapse"</code>), maximizar (<code>data-vlt-card="maximize"</code>) y cerrar (<code>data-vlt-card="remove"</code>).</p>
+              </div>
+
+              <!-- Live Card Preview -->
+              <div class="preview-box p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+                <div class="vlt-card max-w-lg mx-auto bg-white dark:bg-slate-900">
+                  <div class="vlt-card-header">
+                    <div class="vlt-card-title">
+                      <i data-lucide="bar-chart" class="w-4 h-4 text-cyan-500"></i>
+                      <span>Resumen de Ventas Mensuales</span>
+                    </div>
+                    <div class="vlt-card-tools">
+                      <button type="button" class="vlt-btn-icon" data-vlt-card="collapse" title="Minimizar">
+                        <i data-lucide="minus" class="w-3.5 h-3.5"></i>
+                      </button>
+                      <button type="button" class="vlt-btn-icon" data-vlt-card="maximize" title="Maximizar Pantalla">
+                        <i data-lucide="maximize" class="w-3.5 h-3.5"></i>
+                      </button>
+                      <button type="button" class="vlt-btn-icon" data-vlt-card="remove" title="Cerrar">
+                        <i data-lucide="x" class="w-3.5 h-3.5"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="vlt-card-body text-xs text-slate-600 dark:text-slate-300 space-y-2">
+                    <p>Este card es completamente interactivo gracias al controlador nativo <code>CardController</code> de VeltraUI.</p>
+                    <div class="p-3 bg-cyan-50 dark:bg-cyan-950/40 rounded-xl border border-cyan-200 dark:border-cyan-800/60 text-cyan-800 dark:text-cyan-300 font-medium">
+                      ✓ Haz clic en el botón de minimizar (-) para contraer este cuerpo sin escribir código JS adicional.
+                    </div>
+                  </div>
+                  <div class="vlt-card-footer flex justify-between items-center text-xs">
+                    <span>Actualizado hace 2 horas</span>
+                    <a href="#" class="text-cyan-600 font-bold hover:underline">Ver analíticas →</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- HTML Code -->
+              <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100">
+                <div class="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700 text-xs">
+                  <span class="font-mono text-slate-400">HTML</span>
+                  <button type="button" class="px-2.5 py-1 rounded bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold text-slate-200 cursor-pointer transition-colors copy-btn" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <pre class="p-4 text-xs font-mono overflow-x-auto text-blue-300"><code>&lt;div class="vlt-card"&gt;
+  &lt;div class="vlt-card-header"&gt;
+    &lt;div class="vlt-card-title"&gt;
+      &lt;i data-lucide="bar-chart" class="w-4 h-4 text-cyan-500"&gt;&lt;/i&gt;
+      &lt;span&gt;Título del Card&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="vlt-card-tools"&gt;
+      &lt;button type="button" class="vlt-btn-icon" data-vlt-card="collapse"&gt;&lt;i data-lucide="minus" class="w-3.5 h-3.5"&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;button type="button" class="vlt-btn-icon" data-vlt-card="maximize"&gt;&lt;i data-lucide="maximize" class="w-3.5 h-3.5"&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;button type="button" class="vlt-btn-icon" data-vlt-card="remove"&gt;&lt;i data-lucide="x" class="w-3.5 h-3.5"&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="vlt-card-body"&gt;Contenido...&lt;/div&gt;
+  &lt;div class="vlt-card-footer"&gt;Pie de página...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </section>
+
+            <!-- COMPONENT 4: ALERTS & BADGES -->
+            <section id="comp-alerts" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <i data-lucide="bell" class="w-5 h-5 text-amber-500"></i>
+                  <span>Alertas del Sistema y Status Pills</span>
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Variantes semánticas: Success, Warning, Danger, Info</p>
+              </div>
+
+              <!-- Live Preview -->
+              <div class="space-y-3 preview-box p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+                <div class="vlt-alert vlt-alert-success">
+                  <i data-lucide="check-circle" class="alert-icon"></i>
+                  <div class="alert-content">
+                    <h4 class="alert-title">¡Operación completada exitosamente!</h4>
+                    <p class="alert-text">Tu solicitud de exportación a formato Excel se generó correctamente.</p>
+                  </div>
+                </div>
+
+                <div class="vlt-alert vlt-alert-warning">
+                  <i data-lucide="alert-triangle" class="alert-icon"></i>
+                  <div class="alert-content">
+                    <h4 class="alert-title">Atención requerida</h4>
+                    <p class="alert-text">Tu certificado SSL expira en los próximos 7 días.</p>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2 pt-2">
+                  <span class="vlt-pill vlt-pill-emerald py-1 px-3">
+                    <span class="pill-dot"></span><span>Activo</span>
+                  </span>
+                  <span class="vlt-pill vlt-pill-amber py-1 px-3">
+                    <span class="pill-dot"></span><span>Pendiente</span>
+                  </span>
+                  <span class="vlt-pill vlt-pill-rose py-1 px-3">
+                    <span class="pill-dot"></span><span>Cancelado</span>
+                  </span>
+                  <span class="vlt-pill vlt-pill-cyan py-1 px-3">
+                    <span class="pill-dot"></span><span>Producción</span>
+                  </span>
+                  <span class="vlt-badge vlt-badge-primary">Badge Cyan</span>
+                  <span class="vlt-badge vlt-badge-danger">+99 alertas</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- COMPONENT 5: FORMS & TOGGLES -->
+            <section id="comp-forms" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <i data-lucide="check-square" class="w-5 h-5 text-purple-500"></i>
+                  <span>Controles de Formulario y Toggles Modernos</span>
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Inputs con iconos, interruptores switch y selectores estilizados</p>
+              </div>
+
+              <!-- Live Form Preview -->
+              <div class="preview-box p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto" onsubmit="event.preventDefault();">
+                  <!-- Input with Icon -->
+                  <div class="space-y-1.5">
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300">Correo Electrónico</label>
+                    <div class="relative">
+                      <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3 pointer-events-none"></i>
+                      <input type="email" placeholder="usuario@veltra.io" class="w-full pl-10 pr-4 py-2 text-xs rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 shadow-xs" />
+                    </div>
+                  </div>
+
+                  <!-- Select Dropdown -->
+                  <div class="space-y-1.5">
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300">Rol de Usuario</label>
+                    <select class="w-full px-3.5 py-2 text-xs rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500 text-slate-800 dark:text-slate-100 shadow-xs cursor-pointer">
+                      <option>Administrador General</option>
+                      <option>Editor de Contenido</option>
+                      <option>Auditor de Seguridad</option>
+                    </select>
+                  </div>
+
+                  <!-- Toggle Switches -->
+                  <div class="md:col-span-2 pt-2 flex flex-wrap items-center gap-6">
+                    <label class="flex items-center gap-3 cursor-pointer select-none">
+                      <input type="checkbox" checked class="w-4 h-4 rounded text-cyan-600 focus:ring-cyan-500 border-slate-300" />
+                      <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Notificaciones por Email</span>
+                    </label>
+
+                    <label class="flex items-center gap-3 cursor-pointer select-none">
+                      <input type="checkbox" checked class="w-4 h-4 rounded text-cyan-600 focus:ring-cyan-500 border-slate-300" />
+                      <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Autenticación de 2 Factores (2FA)</span>
+                    </label>
+                  </div>
+                </form>
+              </div>
+            </section>
+
+            <!-- COMPONENT 6: MODALS -->
+            <section id="comp-modals" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <i data-lucide="picture-in-picture" class="w-5 h-5 text-teal-500"></i>
+                  <span>Modales y Diálogos Interactivos</span>
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Atributo de apertura: <code>data-vlt-toggle="modal" data-vlt-target="#modal-demo"</code></p>
+              </div>
+
+              <!-- Live Modal Trigger -->
+              <div class="preview-box p-6 rounded-2xl border border-slate-200 dark:border-slate-800 text-center">
+                <button type="button" class="vlt-btn vlt-btn-primary" data-vlt-toggle="modal" data-vlt-target="#modal-demo">
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                  <span>Abrir Modal de Demostración</span>
+                </button>
+                <p class="text-[11px] text-slate-400 mt-2">Prueba abrirlo, cerrarlo con el botón X, con el botón Cancelar o con la tecla ESC.</p>
+              </div>
+
+              <!-- Actual Demo Modal HTML in DOM -->
+              <div id="modal-demo" class="vlt-modal hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-4">
+                <div class="vlt-modal-dialog w-full max-w-md bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+                  <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <h3 class="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+                      <i data-lucide="sparkles" class="w-4 h-4 text-cyan-500"></i>
+                      <span>Modal de Ejemplo VeltraUI</span>
+                    </h3>
+                    <button type="button" class="vlt-btn-icon" data-vlt-dismiss="modal">
+                      <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                  </div>
+                  <div class="p-6 text-xs text-slate-600 dark:text-slate-300 space-y-3">
+                    <p>Este modal se activa declarativamente sin ninguna línea de JavaScript extra.</p>
+                    <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+                      <strong>Características integradas:</strong>
+                      <ul class="list-disc list-inside mt-1 text-[11px] text-slate-500 dark:text-slate-400 space-y-0.5">
+                        <li>Bloqueo automático de scroll en el body.</li>
+                        <li>Cierre al hacer clic fuera del diálogo (en el backdrop).</li>
+                        <li>Cierre con tecla ESC.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="px-6 py-3.5 bg-slate-50 dark:bg-slate-800/40 border-t border-slate-100 dark:border-slate-800 flex justify-end gap-2">
+                    <button type="button" class="vlt-btn vlt-btn-secondary vlt-btn-sm" data-vlt-dismiss="modal">
+                      Cancelar
+                    </button>
+                    <button type="button" class="vlt-btn vlt-btn-primary vlt-btn-sm" data-vlt-dismiss="modal">
+                      Aceptar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- COMPONENT 7: TABS -->
+            <section id="comp-tabs" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <i data-lucide="folder-minus" class="w-5 h-5 text-indigo-500"></i>
+                  <span>Pestañas Interactivas (Tabs)</span>
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Controlador nativo <code>TabsController</code> con <code>data-vlt-toggle="tab"</code></p>
+              </div>
+
+              <!-- Live Tabs Preview -->
+              <div class="preview-box p-6 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-4">
+                <nav class="vlt-tabs flex items-center gap-2 border-b border-slate-200 dark:border-slate-800">
+                  <a href="#tab-pane-1" class="vlt-tab-link active font-bold text-xs py-2 px-3 border-b-2 border-cyan-500 text-cyan-600 dark:text-cyan-400 cursor-pointer" data-vlt-toggle="tab">
+                    Visión General
+                  </a>
+                  <a href="#tab-pane-2" class="vlt-tab-link font-medium text-xs py-2 px-3 text-slate-500 hover:text-slate-800 dark:hover:text-white cursor-pointer" data-vlt-toggle="tab">
+                    Configuración de API
+                  </a>
+                  <a href="#tab-pane-3" class="vlt-tab-link font-medium text-xs py-2 px-3 text-slate-500 hover:text-slate-800 dark:hover:text-white cursor-pointer" data-vlt-toggle="tab">
+                    Auditoría
+                  </a>
+                </nav>
+
+                <div class="vlt-tab-content">
+                  <div id="tab-pane-1" class="vlt-tab-pane active text-xs text-slate-600 dark:text-slate-300 space-y-2">
+                    <p class="font-bold text-slate-900 dark:text-white">Panel 1: Resumen Operativo</p>
+                    <p>Contenido principal del panel. Puedes estructurar gráficos, listas o formularios aquí dentro.</p>
+                  </div>
+                  <div id="tab-pane-2" class="vlt-tab-pane hidden text-xs text-slate-600 dark:text-slate-300 space-y-2">
+                    <p class="font-bold text-slate-900 dark:text-white">Panel 2: Credenciales de Integración</p>
+                    <p>Configuración de llaves de API, webhooks y puntos de enlace de producción.</p>
+                  </div>
+                  <div id="tab-pane-3" class="vlt-tab-pane hidden text-xs text-slate-600 dark:text-slate-300 space-y-2">
+                    <p class="font-bold text-slate-900 dark:text-white">Panel 3: Registro de Actividad</p>
+                    <p>Historial de transacciones y accesos con marcas de tiempo y direcciones IP.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- COMPONENT 8: TABLES -->
+            <section id="comp-tables" class="doc-section p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <i data-lucide="table" class="w-5 h-5 text-orange-500"></i>
+                  <span>Tablas de Datos con Badges y Acciones</span>
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Estructura responsiva con scroll horizontal y fila hoverable</p>
+              </div>
+
+              <!-- Live Table Preview -->
+              <div class="preview-box p-4 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-x-auto">
+                <table class="w-full text-left text-xs border-collapse">
+                  <thead class="bg-slate-100/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 uppercase font-bold text-[10px] tracking-wider rounded-xl">
+                    <tr>
+                      <th class="p-3 rounded-l-xl">Usuario</th>
+                      <th class="p-3">Rol</th>
+                      <th class="p-3">Estado</th>
+                      <th class="p-3">Fecha de Alta</th>
+                      <th class="p-3 rounded-r-xl text-right">Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-slate-600 dark:text-slate-300">
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+                      <td class="p-3 font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+                        <img class="w-7 h-7 rounded-full object-cover" src="/avatar.jpg" alt="Avatar" />
+                        <span>Stivens Espinoza</span>
+                      </td>
+                      <td class="p-3">Super Administrador</td>
+                      <td class="p-3">
+                        <span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-[10px]">
+                          <span class="pill-dot"></span><span>Activo</span>
+                        </span>
+                      </td>
+                      <td class="p-3 text-slate-400">12 Nov 2026</td>
+                      <td class="p-3 text-right">
+                        <button type="button" class="vlt-btn-icon" title="Editar"><i data-lucide="edit" class="w-3.5 h-3.5"></i></button>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+                      <td class="p-3 font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-full bg-cyan-500/20 text-cyan-600 font-bold flex items-center justify-center text-xs">MG</div>
+                        <span>María González</span>
+                      </td>
+                      <td class="p-3">Editora Senior</td>
+                      <td class="p-3">
+                        <span class="vlt-pill vlt-pill-amber py-0.5 px-2 text-[10px]">
+                          <span class="pill-dot"></span><span>En Revisión</span>
+                        </span>
+                      </td>
+                      <td class="p-3 text-slate-400">10 Nov 2026</td>
+                      <td class="p-3 text-right">
+                        <button type="button" class="vlt-btn-icon" title="Editar"><i data-lucide="edit" class="w-3.5 h-3.5"></i></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 text-center text-xs text-slate-500 dark:text-slate-400">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p>© 2026 <strong class="text-cyan-600 dark:text-cyan-400 font-bold">VeltraUI</strong>. Distribuido bajo Licencia Permisiva MIT. Creado por Stivens Espinoza.</p>
+          <div class="flex items-center gap-4">
+            <a href="/index.html" class="hover:text-cyan-500 transition-colors">Portada / Web</a>
+            <a href="/dashboard1.html" class="hover:text-cyan-500 transition-colors">Dashboard v1</a>
+            <a href="/layout-top-nav.html" class="hover:text-cyan-500 transition-colors">Top Nav</a>
+            <a href="/page-start.html" class="hover:text-cyan-500 transition-colors">Page Start</a>
+            <a href="#intro" class="hover:text-cyan-500 transition-colors font-bold">Volver arriba ↑</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Interactive Language, Copy & Filter Script -->
+  <script>
+    function updateLangButtons(activeLang) {
+      const btnEs = document.getElementById('btn-lang-es');
+      const btnEn = document.getElementById('btn-lang-en');
+      const heroBtnEs = document.getElementById('hero-btn-es');
+      const heroBtnEn = document.getElementById('hero-btn-en');
+
+      if (activeLang === 'es') {
+        if (btnEs) {
+          btnEs.className = 'px-2.5 py-1 text-xs font-bold rounded-lg bg-white dark:bg-slate-900 text-cyan-600 shadow-xs border border-slate-200/80 dark:border-slate-700 transition-all cursor-pointer flex items-center gap-1.5';
+        }
+        if (btnEn) {
+          btnEn.className = 'px-2.5 py-1 text-xs font-medium rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-all cursor-pointer flex items-center gap-1.5';
+        }
+        if (heroBtnEs) {
+          heroBtnEs.className = 'px-4 py-2.5 text-xs font-bold rounded-xl bg-cyan-500 text-slate-950 border border-cyan-400 shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer';
+        }
+        if (heroBtnEn) {
+          heroBtnEn.className = 'px-4 py-2.5 text-xs font-medium rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/15 transition-all flex items-center justify-center gap-2 cursor-pointer';
+        }
+      } else {
+        if (btnEn) {
+          btnEn.className = 'px-2.5 py-1 text-xs font-bold rounded-lg bg-white dark:bg-slate-900 text-cyan-600 shadow-xs border border-slate-200/80 dark:border-slate-700 transition-all cursor-pointer flex items-center gap-1.5';
+        }
+        if (btnEs) {
+          btnEs.className = 'px-2.5 py-1 text-xs font-medium rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-all cursor-pointer flex items-center gap-1.5';
+        }
+        if (heroBtnEn) {
+          heroBtnEn.className = 'px-4 py-2.5 text-xs font-bold rounded-xl bg-cyan-500 text-slate-950 border border-cyan-400 shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer';
+        }
+        if (heroBtnEs) {
+          heroBtnEs.className = 'px-4 py-2.5 text-xs font-medium rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/15 transition-all flex items-center justify-center gap-2 cursor-pointer';
+        }
+      }
+    }
+
+    window.switchLanguage = function(lang) {
+      document.documentElement.setAttribute('data-docs-lang', lang);
+      try {
+        localStorage.setItem('veltra-lang', lang);
+      } catch (e) {}
+      updateLangButtons(lang);
+    };
+
+    window.copyCode = function(button) {
+      const pre = button.closest('.rounded-2xl').querySelector('pre code');
+      if (!pre) return;
+      navigator.clipboard.writeText(pre.innerText).then(() => {
+        const originalText = button.innerText;
+        button.innerText = '✓ ¡Copiado!';
+        button.classList.add('bg-emerald-600', 'text-white');
+        setTimeout(() => {
+          button.innerText = originalText;
+          button.classList.remove('bg-emerald-600', 'text-white');
+        }, 2000);
+      });
+    };
+
+    window.filterDocsNav = function(query) {
+      const term = query.toLowerCase().trim();
+      const items = document.querySelectorAll('#docs-nav-list .vlt-nav-item');
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(term)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentLang = document.documentElement.getAttribute('data-docs-lang') || 'es';
+      updateLangButtons(currentLang);
+    });
+  </script>
+</body>
+</html>

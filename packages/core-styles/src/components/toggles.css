@@ -1,0 +1,77 @@
+/* VeltraUI Toggles, Sliders, Ratings & Tooltips */
+
+/* 1. iOS-Style Switch */
+.vlt-switch {
+    @apply relative inline-flex items-center cursor-pointer select-none;
+
+    input {
+        @apply sr-only;
+    }
+
+    .vlt-switch-track {
+        @apply w-11 h-6 bg-slate-200 dark:bg-slate-700 rounded-full transition-colors duration-200 relative;
+
+        &::after {
+            content: '';
+            @apply absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-xs transition-transform duration-200;
+        }
+    }
+
+    input:checked ~ .vlt-switch-track {
+        @apply bg-cyan-500;
+
+        &::after {
+            transform: translateX(1.25rem);
+        }
+    }
+
+    /* Color variants */
+    &.vlt-switch-emerald input:checked ~ .vlt-switch-track { @apply bg-emerald-500; }
+    &.vlt-switch-amber input:checked ~ .vlt-switch-track { @apply bg-amber-500; }
+    &.vlt-switch-rose input:checked ~ .vlt-switch-track { @apply bg-rose-500; }
+
+    /* Sizes */
+    &.vlt-switch-sm {
+        .vlt-switch-track {
+            @apply w-8 h-4.5;
+            &::after { @apply w-3.5 h-3.5; }
+        }
+        input:checked ~ .vlt-switch-track::after {
+            transform: translateX(0.875rem);
+        }
+    }
+}
+
+/* 2. Custom Range Slider */
+.vlt-slider {
+    @apply w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full appearance-none outline-none cursor-pointer accent-cyan-500;
+}
+
+/* 3. Star Rating */
+.vlt-rating {
+    @apply inline-flex items-center gap-1 select-none text-slate-300;
+
+    .star {
+        @apply cursor-pointer transition-colors duration-150;
+
+        &.active,
+        &:hover {
+            @apply text-amber-400 fill-amber-400;
+        }
+    }
+}
+
+/* 4. Pure CSS / Attribute Tooltips */
+[data-tooltip] {
+    @apply relative;
+
+    &::after {
+        content: attr(data-tooltip);
+        @apply absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 text-[11px] font-semibold text-white bg-slate-900 rounded-lg whitespace-nowrap opacity-0 pointer-events-none transition-all duration-150 z-30 shadow-md;
+    }
+
+    &:hover::after {
+        @apply opacity-100 -translate-y-0.5;
+    }
+}
+

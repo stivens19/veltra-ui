@@ -1,0 +1,121 @@
+.vlt-btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer select-none;
+}
+
+/* Button Sizes */
+.vlt-btn-xs {
+    @apply px-2.5 py-1 text-[11px] rounded-lg gap-1.5;
+}
+
+.vlt-btn-sm {
+    @apply px-3.5 py-1.5 text-xs rounded-lg gap-1.5;
+}
+
+.vlt-btn-md {
+    @apply px-5 py-2.5 text-sm rounded-xl;
+}
+
+.vlt-btn-lg {
+    @apply px-6 py-3 text-base font-bold rounded-xl gap-2.5;
+}
+
+.vlt-btn-block {
+    @apply w-full flex;
+}
+
+/* Solid Variants */
+.vlt-btn-primary {
+    @apply bg-cyan-500 hover:bg-cyan-600 text-white shadow-md shadow-cyan-500/25 hover:shadow-lg hover:shadow-cyan-500/35 hover:-translate-y-0.5 active:translate-y-0 focus:ring-cyan-400 dark:bg-cyan-500 dark:hover:bg-cyan-400 dark:text-slate-950 font-bold tracking-wide;
+}
+
+.vlt-btn-secondary {
+    @apply bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 dark:text-slate-100 dark:border-slate-700 shadow-xs hover:border-slate-300 focus:ring-slate-400;
+}
+
+.vlt-btn-success,
+.vlt-btn-emerald {
+    @apply bg-emerald-500 hover:bg-emerald-600 text-white shadow-md shadow-emerald-500/20 focus:ring-emerald-400 hover:-translate-y-0.5 active:translate-y-0 font-bold;
+}
+
+.vlt-btn-warning,
+.vlt-btn-amber {
+    @apply bg-amber-500 hover:bg-amber-600 text-white shadow-md shadow-amber-500/20 focus:ring-amber-400 hover:-translate-y-0.5 active:translate-y-0 font-bold;
+}
+
+.vlt-btn-danger,
+.vlt-btn-rose {
+    @apply bg-rose-500 hover:bg-rose-600 text-white shadow-md shadow-rose-500/20 focus:ring-rose-400 hover:-translate-y-0.5 active:translate-y-0 font-bold;
+}
+
+.vlt-btn-dark {
+    @apply bg-slate-900 hover:bg-slate-800 text-white shadow-md shadow-slate-900/20 focus:ring-slate-700 hover:-translate-y-0.5 active:translate-y-0 font-bold;
+}
+
+.vlt-btn-info {
+    @apply bg-sky-500 hover:bg-sky-600 text-white shadow-md shadow-sky-500/20 focus:ring-sky-400 hover:-translate-y-0.5 active:translate-y-0 font-bold;
+}
+
+.vlt-btn-ghost {
+    @apply bg-transparent text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800/60 dark:hover:text-white;
+}
+
+/* Outline Variants */
+.vlt-btn-outline {
+    @apply bg-transparent text-slate-700 border border-slate-300 hover:bg-slate-50 hover:border-slate-400 focus:ring-slate-300 dark:text-slate-200 dark:border-slate-700 dark:hover:bg-slate-800;
+}
+
+.vlt-btn-outline-primary {
+    @apply bg-transparent text-cyan-600 border border-cyan-500/50 hover:bg-cyan-50 hover:border-cyan-600 focus:ring-cyan-400 dark:text-cyan-400 dark:hover:bg-cyan-950/40;
+}
+
+.vlt-btn-outline-success {
+    @apply bg-transparent text-emerald-600 border border-emerald-500/50 hover:bg-emerald-50 hover:border-emerald-600 focus:ring-emerald-400;
+}
+
+.vlt-btn-outline-warning {
+    @apply bg-transparent text-amber-600 border border-amber-500/50 hover:bg-amber-50 hover:border-amber-600 focus:ring-amber-400;
+}
+
+.vlt-btn-outline-danger {
+    @apply bg-transparent text-rose-600 border border-rose-500/50 hover:bg-rose-50 hover:border-rose-600 focus:ring-rose-400;
+}
+
+/* Soft / Light Variants */
+.vlt-btn-soft-primary {
+    @apply bg-cyan-50 text-cyan-700 border border-cyan-200 hover:bg-cyan-100 focus:ring-cyan-400;
+}
+
+.vlt-btn-soft-success {
+    @apply bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 focus:ring-emerald-400;
+}
+
+.vlt-btn-soft-warning {
+    @apply bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 focus:ring-amber-400;
+}
+
+.vlt-btn-soft-danger {
+    @apply bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 focus:ring-rose-400;
+}
+
+/* Icon Buttons */
+.vlt-btn-icon {
+    @apply w-9 h-9 rounded-lg text-slate-500 hover:text-cyan-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-cyan-300 dark:hover:bg-slate-800 transition-all cursor-pointer inline-flex items-center justify-center shrink-0;
+}
+
+.vlt-btn-icon-sm {
+    @apply w-7 h-7 rounded-md;
+}
+
+.vlt-btn-icon-lg {
+    @apply w-11 h-11 rounded-xl;
+}
+
+/* Button Groups */
+.vlt-btn-group {
+    @apply inline-flex items-center rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 divide-x divide-slate-200 dark:divide-slate-700 bg-white dark:bg-slate-800 shadow-xs;
+
+    .vlt-btn {
+        @apply rounded-none border-none shadow-none focus:ring-0 focus:z-10;
+        margin: 0;
+    }
+}

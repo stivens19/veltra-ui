@@ -1,0 +1,176 @@
+@import "tailwindcss";
+@import "@veltra-ui/core-styles/dist/veltra.css";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *, .dark, .dark *));
+
+/* Global Dark Mode Consistency & Contrast */
+:root[data-theme="dark"],
+html.dark {
+    color-scheme: dark;
+}
+
+[data-theme="dark"] body,
+.dark body {
+    background-color: #090e1a !important;
+    color: #f8fafc !important;
+}
+
+[data-theme="dark"] .vlt-grid-bg,
+.dark .vlt-grid-bg {
+    background-image: 
+        linear-gradient(to right, rgba(30, 41, 59, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 41, 59, 0.4) 1px, transparent 1px);
+    background-color: #090e1a !important;
+}
+
+[data-theme="dark"] .vlt-card,
+.dark .vlt-card {
+    background-color: #0f172a !important;
+    border-color: #1e293b !important;
+    color: #f8fafc;
+}
+
+[data-theme="dark"] .vlt-header,
+.dark .vlt-header {
+    background-color: rgba(15, 23, 42, 0.9) !important;
+    border-color: #1e293b !important;
+}
+
+[data-theme="dark"] .vlt-sidebar,
+.dark .vlt-sidebar {
+    background-color: rgba(15, 23, 42, 0.95) !important;
+    border-color: #1e293b !important;
+}
+
+[data-theme="dark"] .vlt-footer,
+.dark .vlt-footer {
+    background-color: #0f172a !important;
+    border-color: #1e293b !important;
+}
+
+[data-theme="dark"] .vlt-content-header,
+.dark .vlt-content-header {
+    border-color: rgba(30, 41, 59, 0.6) !important;
+}
+
+/* Card & Surface white backgrounds in dark mode */
+[data-theme="dark"] .bg-white,
+.dark .bg-white {
+    background-color: #0f172a !important;
+}
+
+[data-theme="dark"] .bg-slate-50,
+.dark .bg-slate-50 {
+    background-color: #0d1526 !important;
+}
+
+[data-theme="dark"] .bg-slate-100,
+.dark .bg-slate-100 {
+    background-color: #1e293b !important;
+}
+
+/* Text adjustments for dark mode */
+[data-theme="dark"] .text-slate-900,
+[data-theme="dark"] .text-slate-800,
+.dark .text-slate-900,
+.dark .text-slate-800 {
+    color: #f8fafc !important;
+}
+
+[data-theme="dark"] .text-slate-700,
+[data-theme="dark"] .text-slate-600,
+.dark .text-slate-700,
+.dark .text-slate-600 {
+    color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .text-slate-500,
+.dark .text-slate-500 {
+    color: #94a3b8 !important;
+}
+
+/* Border adjustments for dark mode */
+[data-theme="dark"] .border-slate-100,
+[data-theme="dark"] .border-slate-200,
+[data-theme="dark"] .border-slate-200\/80,
+[data-theme="dark"] .border-slate-200\/70,
+[data-theme="dark"] .border-slate-200\/60,
+.dark .border-slate-100,
+.dark .border-slate-200,
+.dark .border-slate-200\/80,
+.dark .border-slate-200\/70,
+.dark .border-slate-200\/60 {
+    border-color: #1e293b !important;
+}
+
+/* Dropdown menu in dark mode */
+[data-theme="dark"] .vlt-dropdown-menu,
+.dark .vlt-dropdown-menu {
+    background-color: #0f172a !important;
+    border-color: #1e293b !important;
+}
+
+/* Input elements in dark mode */
+[data-theme="dark"] .vlt-form-control,
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="password"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] input[type="search"],
+[data-theme="dark"] select,
+[data-theme="dark"] textarea,
+.dark .vlt-form-control,
+.dark input[type="text"],
+.dark input[type="password"],
+.dark input[type="email"],
+.dark input[type="search"],
+.dark select,
+.dark textarea {
+    background-color: #131c31 !important;
+    border-color: #27364f !important;
+    color: #f8fafc !important;
+}
+
+/* Button secondary / icons in dark mode */
+[data-theme="dark"] .vlt-btn-secondary,
+.dark .vlt-btn-secondary {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .vlt-btn-icon,
+.dark .vlt-btn-icon {
+    color: #94a3b8;
+}
+
+[data-theme="dark"] .vlt-btn-icon:hover,
+.dark .vlt-btn-icon:hover {
+    background-color: #1e293b !important;
+    color: #f8fafc !important;
+}
+
+/* Top Navigation Layout: Off-canvas floating drawer */
+.vlt-wrapper.vlt-layout-top-nav .vlt-sidebar,
+body.vlt-layout-top-nav .vlt-sidebar {
+    transform: translateX(-100%);
+    z-index: 50;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.vlt-wrapper.vlt-layout-top-nav.vlt-sidebar-mobile-open .vlt-sidebar,
+body.vlt-layout-top-nav.vlt-sidebar-mobile-open .vlt-sidebar {
+    transform: translateX(0) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35) !important;
+}
+
+.vlt-wrapper.vlt-layout-top-nav .vlt-main,
+body.vlt-layout-top-nav .vlt-main {
+    margin-left: 0 !important;
+}
+
+.vlt-wrapper.vlt-layout-top-nav.vlt-sidebar-mobile-open .vlt-backdrop,
+body.vlt-layout-top-nav.vlt-sidebar-mobile-open .vlt-backdrop {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 45 !important;
+}

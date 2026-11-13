@@ -1,0 +1,101 @@
+/* VeltraUI Modern Enterprise Kanban Board Styles */
+
+.vlt-kanban-board {
+    @apply flex items-start gap-5 overflow-x-auto pb-6 select-none;
+    min-height: calc(100vh - 220px);
+}
+
+/* Kanban Column Container */
+.vlt-kanban-column {
+    @apply w-80 shrink-0 bg-slate-100/70 dark:bg-slate-900/50 rounded-2xl border border-slate-200/70 dark:border-slate-800 flex flex-col max-h-[calc(100vh-230px)] shadow-xs transition-colors;
+
+    &.drag-over {
+        @apply bg-cyan-50/40 dark:bg-cyan-950/20 border-cyan-400 ring-2 ring-cyan-500/20;
+    }
+
+    .kanban-col-header {
+        @apply p-4 border-b border-slate-200/60 dark:border-slate-800 flex items-center justify-between shrink-0;
+
+        .col-title-group {
+            @apply flex items-center gap-2;
+
+            .col-dot {
+                @apply w-2.5 h-2.5 rounded-full shrink-0;
+            }
+
+            .col-title {
+                @apply font-bold text-slate-800 dark:text-slate-100 text-sm tracking-tight;
+            }
+
+            .col-badge {
+                @apply px-2 py-0.5 rounded-full text-[11px] font-bold font-mono bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700 shadow-2xs;
+            }
+        }
+
+        .col-actions {
+            @apply flex items-center gap-1 text-slate-400;
+        }
+    }
+
+    .kanban-cards-list {
+        @apply p-3 space-y-3 overflow-y-auto flex-1 min-h-[150px];
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+        &::-webkit-scrollbar-thumb {
+            @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+        }
+    }
+}
+
+/* Kanban Task Card */
+.vlt-kanban-card {
+    @apply p-4 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs hover:shadow-md hover:border-cyan-400/80 transition-all duration-200 cursor-grab active:cursor-grabbing relative space-y-3;
+
+    &:hover {
+        @apply -translate-y-0.5;
+    }
+
+    &.dragging {
+        @apply opacity-40 scale-95 rotate-1 border-cyan-500 shadow-xl bg-cyan-50/20;
+    }
+
+    .card-top {
+        @apply flex items-center justify-between gap-2;
+    }
+
+    .card-title {
+        @apply font-bold text-slate-800 dark:text-slate-100 text-xs leading-snug line-clamp-2;
+    }
+
+    .card-desc {
+        @apply text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed;
+    }
+
+    .card-progress-bar {
+        @apply w-full h-1.5 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden flex;
+
+        .progress-fill {
+            @apply h-full bg-cyan-500 rounded-full transition-all;
+        }
+    }
+
+    .card-bottom {
+        @apply flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800/80 text-[11px] text-slate-400;
+
+        .card-metrics {
+            @apply flex items-center gap-2.5 font-medium;
+
+            span {
+                @apply flex items-center gap-1;
+            }
+        }
+    }
+}
+
+/* Drop placeholder helper */
+.kanban-drop-placeholder {
+    @apply h-20 rounded-xl border-2 border-dashed border-cyan-400 bg-cyan-50/40 dark:bg-cyan-950/20 transition-all my-2;
+}
+

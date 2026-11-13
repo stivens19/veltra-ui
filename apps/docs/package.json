@@ -1,0 +1,21 @@
+{
+  "name": "docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@veltra-ui/core-styles": "workspace:*",
+    "@veltra-ui/vanilla-js": "workspace:*",
+    "chart.js": "^4.6.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.8"
+  }
+}

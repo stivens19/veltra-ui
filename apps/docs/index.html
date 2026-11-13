@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeltraUI — Suite de Administración Moderna, Ultra-Ligera y Zero-Sass</title>
+  <meta name="description" content="La suite UI para dashboards de próxima generación construida con Tailwind CSS v4 y Vanilla TypeScript. 39 plantillas listas para producción en HTML, Laravel Blade, React y Angular.">
+  <link rel="icon" type="image/svg+xml" href="/logo.png" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Fondo de cuadrícula técnico de alta precisión */
+    .vlt-blueprint-grid {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(148, 163, 184, 0.16) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.16) 1px, transparent 1px);
+    }
+    .dark .vlt-blueprint-grid,
+    [data-theme="dark"] .vlt-blueprint-grid {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(34, 211, 238, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(34, 211, 238, 0.08) 1px, transparent 1px);
+      background-color: #060913;
+    }
+
+    /* Máscara de desvanecimiento radial para que la cuadrícula se integre suavemente */
+    .vlt-grid-mask {
+      mask-image: radial-gradient(ellipse 85% 65% at 50% 15%, black 45%, transparent 95%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 15%, black 45%, transparent 95%);
+    }
+
+    /* Brillo de fondo */
+    .hero-glow-spot {
+      background: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.18) 0%, rgba(37, 99, 235, 0.08) 35%, transparent 70%);
+    }
+  </style>
+
+  <!-- Script Canónico Anti-FOUC Dark Mode -->
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('veltra-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body class="bg-slate-50 dark:bg-[#060913] text-slate-800 dark:text-slate-100 antialiased selection:bg-cyan-500 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+
+  <!-- CAPA DE FONDO: Cuadrícula Técnica + Radial Glow -->
+  <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+    <!-- Cuadrícula con desvanecimiento -->
+    <div class="absolute inset-0 vlt-blueprint-grid vlt-grid-mask"></div>
+    <!-- Spotlight cyan/blue en el hero -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] hero-glow-spot"></div>
+  </div>
+
+  <!-- HEADER / NAVBAR FLOTANTE EN CÁPSULA (ISLAND NAVBAR) -->
+  <header class="sticky top-4 z-50 max-w-7xl mx-auto px-4 sm:px-6 w-full">
+    <div class="rounded-2xl sm:rounded-full bg-white/75 dark:bg-slate-900/75 backdrop-blur-2xl border border-slate-200/90 dark:border-slate-800/90 shadow-2xl shadow-slate-900/5 dark:shadow-cyan-950/20 px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4 transition-all">
+      
+      <!-- Brand Logo & Pill -->
+      <a href="/index.html" class="flex items-center gap-2.5 group">
+        <img src="/logo.png" alt="VeltraUI" class="h-8 w-auto object-contain transition-transform group-hover:scale-105" />
+        <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">
+          Veltra<span class="text-cyan-500">UI</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-extrabold uppercase rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/25">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          v1.0
+        </span>
+      </a>
+
+      <!-- Center Nav Links (Pills con micro-interacciones) -->
+      <nav class="hidden lg:flex items-center gap-1 p-1 rounded-full bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-xs font-semibold text-slate-600 dark:text-slate-300">
+        <a href="#templates" class="px-3.5 py-1.5 rounded-full hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-white dark:hover:bg-slate-900 hover:shadow-xs transition-all flex items-center gap-1.5">
+          <i data-lucide="layers" class="w-3.5 h-3.5 text-cyan-500"></i>
+          <span>Plantillas (39)</span>
+        </a>
+        <a href="#features" class="px-3.5 py-1.5 rounded-full hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-white dark:hover:bg-slate-900 hover:shadow-xs transition-all flex items-center gap-1.5">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Características</span>
+        </a>
+        <a href="#integrations" class="px-3.5 py-1.5 rounded-full hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-white dark:hover:bg-slate-900 hover:shadow-xs transition-all flex items-center gap-1.5">
+          <i data-lucide="terminal" class="w-3.5 h-3.5 text-emerald-500"></i>
+          <span>Integración</span>
+        </a>
+        <a href="/docs.html" class="px-3.5 py-1.5 rounded-full text-cyan-600 dark:text-cyan-400 font-bold hover:bg-white dark:hover:bg-slate-900 hover:shadow-xs transition-all flex items-center gap-1.5">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          <span>Documentación</span>
+        </a>
+      </nav>
+
+      <!-- Right Action Tools -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        
+        <!-- Theme Toggle -->
+        <button type="button" class="w-9 h-9 rounded-full border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-800/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-500/40 transition-all cursor-pointer shadow-xs" data-vlt-toggle="theme" title="Alternar Modo Claro / Oscuro">
+          <i data-lucide="sun-medium" class="w-4 h-4"></i>
+        </button>
+
+        <!-- GitHub Link -->
+        <a href="https://github.com/stivens-espinoza/veltra-ui" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-800/80 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-cyan-500 hover:border-cyan-500/40 transition-all shadow-xs">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+
+        <!-- Download ZIP CTA -->
+        <a href="/veltra-ui.zip" download="veltra-ui-v1.0.0.zip" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-bold shadow-md shadow-cyan-500/25 transition-all hover:scale-105 active:scale-95">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">Descargar</span>
+          <span>ZIP</span>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-16 pb-20 md:pt-24 md:pb-32 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-600 dark:text-cyan-400 text-xs font-bold tracking-wide animate-pulse">
+          <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+          <span>VeltraUI v1.0 • Suite de Administración 100% Nativa y Open Source</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1] max-w-5xl mx-auto">
+          El Panel de Administración <span class="bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 bg-clip-text text-transparent">Ultra-Ligero</span>, Moderno y Zero-Sass.
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          Construido desde cero con <strong>Tailwind CSS v4</strong> y <strong>TypeScript Vanilla</strong>. Más de 39 plantillas diseñadas al píxel, listas para producción en <strong>HTML</strong>, <strong>Laravel Blade</strong>, <strong>React</strong> y <strong>Angular</strong> sin preprocesadores pesados.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
+          
+          <!-- CTA 1: Live Preview -->
+          <a href="/dashboard1.html" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black text-sm shadow-xl shadow-cyan-500/30 transition-all hover:scale-105 active:scale-95 cursor-pointer">
+            <i data-lucide="play" class="w-4 h-4 fill-slate-950"></i>
+            <span>Explorar Plantillas (Live Preview)</span>
+          </a>
+
+          <!-- CTA 2: Download ZIP -->
+          <a href="/veltra-ui.zip" download="veltra-ui-v1.0.0.zip" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-white font-bold text-sm shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all hover:scale-105 active:scale-95 cursor-pointer">
+            <i data-lucide="download" class="w-4 h-4 text-cyan-500"></i>
+            <span>Descargar ZIP (v1.0.0)</span>
+          </a>
+
+          <!-- CTA 3: Documentation -->
+          <a href="/docs.html" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-sm transition-all hover:scale-105 active:scale-95">
+            <i data-lucide="book-open" class="w-4 h-4"></i>
+            <span>Documentación</span>
+          </a>
+
+          <!-- CTA 4: GitHub -->
+          <a href="https://github.com/stivens-espinoza/veltra-ui" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-md transition-all hover:scale-105 active:scale-95">
+            <i data-lucide="github" class="w-4 h-4"></i>
+            <span>GitHub Repo</span>
+          </a>
+
+        </div>
+
+        <!-- Quick Specs Strip -->
+        <div class="pt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-semibold text-slate-500 dark:text-slate-400">
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+            <span>Zero-Sass (Cero dependencias)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+            <span>Tailwind CSS v4 & LightningCSS</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+            <span>Anti-FOUC Dark Mode Persistente</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+            <span>Licencia MIT Permisiva</span>
+          </div>
+        </div>
+
+        <!-- Hero Preview Mockup Frame -->
+        <div class="pt-8 max-w-6xl mx-auto">
+          <div class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2 sm:p-3 shadow-2xl shadow-cyan-500/10">
+            <!-- Window Bar with Interactive Template Switcher -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 px-4 py-3 bg-slate-100 dark:bg-slate-800/80 rounded-2xl mb-2 text-xs">
+              <div class="flex items-center gap-3">
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                </div>
+                <div id="hero-tabs" class="flex items-center gap-1 bg-white/70 dark:bg-slate-900/60 p-1 rounded-xl border border-slate-200/60 dark:border-slate-700/60 overflow-x-auto text-[11px] font-semibold">
+                  <button type="button" data-hero-tab="dashboard-1" data-href="/dashboard1.html" class="hero-tab-btn px-3 py-1 rounded-lg transition-colors bg-cyan-500 text-slate-950 font-bold shadow-sm">Dashboard v1</button>
+                  <button type="button" data-hero-tab="dashboard-2" data-href="/index2.html" class="hero-tab-btn px-3 py-1 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Analytics v2</button>
+                  <button type="button" data-hero-tab="kanban" data-href="/kanban.html" class="hero-tab-btn px-3 py-1 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Kanban</button>
+                  <button type="button" data-hero-tab="pos" data-href="/pages-pos.html" class="hero-tab-btn px-3 py-1 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">POS</button>
+                  <button type="button" data-hero-tab="calendar" data-href="/calendar.html" class="hero-tab-btn px-3 py-1 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Calendario</button>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-end gap-2 shrink-0">
+                <a id="hero-live-link" href="/dashboard1.html" class="px-3.5 py-1.5 text-[11px] font-bold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition-colors flex items-center gap-1.5 shadow-sm">
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  <span>Ver en Pantalla Completa</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Preview Image Frame with Live Captures -->
+            <a id="hero-image-wrapper" href="/dashboard1.html" class="group relative block w-full rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 shadow-inner">
+              <img id="hero-img-light" src="/screenshots/dashboard-1-light.png" class="w-full h-auto block dark:hidden object-cover transition-opacity duration-300" alt="VeltraUI Dashboard Preview">
+              <img id="hero-img-dark" src="/screenshots/dashboard-1-dark.png" class="w-full h-auto hidden dark:block object-cover transition-opacity duration-300" alt="VeltraUI Dashboard Preview">
+              <div class="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                <span class="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-xs shadow-2xl border border-slate-200 dark:border-slate-700 flex items-center gap-2 transform group-hover:scale-105 transition-transform">
+                  <i data-lucide="sparkles" class="w-4 h-4 text-cyan-500"></i>
+                  <span>Hacer clic para abrir plantilla interactiva</span>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HIGHLIGHT STATS SECTION -->
+    <section class="border-y border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div class="space-y-1">
+            <div class="text-3xl sm:text-4xl font-black text-cyan-600 dark:text-cyan-400 font-mono">39+</div>
+            <div class="text-xs font-semibold text-slate-500 dark:text-slate-400">Plantillas HTML Listas</div>
+          </div>
+          <div class="space-y-1">
+            <div class="text-3xl sm:text-4xl font-black text-blue-600 dark:text-blue-400 font-mono">17</div>
+            <div class="text-xs font-semibold text-slate-500 dark:text-slate-400">Componentes CSS Puros</div>
+          </div>
+          <div class="space-y-1">
+            <div class="text-3xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400 font-mono">241 KB</div>
+            <div class="text-xs font-semibold text-slate-500 dark:text-slate-400">Bundle CSS Completo</div>
+          </div>
+          <div class="space-y-1">
+            <div class="text-3xl sm:text-4xl font-black text-purple-600 dark:text-purple-400 font-mono">0 ms</div>
+            <div class="text-xs font-semibold text-slate-500 dark:text-slate-400">FOUC Flash en Dark Mode</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEMPLATES SHOWCASE SECTION -->
+    <section id="templates" class="py-20 lg:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="text-center space-y-3 max-w-3xl mx-auto">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+            CATÁLOGO COMPLETO
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+            Diseñado para Cualquier Tipo de Aplicación Empresarial
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400">
+            Haz clic en cualquiera de las tarjetas para abrir la demostración en vivo de la plantilla.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Card 1: Dashboard v1 -->
+          <a href="/dashboard1.html" class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-cyan-500/50 transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+                <img src="/screenshots/dashboard-1-light.png" class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300" alt="Dashboard v1 Analytics" loading="lazy">
+                <img src="/screenshots/dashboard-1-dark.png" class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300" alt="Dashboard v1 Analytics" loading="lazy">
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-950/70 text-white backdrop-blur-sm border border-white/10">v1.0</span>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">
+                  Dashboard v1 — Analytics & Ventas
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Panel maestro con Stat Boxes dinámicos, gráficos de Chart.js interactivos, historial de transacciones y resumen ejecutivo de métricas.
+                </p>
+              </div>
+            </div>
+            <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-cyan-600 dark:text-cyan-400">
+              <span>Abrir Plantilla</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+
+          <!-- Card 2: Dashboard v2 -->
+          <a href="/index2.html" class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-blue-500/50 transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+                <img src="/screenshots/dashboard-2-light.png" class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300" alt="Dashboard v2 Finanzas" loading="lazy">
+                <img src="/screenshots/dashboard-2-dark.png" class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300" alt="Dashboard v2 Finanzas" loading="lazy">
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-950/70 text-white backdrop-blur-sm border border-white/10">v2.0</span>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-500 transition-colors">
+                  Dashboard v2 — Métricas & Finanzas
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Enfoque financiero corporativo con gráficos de barras de ingresos mensuales, estado de flujo de caja y monitoreo de clientes activos.
+                </p>
+              </div>
+            </div>
+            <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-blue-600 dark:text-blue-400">
+              <span>Abrir Plantilla</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+
+          <!-- Card 3: Dashboard v3 -->
+          <a href="/index3.html" class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-indigo-500/50 transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+                <img src="/screenshots/dashboard-3-light.png" class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300" alt="Dashboard v3 KPI" loading="lazy">
+                <img src="/screenshots/dashboard-3-dark.png" class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300" alt="Dashboard v3 KPI" loading="lazy">
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-950/70 text-white backdrop-blur-sm border border-white/10">v3.0</span>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-500 transition-colors">
+                  Dashboard v3 — KPI & Rendimiento
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Diseñado para monitoreo en tiempo real, KPIs de rendimiento del servidor, conversión de embudos y cuotas comerciales.
+                </p>
+              </div>
+            </div>
+            <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-indigo-600 dark:text-indigo-400">
+              <span>Abrir Plantilla</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+
+          <!-- Card 4: POS System -->
+          <a href="/pages-pos.html" class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-emerald-500/50 transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+                <img src="/screenshots/pos-light.png" class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300" alt="Punto de Venta POS" loading="lazy">
+                <img src="/screenshots/pos-dark.png" class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300" alt="Punto de Venta POS" loading="lazy">
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-600 text-white">POS</span>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">
+                  Punto de Venta (POS System)
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Terminal interactiva de ventas con selección de productos por categorías, cálculo en vivo de IVA, descuentos e impresión de ticket.
+                </p>
+              </div>
+            </div>
+            <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-emerald-600 dark:text-emerald-400">
+              <span>Abrir Plantilla</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+
+          <!-- Card 5: Kanban Board -->
+          <a href="/kanban.html" class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-purple-500/50 transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+                <img src="/screenshots/kanban-light.png" class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300" alt="Tablero Kanban" loading="lazy">
+                <img src="/screenshots/kanban-dark.png" class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300" alt="Tablero Kanban" loading="lazy">
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-purple-600 text-white">Ágil</span>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-purple-500 transition-colors">
+                  Tablero Kanban Interactivo
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Gestión ágil de tareas con columnas para Por Hacer, En Progreso, Revisión y Finalizado con tarjetas visuales de prioridad y avatares.
+                </p>
+              </div>
+            </div>
+            <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-purple-600 dark:text-purple-400">
+              <span>Abrir Plantilla</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+
+          <!-- Card 6: Calendarios -->
+          <a href="/calendar.html" class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+                <img src="/screenshots/calendar-light.png" class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300" alt="Calendario" loading="lazy">
+                <img src="/screenshots/calendar-dark.png" class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300" alt="Calendario" loading="lazy">
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-600 text-white">Eventos</span>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-amber-500 transition-colors">
+                  Calendario de Equipo & Eventos
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Organización de agenda mensual con eventos arrastrables, filtros de color por departamento y vista de carga de trabajo de equipo.
+                </p>
+              </div>
+            </div>
+            <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-amber-600 dark:text-amber-400">
+              <span>Abrir Plantilla</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+
+          <!-- Card 7: DataTables -->
+          <a href="/tables-datatables.html" class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-cyan-500/50 transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+                <img src="/screenshots/datatables-light.png" class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300" alt="DataTables" loading="lazy">
+                <img src="/screenshots/datatables-dark.png" class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300" alt="DataTables" loading="lazy">
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-cyan-600 text-white">Tablas</span>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">
+                  Tablas Avanzadas & DataTables
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Tablas con ordenamiento en vivo, filtrado dinámico por columnas, paginación reactiva y exportación de datos lista.
+                </p>
+              </div>
+            </div>
+            <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-cyan-600 dark:text-cyan-400">
+              <span>Abrir Plantilla</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+
+          <!-- Card 8: Formularios & Validación -->
+          <a href="/forms-validation.html" class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-rose-500/50 transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+                <img src="/screenshots/forms-light.png" class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300" alt="Formularios" loading="lazy">
+                <img src="/screenshots/forms-dark.png" class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300" alt="Formularios" loading="lazy">
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-rose-600 text-white">Forms</span>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-rose-500 transition-colors">
+                  Formularios & Validación Reactiva
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Inputs estilizados, interruptores toggles, selectores flotantes, áreas de carga de archivos (dropzone) y estados de validación en tiempo real.
+                </p>
+              </div>
+            </div>
+            <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-rose-600 dark:text-rose-400">
+              <span>Abrir Plantilla</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+
+          <!-- Card 9: Facturas & Invoice -->
+          <a href="/pages-invoice.html" class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-emerald-500/50 transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+                <img src="/screenshots/invoice-light.png" class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300" alt="Facturación" loading="lazy">
+                <img src="/screenshots/invoice-dark.png" class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300" alt="Facturación" loading="lazy">
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-600 text-white">Factura</span>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">
+                  Facturación & Invoice Imprimible
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Factura comercial formateada al estándar de impresión con desglose de impuestos, formas de pago y botón directo de impresión PDF.
+                </p>
+              </div>
+            </div>
+            <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-emerald-600 dark:text-emerald-400">
+              <span>Abrir Plantilla</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="text-center pt-4">
+          <a href="/docs.html#catalog" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all">
+            <span>Ver las 39 plantillas en el catálogo interactivo de la documentación</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE FEATURES SECTION -->
+    <section id="features" class="py-20 lg:py-28 bg-slate-100/50 dark:bg-slate-900/30 border-y border-slate-200/80 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+        
+        <div class="text-center space-y-3 max-w-3xl mx-auto">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+            CARACTERÍSTICAS
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+            Por qué usar VeltraUI
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400">
+            Diseñado para ofrecer una arquitectura limpia, ligera y lista para producción en tus proyectos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center font-bold">
+              <i data-lucide="zap-off" class="w-5 h-5"></i>
+            </div>
+            <h4 class="font-bold text-base text-slate-900 dark:text-white">Arquitectura Zero-Sass</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Sin compiladores Sass pesados ni binarios nativos que rompen tu build. Todo utiliza CSS Nesting nativo del W3C y variables CSS vivas en tiempo de ejecución.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold">
+              <i data-lucide="wind" class="w-5 h-5"></i>
+            </div>
+            <h4 class="font-bold text-base text-slate-900 dark:text-white">Tailwind CSS v4 Nativo</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Olvídate de <code>tailwind.config.js</code>. Funciona con <code>@import "tailwindcss";</code> nativo y compila a hipervelocidad mediante LightningCSS y Vite 6.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold">
+              <i data-lucide="moon" class="w-5 h-5"></i>
+            </div>
+            <h4 class="font-bold text-base text-slate-900 dark:text-white">Modo Oscuro Anti-FOUC</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Cero parpadeos blancos molestos al recargar. Un script canónico autoejecutable en el <code>&lt;head&gt;</code> evalúa el tema y sincroniza localStorage al instante.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <h4 class="font-bold text-base text-slate-900 dark:text-white">17 Componentes Puros</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Cards con colapso, maximizado a pantalla completa y eliminación fade-out, modales con tecla ESC, acordeones treeview y pestañas fluidas.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">
+              <i data-lucide="share-2" class="w-5 h-5"></i>
+            </div>
+            <h4 class="font-bold text-base text-slate-900 dark:text-white">Portabilidad Multi-Framework</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Úsalo en Laravel Blade mediante componentes <code>&lt;x-ui.*&gt;</code>, o cópialo a React, Next.js, Vue y Angular sin cambiar tu flujo de desarrollo.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <h4 class="font-bold text-base text-slate-900 dark:text-white">Licencia Permisiva MIT</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              100% de libertad para proyectos personales, comerciales, SaaS o aplicaciones internas de clientes. Sin regalías ni restricciones ocultas.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTEGRATIONS CODE SECTION -->
+    <section id="integrations" class="py-20 lg:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="text-center space-y-3 max-w-3xl mx-auto">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+            INTEGRACIÓN SENCILLA
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+            Listo Para Usar en Cualquier Entorno
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400">
+            Dos archivos limpios (<code>css/veltra.css</code> y <code>js/veltra.js</code>) es todo lo que necesitas.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- Box 1: Laravel Blade -->
+          <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center font-bold">
+                <i data-lucide="code" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-base text-slate-900 dark:text-white">Integración en Laravel Blade</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">resources/views/layouts/app.blade.php</p>
+              </div>
+            </div>
+            <pre class="p-4 rounded-2xl bg-slate-950 text-xs font-mono overflow-x-auto text-rose-300 leading-relaxed border border-slate-800"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi App Laravel&lt;/title&gt;
+    &lt;!-- Estilos VeltraUI con Tailwind v4 precompilado --&gt;
+    &lt;link rel="stylesheet" href="{{ asset('css/veltra.css') }}"&gt;
+&lt;/head&gt;
+&lt;body class="bg-slate-50 dark:bg-slate-950"&gt;
+    @yield('content')
+    &lt;script defer src="{{ asset('js/veltra.js') }}"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+
+          <!-- Box 2: React / Next.js -->
+          <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold">
+                <i data-lucide="atom" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-base text-slate-900 dark:text-white">Integración en React / Vite</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">src/main.jsx o src/App.tsx</p>
+              </div>
+            </div>
+            <pre class="p-4 rounded-2xl bg-slate-950 text-xs font-mono overflow-x-auto text-cyan-300 leading-relaxed border border-slate-800"><code>import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+// Importa los estilos de VeltraUI en un solo paso:
+import './css/veltra.css';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  &lt;App /&gt;
+);</code></pre>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BIG CTA SECTION -->
+    <section class="py-20 bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950 text-white relative overflow-hidden">
+      <div class="absolute -right-24 -bottom-24 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative">
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight">
+          ¿Listo para crear tu próximo dashboard de nivel empresarial?
+        </h2>
+        <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          Descarga la distribución compilada ahora mismo o explora todas las plantillas en vivo desde tu navegador.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="/veltra-ui.zip" download="veltra-ui-v1.0.0.zip" class="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black text-base shadow-xl shadow-cyan-500/25 transition-all hover:scale-105 active:scale-95">
+            <i data-lucide="download" class="w-5 h-5"></i>
+            <span>Descargar ZIP Completo (v1.0.0)</span>
+          </a>
+
+          <a href="/dashboard1.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/15 text-white font-bold text-base border border-white/20 transition-all hover:scale-105 active:scale-95">
+            <i data-lucide="play" class="w-5 h-5"></i>
+            <span>Ver Demo en Vivo</span>
+          </a>
+
+          <a href="/docs.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 text-cyan-300 font-bold text-base border border-cyan-500/30 transition-all hover:scale-105 active:scale-95">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+            <span>Ir a la Documentación</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-10 text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <img src="/logo.png" alt="VeltraUI" class="w-6 h-6 object-contain" />
+        <p>© 2026 <strong class="text-slate-900 dark:text-white font-bold">VeltraUI</strong>. Distribuido bajo Licencia Permisiva MIT. Creado por <strong>Stivens Espinoza</strong>.</p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-6">
+        <a href="/dashboard1.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Dashboard v1</a>
+        <a href="/index2.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Dashboard v2</a>
+        <a href="/index3.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Dashboard v3</a>
+        <a href="/docs.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors font-bold">Documentación</a>
+        <a href="https://github.com/stivens-espinoza/veltra-ui" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">GitHub</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+  <script>
+    // Hero preview interactive switcher
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.hero-tab-btn');
+      const imgLight = document.getElementById('hero-img-light');
+      const imgDark = document.getElementById('hero-img-dark');
+      const liveLink = document.getElementById('hero-live-link');
+      const imageWrapper = document.getElementById('hero-image-wrapper');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          e.preventDefault();
+          const key = tab.getAttribute('data-hero-tab');
+          const href = tab.getAttribute('data-href');
+
+          // Update active button state
+          tabs.forEach(t => {
+            t.classList.remove('bg-cyan-500', 'text-slate-950', 'font-bold', 'shadow-sm');
+            t.classList.add('text-slate-600', 'dark:text-slate-300');
+          });
+          tab.classList.remove('text-slate-600', 'dark:text-slate-300');
+          tab.classList.add('bg-cyan-500', 'text-slate-950', 'font-bold', 'shadow-sm');
+
+          // Switch image sources
+          if (imgLight) imgLight.src = `/screenshots/${key}-light.png`;
+          if (imgDark) imgDark.src = `/screenshots/${key}-dark.png`;
+          if (liveLink) liveLink.href = href;
+          if (imageWrapper) imageWrapper.href = href;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

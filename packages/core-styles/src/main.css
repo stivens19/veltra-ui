@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@import "./tokens/variables.css";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *, .dark, .dark *));
+
+@theme {
+    --color-primary: rgb(var(--vlt-primary));
+    --color-primary-dark: rgb(var(--vlt-primary-dark));
+    --color-primary-light: rgb(var(--vlt-primary-light));
+    --color-secondary: rgb(var(--vlt-secondary));
+    --color-success: rgb(var(--vlt-success));
+    --color-warning: rgb(var(--vlt-warning));
+    --color-danger: rgb(var(--vlt-danger));
+    --color-info: rgb(var(--vlt-info));
+    --color-body: rgb(var(--vlt-bg-body));
+    --color-surface: rgb(var(--vlt-bg-surface));
+    --color-border: rgb(var(--vlt-border));
+}
+
+/* Developer Blueprint / Technical Grid Texture */
+.vlt-grid-bg {
+    background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.45) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+[data-theme="dark"] .vlt-grid-bg,
+.dark .vlt-grid-bg {
+    background-image: 
+        linear-gradient(to right, rgba(30, 41, 59, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 41, 59, 0.45) 1px, transparent 1px);
+}
+
+@import "./layouts/shell.css";
+@import "./components/card.css";
+@import "./components/buttons.css";
+@import "./components/badges.css";
+@import "./components/alerts.css";
+@import "./components/modals.css";
+@import "./components/tabs.css";
+@import "./components/loaders.css";
+@import "./components/dragdrop.css";
+@import "./components/toggles.css";
+@import "./components/nav.css";
+@import "./components/boxes.css";
+@import "./components/dropdown.css";
+@import "./components/table.css";
+@import "./components/forms.css";
+@import "./components/calendar.css";
+@import "./components/kanban.css";
+@import "./components/pages.css";

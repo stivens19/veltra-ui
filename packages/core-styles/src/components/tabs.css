@@ -1,0 +1,94 @@
+/* VeltraUI Navbars & Tab Systems */
+
+/* 1. Base Tabs Nav */
+.vlt-tabs {
+    @apply flex items-center gap-1 list-none p-0 m-0 select-none;
+
+    .vlt-tab-item {
+        @apply inline-block;
+    }
+
+    .vlt-tab-link {
+        @apply inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 transition-all cursor-pointer;
+
+        &.active {
+            @apply text-cyan-600 dark:text-cyan-400 font-bold;
+        }
+    }
+}
+
+/* Line / Underline Tabs */
+.vlt-tabs-line {
+    @apply border-b border-slate-200/80 dark:border-slate-800 gap-4;
+
+    .vlt-tab-link {
+        @apply border-b-2 border-transparent -mb-px px-1 py-3 text-slate-500 hover:border-slate-300;
+
+        &.active {
+            @apply border-cyan-500 text-cyan-600 dark:text-cyan-400;
+        }
+    }
+}
+
+/* Pill / Segmented Tabs */
+.vlt-tabs-pills {
+    @apply bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200/80 dark:border-slate-700;
+
+    .vlt-tab-link {
+        @apply rounded-lg py-1.5 px-3 text-slate-600 dark:text-slate-300;
+
+        &.active {
+            @apply bg-white dark:bg-slate-900 text-cyan-600 dark:text-cyan-400 shadow-xs border border-slate-200/60 dark:border-slate-700/60;
+        }
+    }
+}
+
+/* Card Header Tabs (VeltraUI Integration) */
+.vlt-card-tabs {
+    .vlt-card-header {
+        @apply p-0 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between px-5;
+
+        .vlt-tabs {
+            @apply border-b-0;
+        }
+    }
+}
+
+/* Vertical Tabs */
+.vlt-tabs-vertical {
+    @apply flex-col items-stretch space-y-1 w-48 shrink-0 border-r border-slate-200/80 dark:border-slate-800 pr-3;
+
+    .vlt-tab-link {
+        @apply w-full rounded-xl justify-start px-3.5 py-2.5 text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800;
+
+        &.active {
+            @apply bg-cyan-50/80 text-cyan-700 dark:bg-cyan-950/40 dark:text-cyan-300 font-bold border border-cyan-200/70 dark:border-cyan-800/60;
+        }
+    }
+}
+
+/* Tab Panes */
+.vlt-tab-content {
+    @apply py-4;
+
+    .vlt-tab-pane {
+        @apply hidden;
+
+        &.active {
+            display: block !important;
+            animation: vlt-fade-in 0.18s ease-in-out;
+        }
+    }
+}
+
+@keyframes vlt-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

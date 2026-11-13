@@ -1,0 +1,69 @@
+/* VeltraUI Drag and Drop File Zone & Sortable Lists */
+
+/* 1. Drag & Drop Upload Zone */
+.vlt-dropzone {
+    @apply border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50/70 dark:bg-slate-800/40 hover:bg-cyan-50/40 hover:border-cyan-500 rounded-2xl p-8 flex flex-col items-center justify-center text-center transition-all duration-200 cursor-pointer select-none relative;
+
+    &.dragover {
+        @apply border-cyan-500 bg-cyan-50/80 dark:bg-cyan-950/40 scale-[1.01] shadow-lg shadow-cyan-500/10;
+    }
+
+    .vlt-dropzone-icon {
+        @apply w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 dark:bg-cyan-950/60 dark:text-cyan-400 flex items-center justify-center mb-3 shadow-xs border border-cyan-200/60 dark:border-cyan-800/60;
+    }
+
+    .vlt-dropzone-title {
+        @apply font-bold text-slate-800 dark:text-white text-sm mb-1;
+    }
+
+    .vlt-dropzone-desc {
+        @apply text-xs text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed;
+    }
+}
+
+/* 2. File Preview List Item */
+.vlt-file-item {
+    @apply p-3 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center gap-3 shadow-xs transition-all;
+
+    .vlt-file-icon {
+        @apply w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 flex items-center justify-center shrink-0;
+    }
+
+    .vlt-file-info {
+        @apply flex-1 min-w-0;
+    }
+
+    .vlt-file-name {
+        @apply font-semibold text-xs text-slate-800 dark:text-white truncate block;
+    }
+
+    .vlt-file-meta {
+        @apply text-[11px] text-slate-400 flex items-center gap-2;
+    }
+
+    .vlt-file-remove {
+        @apply text-slate-400 hover:text-rose-600 cursor-pointer p-1 rounded-md hover:bg-rose-50 transition-colors shrink-0;
+    }
+}
+
+/* 3. Drag & Drop Sortable List */
+.vlt-sortable-list {
+    @apply space-y-2 select-none;
+
+    .vlt-sortable-item {
+        @apply p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-between gap-3 shadow-xs transition-all cursor-grab active:cursor-grabbing;
+
+        &:hover {
+            @apply border-cyan-300 dark:border-cyan-700 shadow-sm;
+        }
+
+        &.dragging {
+            @apply opacity-50 border-cyan-500 scale-95 shadow-lg shadow-cyan-500/20 bg-cyan-50/30;
+        }
+
+        .vlt-sortable-handle {
+            @apply text-slate-400 hover:text-slate-600 dark:text-slate-500 transition-colors cursor-grab active:cursor-grabbing shrink-0;
+        }
+    }
+}
+

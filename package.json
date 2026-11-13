@@ -1,0 +1,36 @@
+{
+  "name": "veltra-ui",
+  "version": "1.0.0",
+  "description": "Enterprise-grade, ultra-lightweight Admin UI Suite built with pure Tailwind CSS v4 and Vanilla JS",
+  "private": true,
+  "author": "Stivens Espinoza <stivens70espinoza@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "veltra-ui",
+    "admin-dashboard",
+    "tailwindcss-v4",
+    "ui-kit",
+    "enterprise-ui",
+    "blade-components",
+    "dark-mode"
+  ],
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"@veltra-ui/*\" dev",
+    "docs:dev": "pnpm --filter docs dev",
+    "docs:preview": "pnpm --filter docs preview",
+    "build": "pnpm --filter \"@veltra-ui/*\" build",
+    "build:all": "pnpm --filter \"@veltra-ui/*\" build && pnpm --filter docs build && node scripts/sync-dist.js"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.18.0",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.18.0",
+  "type": "module",
+  "devDependencies": {
+    "puppeteer-core": "^25.17.0"
+  }
+}

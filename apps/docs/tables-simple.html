@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es" >
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veltra UI - Simple Tables</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="/src/style.css" />
+  
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('veltra-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body class="vlt-grid-bg text-slate-800 antialiased selection:bg-cyan-500 selection:text-white bg-slate-50 dark:bg-slate-950 dark:text-slate-100">
+  <div class="vlt-wrapper">
+    <!-- Mobile Backdrop -->
+    <div class="vlt-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+        <!-- Sidebar Navigation -->
+        <!-- Sidebar Navigation -->
+    <aside class="vlt-sidebar border-r border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md">
+      <!-- Sidebar Brand Header -->
+      <div class="vlt-sidebar-brand">
+        <a href="/index.html" class="brand-link">
+          <img src="/logo.png" alt="VeltraUI" class="brand-logo" />
+          <span class="brand-text">
+            Veltra<span class="text-cyan-500">UI</span>
+          </span>
+        </a>
+        
+      </div>
+
+      <!-- User Panel -->
+      <div class="vlt-sidebar-user">
+        <div class="relative shrink-0">
+          <img class="user-avatar" src="/avatar.jpg" alt="Stivens Espinoza" />
+          <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white dark:border-slate-800 rounded-full"></span>
+        </div>
+        <div class="user-info">
+          <p class="user-name">Stivens Espinoza</p>
+          <span class="user-role">Administrator</span>
+        </div>
+      </div>
+
+      <!-- Sidebar Search -->
+      <div class="px-3 py-2">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 pointer-events-none"></i>
+          <input type="text" placeholder="Search menu..." class="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:bg-slate-950 dark:text-slate-100" />
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <ul class="vlt-nav">
+        <li class="vlt-nav-header">MAIN NAVIGATION</li>
+
+        <!-- Item: Dashboard -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="gauge" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Dashboard</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/index.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v1</span></a></li>
+            <li class="vlt-nav-item"><a href="/index2.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v2</span></a></li>
+            <li class="vlt-nav-item"><a href="/index3.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v3</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Widgets -->
+        <li class="vlt-nav-item">
+          <a href="/widgets.html" class="vlt-nav-link ">
+            <i data-lucide="layout-grid" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Widgets</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-danger">New</span>
+          </a>
+        </li>
+
+        <!-- Item: Layout Options -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="copy" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Layout Options</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">6</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/layout-top-nav.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Top Navigation</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-top-nav-sidebar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Top Nav + Sidebar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-boxed.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Boxed</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-fixed-sidebar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Fixed Sidebar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-fixed-navbar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Fixed Navbar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-collapsed-sidebar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Collapsed Sidebar</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Page Start -->
+        <li class="vlt-nav-item">
+          <a href="/page-start.html" class="vlt-nav-link ">
+            <i data-lucide="play-circle" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Page Start</span>
+          </a>
+        </li>
+        <!-- Item: Documentation -->
+        <li class="vlt-nav-item ">
+          <a href="/docs.html" class="vlt-nav-link text-cyan-600 dark:text-cyan-400 font-semibold">
+            <i data-lucide="book-open" class="vlt-nav-icon text-cyan-500"></i>
+            <span class="vlt-nav-text">Documentation</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-primary">ES/EN</span>
+          </a>
+        </li>
+
+<li class="vlt-nav-header">COMPONENTS</li>
+
+        <!-- Item: UI Elements -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="palette" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">UI Elements</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/ui-general.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">General</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-icons.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Icons</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-buttons.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Buttons</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-modals.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Modals & Alerts</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-navbar-tabs.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Navbar & Tabs</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Forms -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="file-edit" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Forms</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/forms-general.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">General Elements</span></a></li>
+            <li class="vlt-nav-item"><a href="/forms-advanced.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Advanced Elements</span></a></li>
+            <li class="vlt-nav-item"><a href="/forms-validation.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Validation</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Tables -->
+        <li class="vlt-nav-item is-open">
+          <a class="vlt-nav-link active" data-vlt-toggle="treeview">
+            <i data-lucide="table" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Tables</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/tables-simple.html" class="vlt-nav-link active font-bold text-cyan-600"><i data-lucide="circle-dot" class="w-3.5 h-3.5 text-cyan-500"></i><span class="vlt-nav-text">Simple Tables</span></a></li>
+            <li class="vlt-nav-item"><a href="/tables-datatables.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">DataTables</span></a></li>
+            <li class="vlt-nav-item"><a href="/tables-jsgrid.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">jsGrid</span></a></li>
+          </ul>
+        </li>
+
+        <li class="vlt-nav-header">EXAMPLES</li>
+
+        <!-- Item: Calendar -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="calendar" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Calendar</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">3</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/calendar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Calendario General</span></a></li>
+            <li class="vlt-nav-item"><a href="/calendar-team.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Equipo & Reuniones</span></a></li>
+            <li class="vlt-nav-item"><a href="/calendar-workload.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Carga Horaria & Heatmap</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Kanban Board -->
+        <li class="vlt-nav-item">
+          <a href="/kanban.html" class="vlt-nav-link ">
+            <i data-lucide="trello" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Kanban Board</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">7</span>
+          </a>
+        </li>
+
+        <!-- Item: Pages -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="book-open" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Pages</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/pages-pos.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">POS Terminal</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-invoice.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Invoice</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-profile.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Profile</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-ecommerce.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">E-commerce</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-projects.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Projects</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-contacts.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Contacts</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-pricing.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Pricing</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-faq.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">FAQ</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-login.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Login</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-register.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Register</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-lockscreen.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Lockscreen</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-forgot-password.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Forgot Password</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-404.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Error 404</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-500.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Error 500</span></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Bottom System Status Pill -->
+      <div class="p-4 border-t border-slate-200/60 dark:border-slate-800">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+          <span class="vlt-pill vlt-pill-emerald py-0.5 px-2.5">
+            <span class="pill-dot"></span>
+            <span>Online</span>
+          </span>
+          <span class="font-mono text-[11px] text-slate-400">v1.0.0</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="vlt-main">
+      <!-- Header -->
+                  <header class="vlt-header">
+        <div class="flex items-center gap-3">
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="sidebar" title="Colapsar Menú"><i data-lucide="menu" class="w-4 h-4"></i></button>
+
+          <div class="hidden sm:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
+            <a href="/index.html" class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <span>OP 1</span>
+            </a>
+            <a href="/index2.html" class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <span>OP 2</span>
+            </a>
+            <a href="/pages-pos.html" class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <i data-lucide="shopping-cart" class="w-3.5 h-3.5 text-slate-400"></i><span>POS</span>
+            </a>
+          </div>
+
+                    <a href="/docs.html" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-xl bg-cyan-50 dark:bg-cyan-950/60 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 text-cyan-700 dark:text-cyan-300 border border-cyan-200/80 dark:border-cyan-800 transition-colors shadow-xs" title="Documentation">
+            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+            <span>Documentation</span>
+          </a>
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="search-modal" title="Buscar (Ctrl+K)"><i data-lucide="search" class="w-4 h-4"></i></button>
+        </div>
+
+        <div class="flex items-center gap-1.5">
+          <!-- Messages Dropdown -->
+          <div class="vlt-dropdown hidden sm:inline-block">
+            <button type="button" class="vlt-btn-icon relative" data-vlt-toggle="dropdown" title="Messages">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full"></span>
+            </button>
+            <div class="vlt-dropdown-menu vlt-dropdown-menu-lg">
+              <div class="vlt-dropdown-header"><span class="font-bold text-slate-800 dark:text-slate-100">3 Messages</span></div>
+              <a href="#" class="vlt-dropdown-item">
+                <img class="w-8 h-8 rounded-full object-cover shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" alt="Avatar" />
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="font-bold text-slate-900 dark:text-white truncate">Brad Diesel</span>
+                    <span class="text-[10px] text-rose-500 font-semibold">4 hrs</span>
+                  </div>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">Llamada técnica a las 4:00 PM...</p>
+                </div>
+              </a>
+              <div class="vlt-dropdown-footer"><a href="#">Ver todos los mensajes</a></div>
+            </div>
+          </div>
+
+          <!-- Notifications Dropdown -->
+          <div class="vlt-dropdown">
+            <button type="button" class="vlt-btn-icon relative" data-vlt-toggle="dropdown" title="Notifications">
+              <i data-lucide="bell" class="w-4 h-4"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-amber-500 rounded-full"></span>
+            </button>
+            <div class="vlt-dropdown-menu vlt-dropdown-menu-md">
+              <div class="vlt-dropdown-header"><span class="font-bold text-slate-800 dark:text-slate-100">15 Notificaciones</span></div>
+              <a href="#" class="vlt-dropdown-item"><i data-lucide="mail" class="w-4 h-4 text-cyan-500 mr-2 shrink-0"></i><span class="flex-1 text-xs">4 nuevos mensajes</span></a>
+              <a href="#" class="vlt-dropdown-item"><i data-lucide="user-plus" class="w-4 h-4 text-emerald-500 mr-2 shrink-0"></i><span class="flex-1 text-xs">8 solicitudes</span></a>
+              <div class="vlt-dropdown-footer"><a href="#">Ver todas las notificaciones</a></div>
+            </div>
+          </div>
+
+          <!-- Fullscreen Toggle -->
+          <button type="button" class="vlt-btn-icon hidden sm:inline-flex" data-vlt-toggle="fullscreen" title="Pantalla Completa"><i data-lucide="maximize" class="w-4 h-4"></i></button>
+
+          <!-- Theme Toggle -->
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="theme" title="Alternar Tema Claro/Oscuro"><i data-lucide="sun-medium" class="w-4 h-4"></i></button>
+
+          <!-- User Menu -->
+          <div class="vlt-dropdown">
+            <button type="button" class="flex items-center gap-2 p-1 pl-1.5 pr-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ml-1 cursor-pointer" data-vlt-toggle="dropdown">
+              <img class="w-7 h-7 rounded-full object-cover ring-2 ring-cyan-500/40" src="/avatar.jpg" alt="Stivens Espinoza" />
+              <div class="hidden md:block text-left text-xs leading-tight">
+                <span class="font-bold text-slate-800 dark:text-slate-100 block">Stivens Espinoza</span>
+                <span class="text-[10px] text-slate-500 dark:text-slate-400">Admin</span>
+              </div>
+            </button>
+            <div class="vlt-dropdown-menu w-56">
+              <div class="px-4 py-3 border-b border-slate-100 dark:border-slate-800">
+                <p class="text-xs text-slate-500 dark:text-slate-400">Conectado como</p>
+                <p class="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">admin@example.com</p>
+              </div>
+              <a href="/pages-profile.html" class="vlt-dropdown-item"><i data-lucide="user" class="w-4 h-4 mr-2 text-slate-400"></i>Perfil</a>
+              <a href="/pages-invoice.html" class="vlt-dropdown-item"><i data-lucide="receipt" class="w-4 h-4 mr-2 text-slate-400"></i>Facturación</a>
+              <div class="vlt-dropdown-divider"></div>
+              <a href="/pages-login.html" class="vlt-dropdown-item text-rose-500 hover:text-rose-600"><i data-lucide="log-out" class="w-4 h-4 mr-2"></i>Cerrar Sesión</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Header -->
+      <section class="vlt-content-header">
+        <div>
+          <h1 class="vlt-page-title">Simple Tables</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Variantes de tablas estándar: cebradas, con bordes, condensadas, filas contextuales y barras de progreso.</p>
+        </div>
+        <nav class="vlt-breadcrumb">
+          <a href="/index.html">Home</a>
+          <span>/</span>
+          <a href="/tables-simple.html">Tables</a>
+          <span>/</span>
+          <span class="active">Simple Tables</span>
+        </nav>
+      </section>
+
+      <!-- Main Content Grid -->
+      <main class="vlt-content space-y-8">
+
+        <!-- Row 1: Bordered Table with Progress & Striped Table -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+          <!-- Card 1: Bordered Table with Progress -->
+          <div class="vlt-card border border-slate-200/80 bg-white shadow-xs">
+            <div class="vlt-card-header p-5 border-b border-slate-100 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i data-lucide="grid" class="w-4 h-4 text-cyan-500"></i>
+                <h3 class="font-bold text-slate-800 text-sm">Bordered Table (.vlt-table-bordered)</h3>
+              </div>
+              <span class="vlt-badge vlt-badge-cyan">Bordered</span>
+            </div>
+            <div class="p-6">
+              <div class="vlt-table-container">
+                <table class="vlt-table vlt-table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="w-12 text-center">#</th>
+                      <th>Tarea</th>
+                      <th>Progreso</th>
+                      <th class="w-20 text-center">Etiqueta</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center font-mono font-bold text-slate-400">1.</td>
+                      <td class="font-semibold text-slate-800">Actualizar Software v1.2</td>
+                      <td>
+                        <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                          <div class="bg-rose-500 h-2 rounded-full" style="width: 55%"></div>
+                        </div>
+                      </td>
+                      <td class="text-center"><span class="vlt-badge vlt-badge-danger">55%</span></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center font-mono font-bold text-slate-400">2.</td>
+                      <td class="font-semibold text-slate-800">Depurar Base de Datos</td>
+                      <td>
+                        <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                          <div class="bg-amber-500 h-2 rounded-full" style="width: 70%"></div>
+                        </div>
+                      </td>
+                      <td class="text-center"><span class="vlt-badge vlt-badge-warning">70%</span></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center font-mono font-bold text-slate-400">3.</td>
+                      <td class="font-semibold text-slate-800">Migración de Servidor Cloud</td>
+                      <td>
+                        <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                          <div class="bg-cyan-500 h-2 rounded-full" style="width: 30%"></div>
+                        </div>
+                      </td>
+                      <td class="text-center"><span class="vlt-badge vlt-badge-cyan">30%</span></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center font-mono font-bold text-slate-400">4.</td>
+                      <td class="font-semibold text-slate-800">Auditoría de Seguridad</td>
+                      <td>
+                        <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                          <div class="bg-emerald-500 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                      </td>
+                      <td class="text-center"><span class="vlt-badge vlt-badge-emerald">90%</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Striped Full Width Table -->
+          <div class="vlt-card border border-slate-200/80 bg-white shadow-xs">
+            <div class="vlt-card-header p-5 border-b border-slate-100 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i data-lucide="align-justify" class="w-4 h-4 text-emerald-500"></i>
+                <h3 class="font-bold text-slate-800 text-sm">Striped Table (.vlt-table-striped)</h3>
+              </div>
+              <span class="vlt-badge vlt-badge-emerald">Zebra</span>
+            </div>
+            <div class="p-6">
+              <div class="vlt-table-container">
+                <table class="vlt-table vlt-table-striped">
+                  <thead>
+                    <tr>
+                      <th class="w-12 text-center">#</th>
+                      <th>Miembro</th>
+                      <th>Especialidad</th>
+                      <th class="text-center">Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center font-mono font-bold text-slate-400">1.</td>
+                      <td class="font-bold text-slate-900">Stivens Espinoza</td>
+                      <td><span class="vlt-tag-code">Lead Architect</span></td>
+                      <td class="text-center"><span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-xs"><span class="pill-dot"></span>Online</span></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center font-mono font-bold text-slate-400">2.</td>
+                      <td class="font-bold text-slate-900">Sarah Bullock</td>
+                      <td><span class="vlt-tag-code">Frontend Lead</span></td>
+                      <td class="text-center"><span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-xs"><span class="pill-dot"></span>Activo</span></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center font-mono font-bold text-slate-400">3.</td>
+                      <td class="font-bold text-slate-900">Carlos Mendez</td>
+                      <td><span class="vlt-tag-code">Backend Core</span></td>
+                      <td class="text-center"><span class="vlt-pill vlt-pill-amber py-0.5 px-2 text-xs"><span class="pill-dot"></span>Ausente</span></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center font-mono font-bold text-slate-400">4.</td>
+                      <td class="font-bold text-slate-900">David Alvarez</td>
+                      <td><span class="vlt-tag-code">DevOps Lead</span></td>
+                      <td class="text-center"><span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-xs"><span class="pill-dot"></span>Online</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Row 2: Condensed Table & Contextual Row States -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+          <!-- Card 3: Condensed Table -->
+          <div class="vlt-card border border-slate-200/80 bg-white shadow-xs">
+            <div class="vlt-card-header p-5 border-b border-slate-100 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i data-lucide="minimize-2" class="w-4 h-4 text-cyan-500"></i>
+                <h3 class="font-bold text-slate-800 text-sm">Condensed Table (.vlt-table-sm)</h3>
+              </div>
+              <span class="vlt-badge vlt-badge-slate">Compact</span>
+            </div>
+            <div class="p-6">
+              <div class="vlt-table-container">
+                <table class="vlt-table vlt-table-sm vlt-table-striped">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Servicio</th>
+                      <th>Latencia</th>
+                      <th>Uptime</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="font-mono text-slate-400">#SRV-01</td>
+                      <td class="font-bold text-slate-800">Auth Gateway</td>
+                      <td class="font-mono text-emerald-600">18ms</td>
+                      <td><span class="vlt-badge vlt-badge-emerald">99.98%</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-mono text-slate-400">#SRV-02</td>
+                      <td class="font-bold text-slate-800">Database Replica</td>
+                      <td class="font-mono text-cyan-600">24ms</td>
+                      <td><span class="vlt-badge vlt-badge-cyan">99.95%</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-mono text-slate-400">#SRV-03</td>
+                      <td class="font-bold text-slate-800">Search Engine Index</td>
+                      <td class="font-mono text-amber-600">82ms</td>
+                      <td><span class="vlt-badge vlt-badge-warning">98.50%</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-mono text-slate-400">#SRV-04</td>
+                      <td class="font-bold text-slate-800">Storage S3 Cluster</td>
+                      <td class="font-mono text-emerald-600">12ms</td>
+                      <td><span class="vlt-badge vlt-badge-emerald">100.0%</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Contextual Row Colors -->
+          <div class="vlt-card border border-slate-200/80 bg-white shadow-xs">
+            <div class="vlt-card-header p-5 border-b border-slate-100 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i data-lucide="palette" class="w-4 h-4 text-cyan-500"></i>
+                <h3 class="font-bold text-slate-800 text-sm">Contextual Rows (.row-*)</h3>
+              </div>
+              <span class="vlt-badge vlt-badge-cyan">Feedback</span>
+            </div>
+            <div class="p-6">
+              <div class="vlt-table-container">
+                <table class="vlt-table">
+                  <thead>
+                    <tr>
+                      <th>Estado</th>
+                      <th>Evento</th>
+                      <th>Impacto</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="row-success">
+                      <td class="font-bold flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i><span>Éxito</span></td>
+                      <td>Despliegue en producción completado</td>
+                      <td class="font-mono font-bold">Sin caídas</td>
+                    </tr>
+                    <tr class="row-info">
+                      <td class="font-bold flex items-center gap-1.5"><i data-lucide="info" class="w-4 h-4 text-cyan-600"></i><span>Informativo</span></td>
+                      <td>Copia de seguridad automática iniciada</td>
+                      <td class="font-mono font-bold">2.4 GB</td>
+                    </tr>
+                    <tr class="row-warning">
+                      <td class="font-bold flex items-center gap-1.5"><i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600"></i><span>Aviso</span></td>
+                      <td>Uso de memoria al 84% en cluster B</td>
+                      <td class="font-mono font-bold">Atención</td>
+                    </tr>
+                    <tr class="row-danger">
+                      <td class="font-bold flex items-center gap-1.5"><i data-lucide="alert-octagon" class="w-4 h-4 text-rose-600"></i><span>Peligro</span></td>
+                      <td>Intento de acceso denegado por firewall</td>
+                      <td class="font-mono font-bold">Bloqueado</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+
+      <footer class="vlt-footer">
+        <div class="flex items-center gap-2">
+          <span><strong>Copyright &copy; 2026 <a href="#" class="text-cyan-600 hover:underline">Veltra UI</a>.</strong> All rights reserved.</span>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-semibold">
+          <b>Version</b> 1.0.0
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+
+  <!-- Search Command Palette Modal -->
+  <div id="vlt-search-modal" class="fixed inset-0 z-50 hidden flex-col items-center justify-start pt-16 sm:pt-24 px-4 bg-slate-950/50 backdrop-blur-sm transition-opacity">
+    <div class="vlt-modal-card w-full max-w-xl bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      <div class="flex items-center px-4 py-3.5 border-b border-slate-100 dark:border-slate-800 gap-3">
+        <i data-lucide="search" class="w-5 h-5 text-cyan-500 shrink-0"></i>
+        <input id="vlt-modal-search-input" type="text" placeholder="Buscar páginas, dashboards, componentes..." class="w-full bg-transparent text-sm text-slate-800 dark:text-slate-100 outline-none placeholder:text-slate-400" autocomplete="off" />
+        <kbd class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono font-bold bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-slate-400">ESC</kbd>
+        <button type="button" class="vlt-btn-icon text-slate-400 hover:text-slate-700 dark:hover:text-white" data-vlt-close="search-modal" title="Cerrar"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <div id="vlt-search-results" class="max-h-80 overflow-y-auto p-2 space-y-1">
+        <div class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400">Tablas</div>
+        <a href="/tables-simple.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3"><i data-lucide="table" class="w-4 h-4 text-cyan-600"></i><span>Simple Tables</span></div>
+          <span class="text-[10px] text-slate-400">Tables</span>
+        </a>
+        <a href="/tables-datatables.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3"><i data-lucide="database" class="w-4 h-4 text-cyan-600"></i><span>DataTables Avanzadas</span></div>
+          <span class="text-[10px] text-slate-400">Tables</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es" >
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veltra UI - Iniciar Sesión (Login)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="/src/style.css" />
+  
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('veltra-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body class="vlt-grid-bg text-slate-800 antialiased selection:bg-cyan-500 selection:text-white bg-slate-50 min-h-screen flex flex-col justify-between dark:bg-slate-950 dark:text-slate-100">
+  
+  <!-- Subtle decorative ambient lights -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-b from-cyan-400/15 to-transparent blur-3xl pointer-events-none -z-10"></div>
+
+  <!-- Header Mini Navigation -->
+  <header class="p-6 flex items-center justify-between max-w-6xl mx-auto w-full">
+    <a href="/index.html" class="flex items-center gap-2.5 group">
+      <img src="/logo.png" alt="VeltraUI" class="w-8 h-8 rounded-xl object-contain shadow-xs" />
+      <span class="text-lg font-black text-slate-900 tracking-tight">
+        Veltra<span class="text-cyan-500">UI</span>
+      </span>
+    </a>
+    <a href="/index.html" class="text-xs font-bold text-slate-500 hover:text-cyan-600 flex items-center gap-1.5 transition-colors">
+      <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Volver al Dashboard
+    </a>
+  </header>
+
+  <!-- Auth Card Center Container -->
+  <main class="flex-1 flex items-center justify-center p-4 sm:p-6">
+    <div class="vlt-auth-card">
+      
+      <!-- Card Title & Intro -->
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/40 text-cyan-600 flex items-center justify-center mx-auto mb-3 shadow-xs">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Iniciar Sesión</h1>
+        <p class="text-xs text-slate-500 mt-1">Ingresa tus credenciales para acceder a la consola VeltraUI.</p>
+      </div>
+
+      <!-- Quick Demo Credentials Banner -->
+      <div class="mb-5 p-3 rounded-2xl bg-cyan-50/70 border border-cyan-200/60 flex items-center justify-between text-xs cursor-pointer hover:bg-cyan-50 transition-colors" onclick="fillDemoCredentials()" title="Clic para autocompletar">
+        <div class="flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-cyan-600 shrink-0"></i>
+          <div>
+            <span class="font-bold text-slate-800 block">Acceso Rápido Demo</span>
+            <span class="text-[11px] text-slate-500 font-mono">admin@example.com / admin123</span>
+          </div>
+        </div>
+        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-white text-cyan-700 shadow-2xs border border-cyan-200">
+          Autocompletar
+        </span>
+      </div>
+
+      <!-- Social Logins -->
+      <div class="grid grid-cols-2 gap-3 mb-5">
+        <button type="button" class="py-2.5 px-3 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold flex items-center justify-center gap-2 transition-colors cursor-pointer dark:bg-slate-950 dark:text-slate-100" onclick="alert('Autenticación mediante Google OAuth 2.0')">
+          <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.7-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.8s.2-2.1.4-2.8L1.9 6.3C.7 8.7 0 10.3 0 12s.7 3.3 1.9 5.7l3.7-2.9z"/><path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2-6.4-4.8L1.9 16.4C3.7 20.4 7.5 23 12 23z"/></svg>
+          Google
+        </button>
+        <button type="button" class="py-2.5 px-3 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold flex items-center justify-center gap-2 transition-colors cursor-pointer dark:bg-slate-950 dark:text-slate-100" onclick="alert('Autenticación mediante GitHub Enterprise')">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          GitHub
+        </button>
+      </div>
+
+      <!-- Divider -->
+      <div class="relative flex py-2 items-center mb-5">
+        <div class="flex-grow border-t border-slate-200"></div>
+        <span class="flex-shrink mx-3 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">o con correo</span>
+        <div class="flex-grow border-t border-slate-200"></div>
+      </div>
+
+      <!-- Login Form -->
+      <form class="space-y-4" onsubmit="event.preventDefault(); window.location.href='/index.html';">
+        <!-- Email Input -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Correo Electrónico</label>
+          <div class="relative">
+            <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3.5 top-2.5 pointer-events-none"></i>
+            <input id="login-email" type="email" required placeholder="nombre@empresa.com" class="w-full pl-10 pr-3 py-2 text-xs rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-cyan-500 text-slate-800 placeholder:text-slate-400 dark:bg-slate-950 dark:text-slate-100" />
+          </div>
+        </div>
+
+        <!-- Password Input -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="block text-xs font-bold text-slate-700">Contraseña</label>
+            <a href="#" class="text-[11px] font-bold text-cyan-600 hover:underline">¿La olvidaste?</a>
+          </div>
+          <div class="relative">
+            <i data-lucide="lock" class="w-4 h-4 text-slate-400 absolute left-3.5 top-2.5 pointer-events-none"></i>
+            <input id="login-password" type="password" required placeholder="••••••••" class="w-full pl-10 pr-10 py-2 text-xs rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-cyan-500 text-slate-800 placeholder:text-slate-400 dark:bg-slate-950 dark:text-slate-100" />
+            <button type="button" class="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600 cursor-pointer" onclick="togglePasswordVisibility('login-password', this)">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Remember Me Checkbox -->
+        <div class="flex items-center justify-between pt-1">
+          <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-600 select-none">
+            <input type="checkbox" checked class="w-4 h-4 accent-cyan-600 rounded cursor-pointer" />
+            <span>Recordar este equipo por 30 días</span>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-cyan-500/20 cursor-pointer transition-all mt-2">
+          <span>Acceder a la Consola</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </form>
+
+      <!-- Card Footer -->
+      <div class="mt-6 pt-5 border-t border-slate-100 text-center text-xs text-slate-500">
+        ¿Aún no tienes cuenta?
+        <a href="/pages-register.html" class="font-bold text-cyan-600 hover:underline ml-1">Crear una cuenta gratis</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Simple Footer -->
+  <footer class="p-6 text-center text-xs text-slate-400">
+    <p>&copy; 2026 VeltraUI Technologies. Todos los derechos reservados.</p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+  <script>
+    function togglePasswordVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.innerHTML = '<i data-lucide="eye-off" class="w-4 h-4"></i>';
+      } else {
+        input.type = 'password';
+        btn.innerHTML = '<i data-lucide="eye" class="w-4 h-4"></i>';
+      }
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function fillDemoCredentials() {
+      document.getElementById('login-email').value = 'admin@example.com';
+      document.getElementById('login-password').value = 'admin123';
+    }
+  </script>
+</body>
+</html>
+

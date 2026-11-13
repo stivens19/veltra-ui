@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es" >
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veltra UI - jsGrid & Tablas Editables</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="/src/style.css" />
+  
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('veltra-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body class="vlt-grid-bg text-slate-800 antialiased selection:bg-cyan-500 selection:text-white bg-slate-50 dark:bg-slate-950 dark:text-slate-100">
+  <div class="vlt-wrapper">
+    <!-- Mobile Backdrop -->
+    <div class="vlt-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+        <!-- Sidebar Navigation -->
+        <!-- Sidebar Navigation -->
+    <aside class="vlt-sidebar border-r border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md">
+      <!-- Sidebar Brand Header -->
+      <div class="vlt-sidebar-brand">
+        <a href="/index.html" class="brand-link">
+          <img src="/logo.png" alt="VeltraUI" class="brand-logo" />
+          <span class="brand-text">
+            Veltra<span class="text-cyan-500">UI</span>
+          </span>
+        </a>
+        
+      </div>
+
+      <!-- User Panel -->
+      <div class="vlt-sidebar-user">
+        <div class="relative shrink-0">
+          <img class="user-avatar" src="/avatar.jpg" alt="Stivens Espinoza" />
+          <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white dark:border-slate-800 rounded-full"></span>
+        </div>
+        <div class="user-info">
+          <p class="user-name">Stivens Espinoza</p>
+          <span class="user-role">Administrator</span>
+        </div>
+      </div>
+
+      <!-- Sidebar Search -->
+      <div class="px-3 py-2">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 pointer-events-none"></i>
+          <input type="text" placeholder="Search menu..." class="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:bg-slate-950 dark:text-slate-100" />
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <ul class="vlt-nav">
+        <li class="vlt-nav-header">MAIN NAVIGATION</li>
+
+        <!-- Item: Dashboard -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="gauge" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Dashboard</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/index.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v1</span></a></li>
+            <li class="vlt-nav-item"><a href="/index2.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v2</span></a></li>
+            <li class="vlt-nav-item"><a href="/index3.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v3</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Widgets -->
+        <li class="vlt-nav-item">
+          <a href="/widgets.html" class="vlt-nav-link ">
+            <i data-lucide="layout-grid" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Widgets</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-danger">New</span>
+          </a>
+        </li>
+
+        <!-- Item: Layout Options -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="copy" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Layout Options</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">6</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/layout-top-nav.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Top Navigation</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-top-nav-sidebar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Top Nav + Sidebar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-boxed.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Boxed</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-fixed-sidebar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Fixed Sidebar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-fixed-navbar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Fixed Navbar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-collapsed-sidebar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Collapsed Sidebar</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Page Start -->
+        <li class="vlt-nav-item">
+          <a href="/page-start.html" class="vlt-nav-link ">
+            <i data-lucide="play-circle" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Page Start</span>
+          </a>
+        </li>
+        <!-- Item: Documentation -->
+        <li class="vlt-nav-item ">
+          <a href="/docs.html" class="vlt-nav-link text-cyan-600 dark:text-cyan-400 font-semibold">
+            <i data-lucide="book-open" class="vlt-nav-icon text-cyan-500"></i>
+            <span class="vlt-nav-text">Documentation</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-primary">ES/EN</span>
+          </a>
+        </li>
+
+<li class="vlt-nav-header">COMPONENTS</li>
+
+        <!-- Item: UI Elements -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="palette" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">UI Elements</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/ui-general.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">General</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-icons.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Icons</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-buttons.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Buttons</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-modals.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Modals & Alerts</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-navbar-tabs.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Navbar & Tabs</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Forms -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="file-edit" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Forms</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/forms-general.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">General Elements</span></a></li>
+            <li class="vlt-nav-item"><a href="/forms-advanced.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Advanced Elements</span></a></li>
+            <li class="vlt-nav-item"><a href="/forms-validation.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Validation</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Tables -->
+        <li class="vlt-nav-item is-open">
+          <a class="vlt-nav-link active" data-vlt-toggle="treeview">
+            <i data-lucide="table" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Tables</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/tables-simple.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Simple Tables</span></a></li>
+            <li class="vlt-nav-item"><a href="/tables-datatables.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">DataTables</span></a></li>
+            <li class="vlt-nav-item"><a href="/tables-jsgrid.html" class="vlt-nav-link active font-bold text-cyan-600"><i data-lucide="circle-dot" class="w-3.5 h-3.5 text-cyan-500"></i><span class="vlt-nav-text">jsGrid</span></a></li>
+          </ul>
+        </li>
+
+        <li class="vlt-nav-header">EXAMPLES</li>
+
+        <!-- Item: Calendar -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="calendar" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Calendar</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">3</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/calendar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Calendario General</span></a></li>
+            <li class="vlt-nav-item"><a href="/calendar-team.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Equipo & Reuniones</span></a></li>
+            <li class="vlt-nav-item"><a href="/calendar-workload.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Carga Horaria & Heatmap</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Kanban Board -->
+        <li class="vlt-nav-item">
+          <a href="/kanban.html" class="vlt-nav-link ">
+            <i data-lucide="trello" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Kanban Board</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">7</span>
+          </a>
+        </li>
+
+        <!-- Item: Pages -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="book-open" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Pages</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/pages-pos.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">POS Terminal</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-invoice.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Invoice</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-profile.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Profile</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-ecommerce.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">E-commerce</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-projects.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Projects</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-contacts.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Contacts</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-pricing.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Pricing</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-faq.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">FAQ</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-login.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Login</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-register.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Register</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-lockscreen.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Lockscreen</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-forgot-password.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Forgot Password</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-404.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Error 404</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-500.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Error 500</span></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Bottom System Status Pill -->
+      <div class="p-4 border-t border-slate-200/60 dark:border-slate-800">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+          <span class="vlt-pill vlt-pill-emerald py-0.5 px-2.5">
+            <span class="pill-dot"></span>
+            <span>Online</span>
+          </span>
+          <span class="font-mono text-[11px] text-slate-400">v1.0.0</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="vlt-main">
+      <!-- Header -->
+                  <header class="vlt-header">
+        <div class="flex items-center gap-3">
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="sidebar" title="Colapsar Menú"><i data-lucide="menu" class="w-4 h-4"></i></button>
+
+          <div class="hidden sm:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
+            <a href="/index.html" class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <span>OP 1</span>
+            </a>
+            <a href="/index2.html" class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <span>OP 2</span>
+            </a>
+            <a href="/pages-pos.html" class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <i data-lucide="shopping-cart" class="w-3.5 h-3.5 text-slate-400"></i><span>POS</span>
+            </a>
+          </div>
+
+                    <a href="/docs.html" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-xl bg-cyan-50 dark:bg-cyan-950/60 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 text-cyan-700 dark:text-cyan-300 border border-cyan-200/80 dark:border-cyan-800 transition-colors shadow-xs" title="Documentation">
+            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+            <span>Documentation</span>
+          </a>
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="search-modal" title="Buscar (Ctrl+K)"><i data-lucide="search" class="w-4 h-4"></i></button>
+        </div>
+
+        <div class="flex items-center gap-1.5">
+          <!-- Messages Dropdown -->
+          <div class="vlt-dropdown hidden sm:inline-block">
+            <button type="button" class="vlt-btn-icon relative" data-vlt-toggle="dropdown" title="Messages">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full"></span>
+            </button>
+            <div class="vlt-dropdown-menu vlt-dropdown-menu-lg">
+              <div class="vlt-dropdown-header"><span class="font-bold text-slate-800 dark:text-slate-100">3 Messages</span></div>
+              <a href="#" class="vlt-dropdown-item">
+                <img class="w-8 h-8 rounded-full object-cover shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" alt="Avatar" />
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="font-bold text-slate-900 dark:text-white truncate">Brad Diesel</span>
+                    <span class="text-[10px] text-rose-500 font-semibold">4 hrs</span>
+                  </div>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">Llamada técnica a las 4:00 PM...</p>
+                </div>
+              </a>
+              <div class="vlt-dropdown-footer"><a href="#">Ver todos los mensajes</a></div>
+            </div>
+          </div>
+
+          <!-- Notifications Dropdown -->
+          <div class="vlt-dropdown">
+            <button type="button" class="vlt-btn-icon relative" data-vlt-toggle="dropdown" title="Notifications">
+              <i data-lucide="bell" class="w-4 h-4"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-amber-500 rounded-full"></span>
+            </button>
+            <div class="vlt-dropdown-menu vlt-dropdown-menu-md">
+              <div class="vlt-dropdown-header"><span class="font-bold text-slate-800 dark:text-slate-100">15 Notificaciones</span></div>
+              <a href="#" class="vlt-dropdown-item"><i data-lucide="mail" class="w-4 h-4 text-cyan-500 mr-2 shrink-0"></i><span class="flex-1 text-xs">4 nuevos mensajes</span></a>
+              <a href="#" class="vlt-dropdown-item"><i data-lucide="user-plus" class="w-4 h-4 text-emerald-500 mr-2 shrink-0"></i><span class="flex-1 text-xs">8 solicitudes</span></a>
+              <div class="vlt-dropdown-footer"><a href="#">Ver todas las notificaciones</a></div>
+            </div>
+          </div>
+
+          <!-- Fullscreen Toggle -->
+          <button type="button" class="vlt-btn-icon hidden sm:inline-flex" data-vlt-toggle="fullscreen" title="Pantalla Completa"><i data-lucide="maximize" class="w-4 h-4"></i></button>
+
+          <!-- Theme Toggle -->
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="theme" title="Alternar Tema Claro/Oscuro"><i data-lucide="sun-medium" class="w-4 h-4"></i></button>
+
+          <!-- User Menu -->
+          <div class="vlt-dropdown">
+            <button type="button" class="flex items-center gap-2 p-1 pl-1.5 pr-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ml-1 cursor-pointer" data-vlt-toggle="dropdown">
+              <img class="w-7 h-7 rounded-full object-cover ring-2 ring-cyan-500/40" src="/avatar.jpg" alt="Stivens Espinoza" />
+              <div class="hidden md:block text-left text-xs leading-tight">
+                <span class="font-bold text-slate-800 dark:text-slate-100 block">Stivens Espinoza</span>
+                <span class="text-[10px] text-slate-500 dark:text-slate-400">Admin</span>
+              </div>
+            </button>
+            <div class="vlt-dropdown-menu w-56">
+              <div class="px-4 py-3 border-b border-slate-100 dark:border-slate-800">
+                <p class="text-xs text-slate-500 dark:text-slate-400">Conectado como</p>
+                <p class="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">admin@example.com</p>
+              </div>
+              <a href="/pages-profile.html" class="vlt-dropdown-item"><i data-lucide="user" class="w-4 h-4 mr-2 text-slate-400"></i>Perfil</a>
+              <a href="/pages-invoice.html" class="vlt-dropdown-item"><i data-lucide="receipt" class="w-4 h-4 mr-2 text-slate-400"></i>Facturación</a>
+              <div class="vlt-dropdown-divider"></div>
+              <a href="/pages-login.html" class="vlt-dropdown-item text-rose-500 hover:text-rose-600"><i data-lucide="log-out" class="w-4 h-4 mr-2"></i>Cerrar Sesión</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Header -->
+      <section class="vlt-content-header">
+        <div>
+          <h1 class="vlt-page-title">jsGrid &amp; Tablas Editables</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Rejilla de datos interactiva con inserción rápida, edición directa en celda (CRUD), eliminación y filas expandibles tipo acordeón.</p>
+        </div>
+        <nav class="vlt-breadcrumb">
+          <a href="/index.html">Home</a>
+          <span>/</span>
+          <a href="/tables-simple.html">Tables</a>
+          <span>/</span>
+          <span class="active">jsGrid</span>
+        </nav>
+      </section>
+
+      <!-- Main Content Grid -->
+      <main class="vlt-content space-y-8">
+
+        <!-- Card 1: jsGrid / Editable CRUD Table -->
+        <div class="vlt-card border border-slate-200/80 bg-white shadow-xs">
+          
+          <div class="p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center font-bold">
+                <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-800 text-sm">CRUD en Línea (jsGrid Classic Modernized)</h3>
+                <p class="text-[11px] text-slate-400">Inserta filas en la barra superior o haz clic en Editar para modificar celdas en el acto</p>
+              </div>
+            </div>
+            <span class="vlt-badge vlt-badge-cyan">Inline Editing</span>
+          </div>
+
+          <!-- Top Quick Add Row Bar -->
+          <div class="p-4 bg-slate-50/70 border-b border-slate-200/70 dark:bg-slate-950 dark:text-slate-100">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">Añadir Nuevo Registro</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5 items-center">
+              <input type="text" id="jsgrid-add-name" placeholder="Nombre completo *" class="px-3 py-1.5 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:border-cyan-500 text-slate-800" />
+              <input type="number" id="jsgrid-add-age" placeholder="Edad (ej. 30)" class="px-3 py-1.5 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:border-cyan-500 text-slate-800" />
+              <input type="text" id="jsgrid-add-address" placeholder="Dirección" class="px-3 py-1.5 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:border-cyan-500 text-slate-800" />
+              <select id="jsgrid-add-country" class="px-3 py-1.5 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:border-cyan-500 text-slate-800 font-medium">
+                <option selected>Perú</option>
+                <option>México</option>
+                <option>España</option>
+                <option>Colombia</option>
+                <option>Estados Unidos</option>
+              </select>
+              <div class="flex items-center gap-2 px-2">
+                <input type="checkbox" id="jsgrid-add-married" class="vlt-checkbox" />
+                <label for="jsgrid-add-married" class="text-xs font-semibold text-slate-700 cursor-pointer">Casado</label>
+              </div>
+              <button type="button" id="jsgrid-btn-add" class="vlt-btn vlt-btn-primary vlt-btn-sm flex items-center justify-center gap-1.5 w-full">
+                <i data-lucide="plus" class="w-4 h-4"></i>
+                <span>Añadir Fila</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Table Container -->
+          <div class="vlt-table-container">
+            <table id="vlt-jsgrid-table" class="vlt-table vlt-table-bordered">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th class="w-20">Edad</th>
+                  <th>Dirección</th>
+                  <th>País</th>
+                  <th class="w-24 text-center">Casado</th>
+                  <th class="w-24 text-right">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row 1 -->
+                <tr>
+                  <td class="cell-name font-bold text-xs text-slate-900">Otto Clay</td>
+                  <td class="cell-age font-mono text-slate-700">32</td>
+                  <td class="cell-address text-slate-600">Ap #897-1459 Quam Avenue</td>
+                  <td class="cell-country"><span class="vlt-tag-code">Perú</span></td>
+                  <td class="cell-married text-center"><span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-xs">Sí</span></td>
+                  <td class="text-right">
+                    <div class="flex items-center justify-end gap-1.5 action-buttons">
+                      <button type="button" class="btn-edit p-1.5 rounded-lg hover:bg-cyan-50 text-slate-500 hover:text-cyan-600 transition-colors cursor-pointer" title="Editar"><i data-lucide="edit" class="w-4 h-4"></i></button>
+                      <button type="button" class="btn-delete p-1.5 rounded-lg hover:bg-rose-50 text-slate-500 hover:text-rose-600 transition-colors cursor-pointer" title="Eliminar"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr>
+                  <td class="cell-name font-bold text-xs text-slate-900">Connor Johnston</td>
+                  <td class="cell-age font-mono text-slate-700">45</td>
+                  <td class="cell-address text-slate-600">Ap #370-4647 Dis Av.</td>
+                  <td class="cell-country"><span class="vlt-tag-code">México</span></td>
+                  <td class="cell-married text-center"><span class="vlt-pill vlt-pill-slate py-0.5 px-2 text-xs">No</span></td>
+                  <td class="text-right">
+                    <div class="flex items-center justify-end gap-1.5 action-buttons">
+                      <button type="button" class="btn-edit p-1.5 rounded-lg hover:bg-cyan-50 text-slate-500 hover:text-cyan-600 transition-colors cursor-pointer" title="Editar"><i data-lucide="edit" class="w-4 h-4"></i></button>
+                      <button type="button" class="btn-delete p-1.5 rounded-lg hover:bg-rose-50 text-slate-500 hover:text-rose-600 transition-colors cursor-pointer" title="Eliminar"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr>
+                  <td class="cell-name font-bold text-xs text-slate-900">Lacy Chen</td>
+                  <td class="cell-age font-mono text-slate-700">29</td>
+                  <td class="cell-address text-slate-600">P.O. Box 770, 4561 Cursus St.</td>
+                  <td class="cell-country"><span class="vlt-tag-code">España</span></td>
+                  <td class="cell-married text-center"><span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-xs">Sí</span></td>
+                  <td class="text-right">
+                    <div class="flex items-center justify-end gap-1.5 action-buttons">
+                      <button type="button" class="btn-edit p-1.5 rounded-lg hover:bg-cyan-50 text-slate-500 hover:text-cyan-600 transition-colors cursor-pointer" title="Editar"><i data-lucide="edit" class="w-4 h-4"></i></button>
+                      <button type="button" class="btn-delete p-1.5 rounded-lg hover:bg-rose-50 text-slate-500 hover:text-rose-600 transition-colors cursor-pointer" title="Eliminar"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 4 -->
+                <tr>
+                  <td class="cell-name font-bold text-xs text-slate-900">Veronica Deleon</td>
+                  <td class="cell-age font-mono text-slate-700">38</td>
+                  <td class="cell-address text-slate-600">983-5848 Posuere St.</td>
+                  <td class="cell-country"><span class="vlt-tag-code">Colombia</span></td>
+                  <td class="cell-married text-center"><span class="vlt-pill vlt-pill-slate py-0.5 px-2 text-xs">No</span></td>
+                  <td class="text-right">
+                    <div class="flex items-center justify-end gap-1.5 action-buttons">
+                      <button type="button" class="btn-edit p-1.5 rounded-lg hover:bg-cyan-50 text-slate-500 hover:text-cyan-600 transition-colors cursor-pointer" title="Editar"><i data-lucide="edit" class="w-4 h-4"></i></button>
+                      <button type="button" class="btn-delete p-1.5 rounded-lg hover:bg-rose-50 text-slate-500 hover:text-rose-600 transition-colors cursor-pointer" title="Eliminar"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Footer note -->
+          <div class="p-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+            <span>Haz clic en <strong class="text-slate-600">Editar</strong> para activar la edición de celda o en <strong class="text-slate-600">Eliminar</strong> para remover la fila.</span>
+            <span class="font-mono">4 registros cargados</span>
+          </div>
+
+        </div>
+
+        <!-- Card 2: Filas Expandibles (Master-Detail Accordion) -->
+        <div class="vlt-card border border-slate-200/80 bg-white shadow-xs">
+          
+          <div class="p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+                <i data-lucide="layers" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-800 text-sm">Filas Expandibles (Master-Detail)</h3>
+                <p class="text-[11px] text-slate-400">Haz clic en el chevron para desplegar el desglose completo del pedido anidado</p>
+              </div>
+            </div>
+            <span class="vlt-badge vlt-badge-emerald">Master-Detail</span>
+          </div>
+
+          <div class="vlt-table-container">
+            <table id="vlt-expandable-table" class="vlt-table">
+              <thead>
+                <tr>
+                  <th class="w-10"></th>
+                  <th>N° Pedido</th>
+                  <th>Cliente</th>
+                  <th>Total</th>
+                  <th class="text-center">Estado Envío</th>
+                  <th>Fecha</th>
+                  <th class="text-right">Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Master Row 1 -->
+                <tr class="hover:bg-slate-50/80 cursor-pointer dark:bg-slate-950 dark:text-slate-100">
+                  <td class="text-center">
+                    <button type="button" class="btn-toggle-expand p-1 rounded-lg hover:bg-slate-200 text-slate-500 transition-transform cursor-pointer">
+                      <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                  </td>
+                  <td class="font-mono font-bold text-xs text-cyan-600">#ORD-9021</td>
+                  <td class="font-bold text-slate-800">TechCorp Solutions SAC</td>
+                  <td class="font-mono font-bold text-slate-900">$ 1,420.00</td>
+                  <td class="text-center"><span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-xs"><span class="pill-dot"></span>Entregado</span></td>
+                  <td class="font-mono text-slate-500">12 Nov 2026</td>
+                  <td class="text-right"><button type="button" class="vlt-btn vlt-btn-secondary vlt-btn-sm">Factura</button></td>
+                </tr>
+                <!-- Detail Row 1 -->
+                <tr class="expandable-detail-row hidden bg-slate-50/70 border-b border-slate-200/80 dark:bg-slate-950 dark:text-slate-100">
+                  <td colspan="7" class="p-5">
+                    <div class="rounded-xl border border-slate-200 bg-white p-4 space-y-3">
+                      <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                        <span class="text-xs font-bold uppercase text-slate-400 tracking-wider">Desglose de Artículos de la Orden</span>
+                        <span class="text-xs text-slate-500 font-mono">Guía de Remisión: <strong class="text-slate-800">GR-440192</strong></span>
+                      </div>
+                      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                        <div class="p-3 rounded-lg bg-slate-50 border border-slate-100 dark:bg-slate-950 dark:text-slate-100">
+                          <p class="font-bold text-slate-800">2x Licencias Enterprise VeltraUI</p>
+                          <p class="text-[11px] text-slate-400 font-mono mt-0.5">$ 500.00 c/u = $ 1,000.00</p>
+                        </div>
+                        <div class="p-3 rounded-lg bg-slate-50 border border-slate-100 dark:bg-slate-950 dark:text-slate-100">
+                          <p class="font-bold text-slate-800">1x Soporte Dedicado 24/7 SLA</p>
+                          <p class="text-[11px] text-slate-400 font-mono mt-0.5">$ 420.00 / mes</p>
+                        </div>
+                        <div class="p-3 rounded-lg bg-slate-50 border border-slate-100 dark:bg-slate-950 dark:text-slate-100">
+                          <p class="font-bold text-slate-800">Dirección de Facturación</p>
+                          <p class="text-[11px] text-slate-500 mt-0.5">Av. Javier Prado Este 4200, Lima, Perú</p>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Master Row 2 -->
+                <tr class="hover:bg-slate-50/80 cursor-pointer dark:bg-slate-950 dark:text-slate-100">
+                  <td class="text-center">
+                    <button type="button" class="btn-toggle-expand p-1 rounded-lg hover:bg-slate-200 text-slate-500 transition-transform cursor-pointer">
+                      <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                  </td>
+                  <td class="font-mono font-bold text-xs text-cyan-600">#ORD-9022</td>
+                  <td class="font-bold text-slate-800">Innova Cloud Systems</td>
+                  <td class="font-mono font-bold text-slate-900">$ 890.00</td>
+                  <td class="text-center"><span class="vlt-pill vlt-pill-amber py-0.5 px-2 text-xs"><span class="pill-dot"></span>En Camino</span></td>
+                  <td class="font-mono text-slate-500">11 Nov 2026</td>
+                  <td class="text-right"><button type="button" class="vlt-btn vlt-btn-secondary vlt-btn-sm">Factura</button></td>
+                </tr>
+                <!-- Detail Row 2 -->
+                <tr class="expandable-detail-row hidden bg-slate-50/70 border-b border-slate-200/80 dark:bg-slate-950 dark:text-slate-100">
+                  <td colspan="7" class="p-5">
+                    <div class="rounded-xl border border-slate-200 bg-white p-4 space-y-3">
+                      <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                        <span class="text-xs font-bold uppercase text-slate-400 tracking-wider">Desglose de Artículos de la Orden</span>
+                        <span class="text-xs text-slate-500 font-mono">Courier: <strong class="text-slate-800">DHL Express (Track: 9940129)</strong></span>
+                      </div>
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                        <div class="p-3 rounded-lg bg-slate-50 border border-slate-100 dark:bg-slate-950 dark:text-slate-100">
+                          <p class="font-bold text-slate-800">1x Suscripción Anual Team Pro</p>
+                          <p class="text-[11px] text-slate-400 font-mono mt-0.5">$ 890.00 anual</p>
+                        </div>
+                        <div class="p-3 rounded-lg bg-slate-50 border border-slate-100 dark:bg-slate-950 dark:text-slate-100">
+                          <p class="font-bold text-slate-800">Contacto de Entrega</p>
+                          <p class="text-[11px] text-slate-500 mt-0.5">Carlos Gomez &bull; +51 987 654 321</p>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </main>
+
+      <footer class="vlt-footer">
+        <div class="flex items-center gap-2">
+          <span><strong>Copyright &copy; 2026 <a href="#" class="text-cyan-600 hover:underline">Veltra UI</a>.</strong> All rights reserved.</span>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-semibold">
+          <b>Version</b> 1.0.0
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+
+  <!-- Search Command Palette Modal -->
+  <div id="vlt-search-modal" class="fixed inset-0 z-50 hidden flex-col items-center justify-start pt-16 sm:pt-24 px-4 bg-slate-950/50 backdrop-blur-sm transition-opacity">
+    <div class="vlt-modal-card w-full max-w-xl bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      <div class="flex items-center px-4 py-3.5 border-b border-slate-100 dark:border-slate-800 gap-3">
+        <i data-lucide="search" class="w-5 h-5 text-cyan-500 shrink-0"></i>
+        <input id="vlt-modal-search-input" type="text" placeholder="Buscar páginas, dashboards, componentes..." class="w-full bg-transparent text-sm text-slate-800 dark:text-slate-100 outline-none placeholder:text-slate-400" autocomplete="off" />
+        <kbd class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono font-bold bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-slate-400">ESC</kbd>
+        <button type="button" class="vlt-btn-icon text-slate-400 hover:text-slate-700 dark:hover:text-white" data-vlt-close="search-modal" title="Cerrar"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <div id="vlt-search-results" class="max-h-80 overflow-y-auto p-2 space-y-1">
+        <div class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400">Tablas</div>
+        <a href="/tables-simple.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3"><i data-lucide="table" class="w-4 h-4 text-cyan-600"></i><span>Simple Tables</span></div>
+          <span class="text-[10px] text-slate-400">Tables</span>
+        </a>
+        <a href="/tables-datatables.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3"><i data-lucide="database" class="w-4 h-4 text-cyan-600"></i><span>DataTables Avanzadas</span></div>
+          <span class="text-[10px] text-slate-400">Tables</span>
+        </a>
+        <a href="/tables-jsgrid.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3"><i data-lucide="file-spreadsheet" class="w-4 h-4 text-cyan-600"></i><span>jsGrid &amp; CRUD</span></div>
+          <span class="text-[10px] text-slate-400">Tables</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+

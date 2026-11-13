@@ -1,0 +1,73 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Production Build Outputs
+dist/
+build/
+out/
+.output/
+*.zip
+
+# Cache directories
+.cache/
+.vite/
+.turbo/
+.rollup.cache/
+.parcel-cache/
+*.tsbuildinfo
+.eslintcache
+.prettiercache
+
+# Test & Coverage Outputs
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# Bundle Analyzer Reports
+stats.html
+report.html
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor & IDE files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.sublime-project
+*.sublime-workspace
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+scratch/

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es" >
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veltra UI - Pantalla de Bloqueo (Lockscreen)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="/src/style.css" />
+  
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('veltra-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body class="vlt-grid-bg text-slate-800 antialiased selection:bg-cyan-500 selection:text-white bg-slate-50 min-h-screen flex flex-col justify-between dark:bg-slate-950 dark:text-slate-100">
+  
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-b from-cyan-400/15 to-transparent blur-3xl pointer-events-none -z-10"></div>
+
+  <!-- Header Mini Navigation -->
+  <header class="p-6 flex items-center justify-between max-w-5xl mx-auto w-full">
+    <a href="/index.html" class="flex items-center gap-2.5 group">
+      <img src="/logo.png" alt="VeltraUI" class="w-8 h-8 rounded-xl object-contain shadow-xs" />
+      <span class="text-lg font-black text-slate-900 tracking-tight">
+        Veltra<span class="text-cyan-500">UI</span>
+      </span>
+    </a>
+    <span class="vlt-pill vlt-pill-amber text-xs font-bold py-1 px-3 flex items-center gap-1.5">
+      <i data-lucide="lock" class="w-3.5 h-3.5"></i> Sesión Bloqueada
+    </span>
+  </header>
+
+  <!-- Lockscreen Card -->
+  <main class="flex-1 flex items-center justify-center p-4 sm:p-6">
+    <div class="vlt-auth-card text-center max-w-sm">
+      
+      <!-- Avatar with Lock Badge -->
+      <div class="relative w-24 h-24 mx-auto mb-4">
+        <img src="/avatar.jpg" alt="Stivens Espinoza" class="w-24 h-24 rounded-3xl object-cover ring-4 ring-cyan-500/20 shadow-md" />
+        <span class="absolute -bottom-1 -right-1 w-7 h-7 bg-amber-500 border-2 border-white rounded-full flex items-center justify-center text-white shadow-xs">
+          <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+        </span>
+      </div>
+
+      <!-- User Info -->
+      <h1 class="text-xl font-black text-slate-900 tracking-tight">Stivens Espinoza</h1>
+      <p class="text-xs text-slate-400 font-medium mt-0.5">admin@example.com</p>
+      <p class="text-xs text-slate-500 mt-3 px-4">Ingresa tu contraseña o PIN corporativo para continuar con tu sesión.</p>
+
+      <!-- Unlock Form -->
+      <form class="mt-5 space-y-3" onsubmit="event.preventDefault(); window.location.href='/index.html';">
+        <div class="relative">
+          <input type="password" required autofocus placeholder="Contraseña o PIN" class="w-full pl-4 pr-12 py-2.5 text-xs rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-cyan-500 text-slate-800 placeholder:text-slate-400 font-medium dark:bg-slate-950 dark:text-slate-100" />
+          <button type="submit" class="absolute right-1.5 top-1.5 w-8 h-8 rounded-lg bg-cyan-500 hover:bg-cyan-600 text-white flex items-center justify-center shadow-xs transition-colors cursor-pointer" title="Desbloquear">
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </form>
+
+      <!-- Alternative actions -->
+      <div class="mt-6 pt-5 border-t border-slate-100 space-y-2">
+        <a href="/pages-login.html" class="text-xs font-semibold text-cyan-600 hover:underline block">
+          O iniciar sesión con otra cuenta
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="p-6 text-center text-xs text-slate-400">
+    <p>&copy; 2026 VeltraUI Technologies. Consola segura de acceso restringido.</p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
+

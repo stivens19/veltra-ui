@@ -1,0 +1,80 @@
+/* VeltraUI Specialized Pages Styles (Invoice, Profile, Projects, E-commerce) */
+
+/* 1. Invoice Printable Styling */
+.vlt-invoice-card {
+    @apply bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 sm:p-10 shadow-xs relative;
+}
+
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    .vlt-sidebar, .vlt-header, .vlt-breadcrumb, .btn-print-ignore, .vlt-content-header {
+        display: none !important;
+    }
+    .vlt-main {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .vlt-invoice-card {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+}
+
+/* 2. User Profile Cover & Timeline */
+.vlt-profile-cover {
+    @apply h-40 sm:h-48 w-full rounded-2xl bg-gradient-to-r from-cyan-600 via-cyan-500 to-indigo-600 relative overflow-hidden;
+}
+
+.vlt-profile-timeline {
+    @apply relative pl-6 border-l-2 border-slate-200 dark:border-slate-800 space-y-6 my-4;
+
+    .timeline-item {
+        @apply relative;
+
+        .timeline-marker {
+            @apply absolute -left-[31px] top-1 w-4 h-4 rounded-full border-2 border-white dark:border-slate-900 shrink-0 shadow-xs;
+        }
+
+        .timeline-content {
+            @apply p-4 rounded-xl border border-slate-200/70 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs;
+        }
+    }
+}
+
+/* 3. Project Cards & Progress */
+.vlt-project-row {
+    @apply p-4 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-400 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-xs;
+}
+
+/* 4. Product Gallery & Specs */
+.vlt-product-thumb {
+    @apply w-16 h-16 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-cyan-500 overflow-hidden cursor-pointer transition-all p-1 bg-white;
+    &.active {
+        @apply border-cyan-500 ring-2 ring-cyan-500/30;
+    }
+}
+
+/* 5. POS (Point of Sale) Styling */
+.vlt-pos-product-card {
+    @apply p-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-cyan-500 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between select-none active:scale-[0.98];
+}
+
+.vlt-pos-ticket {
+    @apply bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl shadow-xs flex flex-col overflow-hidden;
+}
+
+/* 6. Authentication Pages (Login, Register, Forgot Password) */
+.vlt-auth-wrapper {
+    @apply min-h-screen w-full flex items-center justify-center p-4 sm:p-6 bg-slate-50 relative overflow-hidden;
+}
+
+.vlt-auth-card {
+    @apply w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl relative z-10;
+}
+
+
+

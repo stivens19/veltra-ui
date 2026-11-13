@@ -1,0 +1,34 @@
+:root {
+    /* Stivens Espinoza Signature Palette - Cyan & Navy Tech */
+    --vlt-primary: 6 182 212;         /* #06b6d4 - Vibrant Electric Cyan */
+    --vlt-primary-dark: 8 145 178;    /* #0891b2 - Cyan 600 */
+    --vlt-primary-light: 34 211 238;  /* #22d3ee - Cyan 400 */
+    
+    --vlt-secondary: 100 116 139;     /* #64748b - Slate 500 */
+    --vlt-success: 16 185 129;        /* #10b981 - Emerald 500 */
+    --vlt-warning: 245 158 11;        /* #f59e0b - Amber 500 */
+    --vlt-danger: 239 68 68;          /* #ef4444 - Rose 500 */
+    --vlt-info: 14 165 233;           /* #0ea5e9 - Sky 500 */
+
+    --vlt-bg-body: 248 250 252;       /* #f8fafc - Crisp Soft Slate */
+    --vlt-bg-surface: 255 255 255;   /* #ffffff - Pure White */
+    --vlt-text-main: 15 23 42;        /* #0f172a - Obsidian Navy */
+    --vlt-text-muted: 100 116 139;    /* #64748b */
+    --vlt-border: 226 232 240;        /* #e2e8f0 */
+
+    --vlt-sidebar-width: 16.5rem;     /* 264px */
+    --vlt-sidebar-collapsed: 4.75rem; /* 76px */
+    --vlt-header-height: 3.75rem;     /* 60px - sleek and slim */
+}
+
+[data-theme="dark"] {
+    --vlt-primary: 34 211 238;        /* #22d3ee - Bright Neon Cyan */
+    --vlt-primary-dark: 6 182 212;
+    --vlt-primary-light: 103 232 249;
+
+    --vlt-bg-body: 10 15 26;          /* #0a0f1a - Deep Space Navy */
+    --vlt-bg-surface: 15 23 42;       /* #0f172a - Surface Navy */
+    --vlt-text-main: 248 250 252;     /* #f8fafc */
+    --vlt-text-muted: 148 163 184;    /* #94a3b8 */
+    --vlt-border: 30 41 59;           /* #1e293b */
+}

@@ -1,0 +1,60 @@
+.vlt-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.vlt-dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 0.5rem;
+    min-width: 14rem;
+    display: none !important;
+    opacity: 0;
+    transform: scale(0.95);
+    transform-origin: top right;
+    transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 50;
+    @apply rounded-2xl bg-surface border border-slate-200 dark:border-slate-800 shadow-xl py-2;
+}
+
+.vlt-dropdown-menu.is-open {
+    display: block !important;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.vlt-dropdown-menu-lg {
+    min-width: 20rem;
+}
+
+/* Mobile Responsive Dropdown Sheet */
+@media (max-width: 639px) {
+    .vlt-dropdown-menu,
+    .vlt-dropdown-menu-lg {
+        position: fixed !important;
+        top: calc(var(--vlt-header-height) + 0.5rem) !important;
+        left: 0.75rem !important;
+        right: 0.75rem !important;
+        min-width: unset !important;
+        max-width: calc(100vw - 1.5rem) !important;
+        width: auto !important;
+        transform-origin: top center !important;
+    }
+}
+
+.vlt-dropdown-header {
+    @apply px-4 py-3 text-xs font-semibold text-slate-500 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between;
+}
+
+.vlt-dropdown-item {
+    @apply flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors cursor-pointer;
+}
+
+.vlt-dropdown-divider {
+    @apply my-1 border-t border-slate-100 dark:border-slate-800;
+}
+
+.vlt-dropdown-footer {
+    @apply px-4 py-2.5 text-center text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:underline border-t border-slate-100 dark:border-slate-800 block;
+}

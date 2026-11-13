@@ -1,0 +1,999 @@
+﻿<!DOCTYPE html>
+<html lang="es" >
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veltra UI - Widgets Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="/src/style.css" />
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('veltra-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body class="vlt-grid-bg text-slate-800 antialiased selection:bg-cyan-500 selection:text-white bg-slate-50 dark:bg-slate-950 dark:text-slate-100">
+  <div class="vlt-wrapper">
+    <!-- Mobile Backdrop -->
+    <div class="vlt-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+        <!-- Sidebar Navigation -->
+        <!-- Sidebar Navigation -->
+    <aside class="vlt-sidebar border-r border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md">
+      <!-- Sidebar Brand Header -->
+      <div class="vlt-sidebar-brand">
+        <a href="/index.html" class="brand-link">
+          <img src="/logo.png" alt="VeltraUI" class="brand-logo" />
+          <span class="brand-text">
+            Veltra<span class="text-cyan-500">UI</span>
+          </span>
+        </a>
+        
+      </div>
+
+      <!-- User Panel -->
+      <div class="vlt-sidebar-user">
+        <div class="relative shrink-0">
+          <img class="user-avatar" src="/avatar.jpg" alt="Stivens Espinoza" />
+          <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white dark:border-slate-800 rounded-full"></span>
+        </div>
+        <div class="user-info">
+          <p class="user-name">Stivens Espinoza</p>
+          <span class="user-role">Administrator</span>
+        </div>
+      </div>
+
+      <!-- Sidebar Search -->
+      <div class="px-3 py-2">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 pointer-events-none"></i>
+          <input type="text" placeholder="Search menu..." class="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:bg-slate-950 dark:text-slate-100" />
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <ul class="vlt-nav">
+        <li class="vlt-nav-header">MAIN NAVIGATION</li>
+
+        <!-- Item: Dashboard -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="gauge" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Dashboard</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/index.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v1</span></a></li>
+            <li class="vlt-nav-item"><a href="/index2.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v2</span></a></li>
+            <li class="vlt-nav-item"><a href="/index3.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v3</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Widgets -->
+        <li class="vlt-nav-item">
+          <a href="/widgets.html" class="vlt-nav-link active font-bold text-cyan-600">
+            <i data-lucide="layout-grid" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Widgets</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-danger">New</span>
+          </a>
+        </li>
+
+        <!-- Item: Layout Options -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="copy" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Layout Options</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">6</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/layout-top-nav.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Top Navigation</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-top-nav-sidebar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Top Nav + Sidebar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-boxed.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Boxed</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-fixed-sidebar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Fixed Sidebar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-fixed-navbar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Fixed Navbar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-collapsed-sidebar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Collapsed Sidebar</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Page Start -->
+        <li class="vlt-nav-item">
+          <a href="/page-start.html" class="vlt-nav-link ">
+            <i data-lucide="play-circle" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Page Start</span>
+          </a>
+        </li>
+        <!-- Item: Documentation -->
+        <li class="vlt-nav-item ">
+          <a href="/docs.html" class="vlt-nav-link text-cyan-600 dark:text-cyan-400 font-semibold">
+            <i data-lucide="book-open" class="vlt-nav-icon text-cyan-500"></i>
+            <span class="vlt-nav-text">Documentation</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-primary">ES/EN</span>
+          </a>
+        </li>
+
+<li class="vlt-nav-header">COMPONENTS</li>
+
+        <!-- Item: UI Elements -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="palette" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">UI Elements</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/ui-general.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">General</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-icons.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Icons</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-buttons.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Buttons</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-modals.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Modals & Alerts</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-navbar-tabs.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Navbar & Tabs</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Forms -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="file-edit" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Forms</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/forms-general.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">General Elements</span></a></li>
+            <li class="vlt-nav-item"><a href="/forms-advanced.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Advanced Elements</span></a></li>
+            <li class="vlt-nav-item"><a href="/forms-validation.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Validation</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Tables -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="table" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Tables</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/tables-simple.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Simple Tables</span></a></li>
+            <li class="vlt-nav-item"><a href="/tables-datatables.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">DataTables</span></a></li>
+            <li class="vlt-nav-item"><a href="/tables-jsgrid.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">jsGrid</span></a></li>
+          </ul>
+        </li>
+
+        <li class="vlt-nav-header">EXAMPLES</li>
+
+        <!-- Item: Calendar -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="calendar" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Calendar</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">3</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/calendar.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Calendario General</span></a></li>
+            <li class="vlt-nav-item"><a href="/calendar-team.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Equipo & Reuniones</span></a></li>
+            <li class="vlt-nav-item"><a href="/calendar-workload.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Carga Horaria & Heatmap</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Kanban Board -->
+        <li class="vlt-nav-item">
+          <a href="/kanban.html" class="vlt-nav-link ">
+            <i data-lucide="trello" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Kanban Board</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">7</span>
+          </a>
+        </li>
+
+        <!-- Item: Pages -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="book-open" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Pages</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/pages-pos.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">POS Terminal</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-invoice.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Invoice</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-profile.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Profile</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-ecommerce.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">E-commerce</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-projects.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Projects</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-contacts.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Contacts</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-pricing.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Pricing</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-faq.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">FAQ</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-login.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Login</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-register.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Register</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-lockscreen.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Lockscreen</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-forgot-password.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Forgot Password</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-404.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Error 404</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-500.html" class="vlt-nav-link "><i data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Error 500</span></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Bottom System Status Pill -->
+      <div class="p-4 border-t border-slate-200/60 dark:border-slate-800">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+          <span class="vlt-pill vlt-pill-emerald py-0.5 px-2.5">
+            <span class="pill-dot"></span>
+            <span>Online</span>
+          </span>
+          <span class="font-mono text-[11px] text-slate-400">v1.0.0</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="vlt-main">
+      <!-- Header -->
+                  <header class="vlt-header">
+        <div class="flex items-center gap-3">
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="sidebar" title="Colapsar Menú"><i data-lucide="menu" class="w-4 h-4"></i></button>
+
+          <div class="hidden sm:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
+            <a href="/index.html" class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <span>OP 1</span>
+            </a>
+            <a href="/index2.html" class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <span>OP 2</span>
+            </a>
+            <a href="/pages-pos.html" class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <i data-lucide="shopping-cart" class="w-3.5 h-3.5 text-slate-400"></i><span>POS</span>
+            </a>
+          </div>
+
+                    <a href="/docs.html" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-xl bg-cyan-50 dark:bg-cyan-950/60 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 text-cyan-700 dark:text-cyan-300 border border-cyan-200/80 dark:border-cyan-800 transition-colors shadow-xs" title="Documentation">
+            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+            <span>Documentation</span>
+          </a>
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="search-modal" title="Buscar (Ctrl+K)"><i data-lucide="search" class="w-4 h-4"></i></button>
+        </div>
+
+        <div class="flex items-center gap-1.5">
+          <!-- Messages Dropdown -->
+          <div class="vlt-dropdown hidden sm:inline-block">
+            <button type="button" class="vlt-btn-icon relative" data-vlt-toggle="dropdown" title="Messages">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full"></span>
+            </button>
+            <div class="vlt-dropdown-menu vlt-dropdown-menu-lg">
+              <div class="vlt-dropdown-header"><span class="font-bold text-slate-800 dark:text-slate-100">3 Messages</span></div>
+              <a href="#" class="vlt-dropdown-item">
+                <img class="w-8 h-8 rounded-full object-cover shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" alt="Avatar" />
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="font-bold text-slate-900 dark:text-white truncate">Brad Diesel</span>
+                    <span class="text-[10px] text-rose-500 font-semibold">4 hrs</span>
+                  </div>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">Llamada técnica a las 4:00 PM...</p>
+                </div>
+              </a>
+              <div class="vlt-dropdown-footer"><a href="#">Ver todos los mensajes</a></div>
+            </div>
+          </div>
+
+          <!-- Notifications Dropdown -->
+          <div class="vlt-dropdown">
+            <button type="button" class="vlt-btn-icon relative" data-vlt-toggle="dropdown" title="Notifications">
+              <i data-lucide="bell" class="w-4 h-4"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-amber-500 rounded-full"></span>
+            </button>
+            <div class="vlt-dropdown-menu vlt-dropdown-menu-md">
+              <div class="vlt-dropdown-header"><span class="font-bold text-slate-800 dark:text-slate-100">15 Notificaciones</span></div>
+              <a href="#" class="vlt-dropdown-item"><i data-lucide="mail" class="w-4 h-4 text-cyan-500 mr-2 shrink-0"></i><span class="flex-1 text-xs">4 nuevos mensajes</span></a>
+              <a href="#" class="vlt-dropdown-item"><i data-lucide="user-plus" class="w-4 h-4 text-emerald-500 mr-2 shrink-0"></i><span class="flex-1 text-xs">8 solicitudes</span></a>
+              <div class="vlt-dropdown-footer"><a href="#">Ver todas las notificaciones</a></div>
+            </div>
+          </div>
+
+          <!-- Fullscreen Toggle -->
+          <button type="button" class="vlt-btn-icon hidden sm:inline-flex" data-vlt-toggle="fullscreen" title="Pantalla Completa"><i data-lucide="maximize" class="w-4 h-4"></i></button>
+
+          <!-- Theme Toggle -->
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="theme" title="Alternar Tema Claro/Oscuro"><i data-lucide="sun-medium" class="w-4 h-4"></i></button>
+
+          <!-- User Menu -->
+          <div class="vlt-dropdown">
+            <button type="button" class="flex items-center gap-2 p-1 pl-1.5 pr-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ml-1 cursor-pointer" data-vlt-toggle="dropdown">
+              <img class="w-7 h-7 rounded-full object-cover ring-2 ring-cyan-500/40" src="/avatar.jpg" alt="Stivens Espinoza" />
+              <div class="hidden md:block text-left text-xs leading-tight">
+                <span class="font-bold text-slate-800 dark:text-slate-100 block">Stivens Espinoza</span>
+                <span class="text-[10px] text-slate-500 dark:text-slate-400">Admin</span>
+              </div>
+            </button>
+            <div class="vlt-dropdown-menu w-56">
+              <div class="px-4 py-3 border-b border-slate-100 dark:border-slate-800">
+                <p class="text-xs text-slate-500 dark:text-slate-400">Conectado como</p>
+                <p class="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">admin@example.com</p>
+              </div>
+              <a href="/pages-profile.html" class="vlt-dropdown-item"><i data-lucide="user" class="w-4 h-4 mr-2 text-slate-400"></i>Perfil</a>
+              <a href="/pages-invoice.html" class="vlt-dropdown-item"><i data-lucide="receipt" class="w-4 h-4 mr-2 text-slate-400"></i>Facturación</a>
+              <div class="vlt-dropdown-divider"></div>
+              <a href="/pages-login.html" class="vlt-dropdown-item text-rose-500 hover:text-rose-600"><i data-lucide="log-out" class="w-4 h-4 mr-2"></i>Cerrar Sesión</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Header (Breadcrumb & Title) -->
+      <section class="vlt-content-header">
+        <div>
+          <h1 class="vlt-page-title">Widgets Showcase</h1>
+        </div>
+        <nav class="vlt-breadcrumb">
+          <a href="/index.html">Home</a>
+          <span>/</span>
+          <span class="active">Widgets</span>
+        </nav>
+      </section>
+
+      <!-- Main Dashboard Content -->
+      <main class="vlt-content space-y-8">
+
+        <!-- ========================================== -->
+        <!-- SECTION 1: STAT BOXES -->
+        <!-- ========================================== -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+            <h2 class="text-sm font-extrabold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+              <i data-lucide="layout-grid" class="w-4 h-4 text-cyan-500"></i>
+              <span>Stat Boxes (Métricas Principales)</span>
+            </h2>
+            <span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-[10px]">Interactive</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <!-- Box 1: New Orders -->
+            <div class="vlt-stat-box vlt-stat-box-cyan">
+              <div class="vlt-stat-box-inner">
+                <div class="stat-top">
+                  <div class="stat-icon-wrapper"><i data-lucide="shopping-bag"></i></div>
+                  <span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-[10px]"><span class="pill-dot"></span><span>+12%</span></span>
+                </div>
+                <div class="stat-value">150</div>
+                <div class="stat-title">New Orders</div>
+                <div class="stat-meta text-cyan-600"><i data-lucide="trending-up" class="w-3.5 h-3.5"></i><span>Trending up this week</span></div>
+              </div>
+              <a href="#" class="vlt-stat-box-footer"><span>More info</span><i data-lucide="arrow-right" class="w-3.5 h-3.5 footer-arrow"></i></a>
+            </div>
+
+            <!-- Box 2: Bounce Rate -->
+            <div class="vlt-stat-box vlt-stat-box-emerald">
+              <div class="vlt-stat-box-inner">
+                <div class="stat-top">
+                  <div class="stat-icon-wrapper"><i data-lucide="bar-chart-2"></i></div>
+                  <span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-[10px]"><span class="pill-dot"></span><span>-4.2%</span></span>
+                </div>
+                <div class="stat-value">53<sup class="text-base">%</sup></div>
+                <div class="stat-title">Bounce Rate</div>
+                <div class="stat-meta text-emerald-600"><i data-lucide="check-circle" class="w-3.5 h-3.5"></i><span>Healthy benchmark</span></div>
+              </div>
+              <a href="#" class="vlt-stat-box-footer"><span>More info</span><i data-lucide="arrow-right" class="w-3.5 h-3.5 footer-arrow"></i></a>
+            </div>
+
+            <!-- Box 3: User Registrations -->
+            <div class="vlt-stat-box vlt-stat-box-amber">
+              <div class="vlt-stat-box-inner">
+                <div class="stat-top">
+                  <div class="stat-icon-wrapper"><i data-lucide="user-plus"></i></div>
+                  <span class="vlt-pill vlt-pill-amber py-0.5 px-2 text-[10px]"><span class="pill-dot"></span><span>+44 New</span></span>
+                </div>
+                <div class="stat-value">44</div>
+                <div class="stat-title">User Registrations</div>
+                <div class="stat-meta text-amber-600"><i data-lucide="users" class="w-3.5 h-3.5"></i><span>Active verified accounts</span></div>
+              </div>
+              <a href="#" class="vlt-stat-box-footer"><span>More info</span><i data-lucide="arrow-right" class="w-3.5 h-3.5 footer-arrow"></i></a>
+            </div>
+
+            <!-- Box 4: Unique Visitors -->
+            <div class="vlt-stat-box vlt-stat-box-rose">
+              <div class="vlt-stat-box-inner">
+                <div class="stat-top">
+                  <div class="stat-icon-wrapper"><i data-lucide="pie-chart"></i></div>
+                  <span class="vlt-pill vlt-pill-slate py-0.5 px-2 text-[10px]">Global</span>
+                </div>
+                <div class="stat-value">65,240</div>
+                <div class="stat-title">Unique Visitors</div>
+                <div class="stat-meta text-rose-600"><i data-lucide="globe" class="w-3.5 h-3.5"></i><span>Worldwide traffic</span></div>
+              </div>
+              <a href="#" class="vlt-stat-box-footer"><span>More info</span><i data-lucide="arrow-right" class="w-3.5 h-3.5 footer-arrow"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECTION 2: INFO BOXES WITH PROGRESS BARS   -->
+        <!-- ========================================== -->
+        <div class="space-y-3 pt-4">
+          <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+            <h2 class="text-sm font-extrabold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+              <i data-lucide="sliders" class="w-4 h-4 text-cyan-500"></i>
+              <span>Info Boxes with Progress Bars</span>
+            </h2>
+            <span class="text-xs text-slate-400">Goals & Telemetry</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <!-- Info Box 1 -->
+            <div class="vlt-card p-5 border border-slate-200/80 bg-white shadow-xs">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Saved Bookmarks</span>
+                <span class="p-2.5 rounded-xl bg-cyan-50 text-cyan-600"><i data-lucide="bookmark" class="w-5 h-5"></i></span>
+              </div>
+              <div class="text-2xl font-extrabold text-slate-800 mb-2">41,410</div>
+              <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                <div class="bg-cyan-500 h-1.5 rounded-full" style="width: 70%"></div>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-2 font-medium">70% increase in 30 days</p>
+            </div>
+
+            <!-- Info Box 2 -->
+            <div class="vlt-card p-5 border border-slate-200/80 bg-white shadow-xs">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Likes & Hearts</span>
+                <span class="p-2.5 rounded-xl bg-rose-50 text-rose-500"><i data-lucide="heart" class="w-5 h-5"></i></span>
+              </div>
+              <div class="text-2xl font-extrabold text-slate-800 mb-2">120,400</div>
+              <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                <div class="bg-rose-500 h-1.5 rounded-full" style="width: 85%"></div>
+              </div>
+              <p class="text-[11px] text-emerald-600 mt-2 font-medium">85% engagement rate</p>
+            </div>
+
+            <!-- Info Box 3 -->
+            <div class="vlt-card p-5 border border-slate-200/80 bg-white shadow-xs">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Subscribers</span>
+                <span class="p-2.5 rounded-xl bg-emerald-50 text-emerald-600"><i data-lucide="user-check" class="w-5 h-5"></i></span>
+              </div>
+              <div class="text-2xl font-extrabold text-slate-800 mb-2">13,648</div>
+              <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 92%"></div>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-2 font-medium">92% retention rate</p>
+            </div>
+
+            <!-- Info Box 4 -->
+            <div class="vlt-card p-5 border border-slate-200/80 bg-white shadow-xs">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Memory Allocation</span>
+                <span class="p-2.5 rounded-xl bg-amber-50 text-amber-600"><i data-lucide="hard-drive" class="w-5 h-5"></i></span>
+              </div>
+              <div class="text-2xl font-extrabold text-slate-800 mb-2">93,139 MB</div>
+              <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                <div class="bg-amber-500 h-1.5 rounded-full" style="width: 60%"></div>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-2 font-medium">60% of total cluster allocated</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        
+        <!-- ========================================== -->
+        <!-- SECTION 2.5: MINI SPARKLINE STAT CARDS     -->
+        <!-- ========================================== -->
+        <div class="space-y-3 pt-4">
+          <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+            <h2 class="text-sm font-extrabold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+              <i data-lucide="trending-up" class="w-4 h-4 text-cyan-500"></i>
+              <span>Mini Sparkline Trend Cards</span>
+            </h2>
+            <span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-[10px]">Realtime Chart.js</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <!-- Sparkline 1: Revenue -->
+            <div class="vlt-card p-4 border border-slate-200/80 bg-white shadow-xs">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Daily Revenue</p>
+                  <p class="text-xl font-extrabold text-slate-900 mt-0.5">$3,420</p>
+                </div>
+                <span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-[10px]">+14.2%</span>
+              </div>
+              <div class="h-12 w-full mt-2">
+                <canvas id="sparkline-revenue"></canvas>
+              </div>
+            </div>
+
+            <!-- Sparkline 2: Users -->
+            <div class="vlt-card p-4 border border-slate-200/80 bg-white shadow-xs">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">New Signups</p>
+                  <p class="text-xl font-extrabold text-slate-900 mt-0.5">+480</p>
+                </div>
+                <span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-[10px]">+22.5%</span>
+              </div>
+              <div class="h-12 w-full mt-2">
+                <canvas id="sparkline-users"></canvas>
+              </div>
+            </div>
+
+            <!-- Sparkline 3: Orders -->
+            <div class="vlt-card p-4 border border-slate-200/80 bg-white shadow-xs">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Orders</p>
+                  <p class="text-xl font-extrabold text-slate-900 mt-0.5">184</p>
+                </div>
+                <span class="vlt-pill vlt-pill-amber py-0.5 px-2 text-[10px]">+8.1%</span>
+              </div>
+              <div class="h-12 w-full mt-2">
+                <canvas id="sparkline-orders"></canvas>
+              </div>
+            </div>
+
+            <!-- Sparkline 4: Conversion -->
+            <div class="vlt-card p-4 border border-slate-200/80 bg-white shadow-xs">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Conversion</p>
+                  <p class="text-xl font-extrabold text-slate-900 mt-0.5">3.8%</p>
+                </div>
+                <span class="vlt-pill vlt-pill-rose py-0.5 px-2 text-[10px]">+1.2%</span>
+              </div>
+              <div class="h-12 w-full mt-2">
+                <canvas id="sparkline-conversion"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECTION 3.5: E-COMMERCE PRODUCT WIDGETS    -->
+        <!-- ========================================== -->
+        <div class="space-y-3 pt-4">
+          <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+            <h2 class="text-sm font-extrabold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+              <i data-lucide="package" class="w-4 h-4 text-cyan-500"></i>
+              <span>E-Commerce & Course Products</span>
+            </h2>
+            <span class="text-xs text-slate-400">Card Showcases</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Product Card 1 -->
+            <div class="vlt-card border border-slate-200/80 bg-white overflow-hidden shadow-xs flex flex-col justify-between group hover:border-cyan-300 transition-all">
+              <div>
+                <div class="h-44 relative overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700&auto=format&fit=crop&q=80" alt="Clean Architecture & DDD" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent"></div>
+                  <div class="absolute top-3 left-3">
+                    <span class="vlt-pill bg-cyan-500 text-white backdrop-blur-md text-[10px] font-bold px-2.5 py-0.5 border border-cyan-300/40 shadow-xs">NUEVO CURSO</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 text-white">
+                    <span class="text-[10px] font-mono text-cyan-300 font-bold uppercase tracking-wider block mb-0.5">Laravel 13 & PHP 8.4</span>
+                    <h4 class="font-extrabold text-base leading-tight drop-shadow-xs">Clean Architecture & DDD</h4>
+                  </div>
+                </div>
+                <div class="p-4 space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <span class="text-lg font-black text-slate-900">$49.00 USD</span>
+                    <div class="flex items-center text-amber-500 text-xs font-bold gap-1">
+                      <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                      <span>4.9 (420 reseñas)</span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-slate-500 leading-relaxed">Domina Domain-Driven Design, arquitectura hexagonal y código testeable con buenas prácticas industriales.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <button type="button" class="w-full vlt-btn vlt-btn-primary vlt-btn-sm flex items-center justify-center gap-2">
+                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                  <span>Explorar Curso</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="vlt-card border border-slate-200/80 bg-white overflow-hidden shadow-xs flex flex-col justify-between group hover:border-blue-300 transition-all">
+              <div>
+                <div class="h-44 relative overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=700&auto=format&fit=crop&q=80" alt=".NET 9 Microservices" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent"></div>
+                  <div class="absolute top-3 left-3">
+                    <span class="vlt-pill bg-blue-600 text-white backdrop-blur-md text-[10px] font-bold px-2.5 py-0.5 border border-blue-400/40 shadow-xs">MICROSERVICIOS</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 text-white">
+                    <span class="text-[10px] font-mono text-blue-300 font-bold uppercase tracking-wider block mb-0.5">C# & RabbitMQ</span>
+                    <h4 class="font-extrabold text-base leading-tight drop-shadow-xs">.NET 9 Microservices</h4>
+                  </div>
+                </div>
+                <div class="p-4 space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <span class="text-lg font-black text-slate-900">$69.00 USD</span>
+                    <div class="flex items-center text-amber-500 text-xs font-bold gap-1">
+                      <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                      <span>4.8 (310 reseñas)</span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-slate-500 leading-relaxed">Aprende a desacoplar sistemas distribuidos, CQRS, MediatR y orquestación con Kubernetes.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <button type="button" class="w-full vlt-btn vlt-btn-primary vlt-btn-sm flex items-center justify-center gap-2">
+                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                  <span>Explorar Curso</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="vlt-card border border-slate-200/80 bg-white overflow-hidden shadow-xs flex flex-col justify-between group hover:border-emerald-300 transition-all">
+              <div>
+                <div class="h-44 relative overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=700&auto=format&fit=crop&q=80" alt="React 19 & Tailwind CSS v4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent"></div>
+                  <div class="absolute top-3 left-3">
+                    <span class="vlt-pill bg-emerald-600 text-white backdrop-blur-md text-[10px] font-bold px-2.5 py-0.5 border border-emerald-400/40 shadow-xs">FRONTEND V4</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 text-white">
+                    <span class="text-[10px] font-mono text-emerald-300 font-bold uppercase tracking-wider block mb-0.5">TypeScript & UI Kits</span>
+                    <h4 class="font-extrabold text-base leading-tight drop-shadow-xs">React 19 & Tailwind CSS v4</h4>
+                  </div>
+                </div>
+                <div class="p-4 space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <span class="text-lg font-black text-slate-900">$39.00 USD</span>
+                    <div class="flex items-center text-amber-500 text-xs font-bold gap-1">
+                      <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                      <span>5.0 (180 reseñas)</span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-slate-500 leading-relaxed">Crea bibliotecas de componentes con TypeScript, animaciones fluidas y soporte completo de temas.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <button type="button" class="w-full vlt-btn vlt-btn-primary vlt-btn-sm flex items-center justify-center gap-2">
+                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                  <span>Explorar Curso</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 3: SOCIAL & USER PROFILE WIDGETS   -->
+        <!-- ========================================== -->
+        <div class="space-y-3 pt-4">
+          <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+            <h2 class="text-sm font-extrabold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+              <i data-lucide="users" class="w-4 h-4 text-cyan-500"></i>
+              <span>User Profile & Social Cards</span>
+            </h2>
+            <span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-[10px]">Clean Design</span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Widget User 1: Cover Header + Overlap Avatar -->
+            <div class="vlt-card border border-slate-200/80 bg-white overflow-hidden shadow-xs flex flex-col">
+              <!-- Banner Cover with Modern Tech Image -->
+              <div class="h-28 relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80" alt="Cover" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-r from-cyan-900/70 via-blue-900/60 to-slate-900/80"></div>
+                <div class="absolute inset-0 p-4 flex items-start justify-between">
+                  <span class="vlt-pill bg-white/20 text-white backdrop-blur-md py-0.5 px-2.5 text-[10px] border border-white/20 font-bold">Lead Architect</span>
+                  <button type="button" class="text-white/80 hover:text-white cursor-pointer"><i data-lucide="more-horizontal" class="w-5 h-5"></i></button>
+                </div>
+              </div>
+              <div class="px-5 pb-5 pt-0 flex-1 flex flex-col items-center text-center -mt-12">
+                <div class="relative mb-3">
+                  <img class="w-20 h-20 rounded-2xl object-cover ring-4 ring-white shadow-md shadow-slate-200" src="/avatar.jpg" alt="Stivens Espinoza" />
+                  <span class="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full"></span>
+                </div>
+                <h3 class="font-extrabold text-slate-900 text-base">Stivens Espinoza</h3>
+                <p class="text-xs text-cyan-600 font-semibold mb-3">Fullstack Architect & Educator</p>
+                <p class="text-xs text-slate-500 leading-relaxed mb-4 max-w-xs">Building high-impact software, scalable DDD architectures and clean industry standards.</p>
+                
+                <div class="w-full grid grid-cols-3 gap-2 py-3 border-t border-b border-slate-100 text-center mb-4">
+                  <div><span class="block font-extrabold text-slate-900 text-sm">12</span><span class="text-[10px] text-slate-400 font-semibold uppercase">Cursos</span></div>
+                  <div><span class="block font-extrabold text-slate-900 text-sm">1,480</span><span class="text-[10px] text-slate-400 font-semibold uppercase">Alumnos</span></div>
+                  <div><span class="block font-extrabold text-slate-900 text-sm">4.9 â˜…</span><span class="text-[10px] text-slate-400 font-semibold uppercase">Rating</span></div>
+                </div>
+
+                <div class="w-full flex gap-2">
+                  <button type="button" class="flex-1 vlt-btn vlt-btn-primary vlt-btn-sm">Contactar</button>
+                  <button type="button" class="vlt-btn vlt-btn-secondary vlt-btn-sm"><i data-lucide="share-2" class="w-3.5 h-3.5"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Widget User 2: Horizontal Team Cards -->
+            <div class="vlt-card border border-slate-200/80 bg-white shadow-xs p-5 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+                  <h3 class="font-bold text-slate-800 text-sm">Active Core Contributors</h3>
+                  <span class="vlt-badge vlt-badge-cyan">4 Online</span>
+                </div>
+                <div class="space-y-3.5">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <img class="w-10 h-10 rounded-xl object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" alt="Avatar" />
+                      <div><p class="font-bold text-xs text-slate-800">Sarah Bullock</p><p class="text-[11px] text-slate-400">Frontend Specialist</p></div>
+                    </div>
+                    <span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-[10px]">Available</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <img class="w-10 h-10 rounded-xl object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces" alt="Avatar" />
+                      <div><p class="font-bold text-xs text-slate-800">Carlos Mendez</p><p class="text-[11px] text-slate-400">Backend & .NET 9</p></div>
+                    </div>
+                    <span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-[10px]">Coding</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <img class="w-10 h-10 rounded-xl object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces" alt="Avatar" />
+                      <div><p class="font-bold text-xs text-slate-800">David Alvarez</p><p class="text-[11px] text-slate-400">DevOps & Cloud Engineer</p></div>
+                    </div>
+                    <span class="vlt-pill vlt-pill-amber py-0.5 px-2 text-[10px]">In Review</span>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="w-full mt-4 vlt-btn vlt-btn-secondary vlt-btn-sm">Ver Todo el Equipo &rarr;</button>
+            </div>
+
+            <!-- Widget 3: Live System Telemetry / Resource Meter -->
+            <div class="vlt-card border border-slate-200/80 bg-white shadow-xs p-5 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+                  <div class="flex items-center gap-2">
+                    <i data-lucide="server" class="w-4 h-4 text-cyan-600"></i>
+                    <h3 class="font-bold text-slate-800 text-sm">Server Telemetry</h3>
+                  </div>
+                  <span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-[10px]"><span class="pill-dot"></span>Online</span>
+                </div>
+                <div class="space-y-4">
+                  <div>
+                    <div class="flex justify-between text-xs font-semibold mb-1"><span class="text-slate-600">CPU Usage</span><span class="font-bold text-slate-800">24% (4 Cores)</span></div>
+                    <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-cyan-500 h-2 rounded-full" style="width: 24%"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-xs font-semibold mb-1"><span class="text-slate-600">RAM Memory</span><span class="font-bold text-slate-800">5.8 GB / 16 GB</span></div>
+                    <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-emerald-500 h-2 rounded-full" style="width: 36%"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-xs font-semibold mb-1"><span class="text-slate-600">NVMe SSD Storage</span><span class="font-bold text-slate-800">380 GB Free</span></div>
+                    <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-amber-500 h-2 rounded-full" style="width: 55%"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-xs font-semibold mb-1"><span class="text-slate-600">Database SLA Latency</span><span class="font-bold text-slate-800">&lt; 11ms</span></div>
+                    <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-cyan-500 h-2 rounded-full" style="width: 15%"></div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                <span>Cluster: AWS us-east-1</span>
+                <span class="font-mono text-cyan-600 font-bold">99.98% SLA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECTION 4: PRODUCTIVITY (TODO & CHAT)      -->
+        <!-- ========================================== -->
+        <div class="space-y-3 pt-4">
+          <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+            <h2 class="text-sm font-extrabold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+              <i data-lucide="check-square" class="w-4 h-4 text-cyan-500"></i>
+              <span>Interactive Tasks & Direct Chat</span>
+            </h2>
+            <span class="text-xs text-slate-400">Productivity Widgets</span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Todo List Widget -->
+            <div class="vlt-card border border-slate-200/80 bg-white shadow-xs">
+              <div class="vlt-card-header p-5 border-b border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="clipboard-list" class="w-4 h-4 text-cyan-500"></i>
+                  <h3 class="font-bold text-slate-800 text-sm">Sprint Task List</h3>
+                </div>
+                <span class="vlt-badge vlt-badge-cyan">4 Pendientes</span>
+              </div>
+              <div class="p-4 space-y-2.5">
+                <div class="p-3 rounded-xl bg-slate-50/80 border border-slate-200/60 flex items-center justify-between hover:bg-slate-100/60 transition-colors dark:bg-slate-950 dark:text-slate-100">
+                  <div class="flex items-center gap-3">
+                    <input type="checkbox" checked class="w-4 h-4 text-cyan-600 rounded border-slate-300 focus:ring-cyan-500 cursor-pointer" />
+                    <span class="text-xs font-semibold text-slate-400 line-through">Implementar paleta clara VeltraUI</span>
+                  </div>
+                  <span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-[10px]">Listo</span>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50/80 border border-slate-200/60 flex items-center justify-between hover:bg-slate-100/60 transition-colors dark:bg-slate-950 dark:text-slate-100">
+                  <div class="flex items-center gap-3">
+                    <input type="checkbox" class="w-4 h-4 text-cyan-600 rounded border-slate-300 focus:ring-cyan-500 cursor-pointer" />
+                    <span class="text-xs font-semibold text-slate-800">Configurar Chart.js para gráficos de área y barras</span>
+                  </div>
+                  <span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-[10px]">En progreso</span>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50/80 border border-slate-200/60 flex items-center justify-between hover:bg-slate-100/60 transition-colors dark:bg-slate-950 dark:text-slate-100">
+                  <div class="flex items-center gap-3">
+                    <input type="checkbox" class="w-4 h-4 text-cyan-600 rounded border-slate-300 focus:ring-cyan-500 cursor-pointer" />
+                    <span class="text-xs font-semibold text-slate-800">Separar páginas HTML individuales (MPA)</span>
+                  </div>
+                  <span class="vlt-pill vlt-pill-amber py-0.5 px-2 text-[10px]">Urgente</span>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50/80 border border-slate-200/60 flex items-center justify-between hover:bg-slate-100/60 transition-colors dark:bg-slate-950 dark:text-slate-100">
+                  <div class="flex items-center gap-3">
+                    <input type="checkbox" class="w-4 h-4 text-cyan-600 rounded border-slate-300 focus:ring-cyan-500 cursor-pointer" />
+                    <span class="text-xs font-semibold text-slate-800">Revisión de accesibilidad WCAG y contrastes</span>
+                  </div>
+                  <span class="vlt-pill vlt-pill-slate py-0.5 px-2 text-[10px]">Backlog</span>
+                </div>
+              </div>
+              <div class="p-4 bg-slate-50/80 border-t border-slate-100 flex items-center gap-2 dark:bg-slate-950 dark:text-slate-100">
+                <input type="text" placeholder="Escribe una nueva tarea..." class="flex-1 px-3 py-1.5 text-xs rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-cyan-500 text-slate-800" />
+                <button type="button" class="vlt-btn vlt-btn-primary vlt-btn-sm">+ Agregar</button>
+              </div>
+            </div>
+
+            <!-- Direct Chat Widget -->
+            <div class="vlt-card border border-slate-200/80 bg-white shadow-xs">
+              <div class="vlt-card-header p-5 border-b border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="message-circle" class="w-4 h-4 text-cyan-500"></i>
+                  <h3 class="font-bold text-slate-800 text-sm">Direct Support Chat</h3>
+                </div>
+                <span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-[10px]"><span class="pill-dot"></span>Sarah Bullock</span>
+              </div>
+              <div class="p-4 space-y-3.5 h-64 overflow-y-auto">
+                <div class="flex items-start gap-2.5">
+                  <img class="w-7 h-7 rounded-full object-cover shrink-0" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Avatar" />
+                  <div class="bg-slate-100 p-2.5 rounded-2xl rounded-tl-none text-xs text-slate-700">
+                    <p class="font-bold text-[11px] text-slate-900 mb-0.5">Stivens Espinoza</p>
+                    <p>¿Qué tal ha quedado la nueva paleta cian y los widgets en blanco?</p>
+                  </div>
+                </div>
+                <div class="flex items-start justify-end gap-2.5">
+                  <div class="bg-cyan-500 text-white p-2.5 rounded-2xl rounded-tr-none text-xs">
+                    <p class="font-bold text-[11px] text-white/90 mb-0.5">Sarah Bullock</p>
+                    <p>¡Mucho más limpio y moderno! Se siente como una plantilla ligera y profesional.</p>
+                  </div>
+                  <img class="w-7 h-7 rounded-full object-cover shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" alt="Avatar" />
+                </div>
+              </div>
+              <div class="p-4 bg-slate-50/80 border-t border-slate-100 flex items-center gap-2 dark:bg-slate-950 dark:text-slate-100">
+                <input type="text" placeholder="Escribe un mensaje..." class="flex-1 px-3 py-1.5 text-xs rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-cyan-500 text-slate-800" />
+                <button type="button" class="vlt-btn vlt-btn-primary vlt-btn-sm">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="vlt-footer">
+        <div class="flex items-center gap-2">
+          <span><strong>Copyright &copy; 2026 <a href="#" class="text-cyan-600 hover:underline">Veltra UI</a>.</strong> All rights reserved.</span>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-semibold">
+          <b>Version</b> 1.0.0
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+  <!-- Search Command Palette Modal -->
+  <div id="vlt-search-modal" class="fixed inset-0 z-50 hidden flex-col items-center justify-start pt-16 sm:pt-24 px-4 bg-slate-950/50 backdrop-blur-sm transition-opacity">
+    <div class="vlt-modal-card w-full max-w-xl bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      <!-- Search Input Header -->
+      <div class="flex items-center px-4 py-3.5 border-b border-slate-100 dark:border-slate-800 gap-3">
+        <i data-lucide="search" class="w-5 h-5 text-cyan-500 shrink-0"></i>
+        <input id="vlt-modal-search-input" type="text" placeholder="Buscar páginas, dashboards, componentes..." class="w-full bg-transparent text-sm text-slate-800 dark:text-slate-100 outline-none placeholder:text-slate-400" autocomplete="off" />
+        <kbd class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono font-bold bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-slate-400">ESC</kbd>
+        <button type="button" class="vlt-btn-icon text-slate-400 hover:text-slate-700 dark:hover:text-white" data-vlt-close="search-modal" title="Cerrar">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Quick Navigation / Search Results List -->
+      <div id="vlt-search-results" class="max-h-80 overflow-y-auto p-2 space-y-1">
+        <div class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400">Páginas &amp; Dashboards</div>
+        <a href="/index.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="gauge" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Dashboard v1 (E-Commerce &amp; KPIs)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Principal</span>
+        </a>
+        <a href="/index2.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="bar-chart-3" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Dashboard v2 (Ventas &amp; Finanzas)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Analítica</span>
+        </a>
+        <a href="/index3.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="activity" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Dashboard v3 (Métricas &amp; Tienda)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Reportes</span>
+        </a>
+        <a href="/widgets.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="layout-grid" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Widgets Showcase (Tarjetas &amp; Cursos)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">UI</span>
+        </a>
+        <a href="/forms.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="edit-3" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Formularios Generales &amp; Avanzados</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Inputs</span>
+        </a>
+        <a href="/tables.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="table" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Tablas &amp; DataTables con Filtro en Vivo</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Datos</span>
+        </a>
+        <div class="px-3 pt-3 pb-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-t border-slate-100 dark:border-slate-800">Opciones de Diseño (Layouts)</div>
+        <a href="/layout-collapsed-sidebar.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="sidebar" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Collapsed Sidebar Layout (Modo Mini)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Layout</span>
+        </a>
+        <a href="/layout-fixed-sidebar.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="panel-left-close" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Fixed Sidebar Layout (Barra Fija)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Layout</span>
+        </a>
+        <a href="/layout-top-nav.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="maximize" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Top Navigation Layout (Barra Superior)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Layout</span>
+        </a>
+        <a href="/layout-boxed.html" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="box" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Boxed Layout (Contenedor Enmarcado)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Layout</span>
+        </a>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-4 py-2.5 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-400 dark:bg-slate-950 dark:text-slate-100">
+        <span>Navegar con <kbd class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono">↑</kbd> <kbd class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono">↓</kbd></span>
+        <span>Cerrar con <kbd class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono">ESC</kbd></span>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
