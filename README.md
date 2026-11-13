@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/badge/Templates-39_Pages-06b6d4?style=flat-square" alt="39 Templates" />
 </p>
 
-**VeltraUI** es una suite de interfaz de administración empresarial de alto rendimiento, diseñada con **Tailwind CSS v4** nativo y **Vanilla JavaScript**. Ha sido concebida para superar la deuda técnica de plantillas heredadas, prescindiendo por completo de Sass y dependencias pesadas para integrarse sin fricción en proyectos modernos de **Laravel (Blade)**, **React**, **Vue** o **HTML estático**.
+**VeltraUI** es una suite de interfaz de administración empresarial de alto rendimiento, diseñada con **Tailwind CSS v4** nativo y **Vanilla JavaScript**. Ha sido concebida para superar la deuda técnica de plantillas heredadas, prescindiendo por completo de dependencias pesadas para integrarse sin fricción en proyectos modernos de **Laravel (Blade)**, **React**, **Vue** o **HTML estático**.
 
 🌐 **Sitio Web Oficial y Demostración en Vivo**: [https://veltra-ui.stivensespinoza.dev](https://veltra-ui.stivensespinoza.dev)  
 📦 **Repositorio GitHub**: [https://github.com/stivens19/veltra-ui](https://github.com/stivens19/veltra-ui)
@@ -19,7 +19,7 @@
 
 ## 🌟 Características Principales
 
-- **Tailwind CSS v4 Puro (Cero Sass)**: Aprovecha el motor nativo de Tailwind v4 (*Oxide*) y CSS Nesting nativo. Sin preprocesadores heredados, compila en menos de 150 ms.
+- **Tailwind CSS v4 Nativo**: Aprovecha el motor nativo de Tailwind v4 (*Oxide*) y CSS Nesting nativo. Sin preprocesadores externos, compila en menos de 150 ms.
 - **Persistencia de Dark Mode Robusta**: Soporte dual (`data-theme="dark"` y `.dark`) con detección de preferencias del sistema, almacenamiento seguro en `localStorage` y ejecución anti-parpadeo (*Zero FOUC*).
 - **39 Plantillas y Módulos Listos para Producción**: Cobertura exhaustiva de dashboards, analítica, punto de venta (POS), facturación imprimible, tableros Kanban, calendarios, autenticación y perfiles.
 - **Micro-interacciones Reactivas en Vanilla JS**: Controladores modulares con tipado TypeScript (`.d.ts`) para treeviews colapsables, flyouts flotantes, modales, toasts, tabs, dropdowns y selector de temas.
