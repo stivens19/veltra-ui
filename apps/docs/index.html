@@ -131,6 +131,11 @@
           <i data-lucide="terminal" class="w-3.5 h-3.5 text-emerald-500"></i>
           <span>Integración</span>
         </a>
+        <a href="#vibe-coding"
+          class="px-3.5 py-1.5 rounded-full hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-white dark:hover:bg-slate-900 hover:shadow-xs transition-all flex items-center gap-1.5">
+          <i data-lucide="bot" class="w-3.5 h-3.5 text-purple-400"></i>
+          <span>Vibe Coding &amp; IA</span>
+        </a>
         <a href="/docs.html"
           class="px-3.5 py-1.5 rounded-full text-cyan-600 dark:text-cyan-400 font-bold hover:bg-white dark:hover:bg-slate-900 hover:shadow-xs transition-all flex items-center gap-1.5">
           <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
@@ -842,6 +847,109 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );</code></pre>
           </div>
 
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIBE CODING & AI AGENTS SECTION -->
+    <section id="vibe-coding" class="py-20 lg:py-28 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-white relative overflow-hidden border-t border-slate-800">
+      <!-- Glow ambient background -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-cyan-500/15 via-purple-500/15 to-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative">
+        
+        <!-- Section Header -->
+        <div class="text-center space-y-3 max-w-3xl mx-auto">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-cyan-500/10 text-cyan-400 border border-cyan-500/25 tracking-wide">
+            <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+            <span>VIBE CODING &amp; AGENTES DE IA</span>
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white">
+            Diseñado para Programar con IA
+          </h2>
+          <p class="text-sm sm:text-base text-slate-400 leading-relaxed">
+            ¿Usas <strong class="text-white">Cursor</strong>, <strong class="text-white">Claude Code</strong>, <strong class="text-white">Windsurf</strong> o <strong class="text-white">Copilot</strong>? Dale a tu modelo de lenguaje la referencia exacta de tokens, componentes y plantillas de VeltraUI para que genere vistas sin errores ni alucinaciones.
+          </p>
+        </div>
+
+        <!-- Two Downloadable AI Resource Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          
+          <!-- Card 1: AI Skill Reference -->
+          <div class="p-8 rounded-3xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 shadow-2xl transition-all flex flex-col justify-between group relative">
+            <div class="space-y-5">
+              <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-cyan-400 block mb-1">Para Cursor Rules, Antigravity &amp; Skills</span>
+                <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                  Skill de Arquitectura VeltraUI
+                </h3>
+                <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                  Reglas de arquitectura, lista de tokens CSS maestros (<code class="text-cyan-300">--vlt-*</code>), anatomía del layout canónico, componentes nativos y directivas para que el agente escriba código limpio en Tailwind CSS v4.
+                </p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 font-mono text-[11px] text-slate-400 flex items-center justify-between">
+                <span class="truncate">ai/veltra-ai-skill.md</span>
+                <span class="text-cyan-400 font-bold shrink-0 text-[10px]">Markdown / YAML</span>
+              </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-3">
+              <a href="/ai/veltra-ai-skill.md" download="veltra-ai-skill.md" class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 transition-all hover:scale-105 active:scale-95 cursor-pointer">
+                <i data-lucide="download" class="w-4 h-4"></i>
+                <span>Descargar Skill (.md)</span>
+              </a>
+              <button type="button" onclick="navigator.clipboard.writeText('https://veltra-ui.stivensespinoza.dev/ai/veltra-ai-skill.md').then(() => alert('¡Enlace del Skill copiado al portapapeles!'));" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs transition-colors flex items-center gap-1.5 cursor-pointer" title="Copiar URL">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+                <span>Copiar URL</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2: 39-Template Context File -->
+          <div class="p-8 rounded-3xl bg-slate-900/90 border border-slate-800 hover:border-purple-500/50 shadow-2xl transition-all flex flex-col justify-between group relative">
+            <div class="space-y-5">
+              <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform">
+                <i data-lucide="database" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-purple-400 block mb-1">Contexto Global de Plantillas</span>
+                <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                  Contexto de las 39 Plantillas
+                </h3>
+                <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                  Índice completo de todos los archivos HTML (dashboards, widgets, POS, facturas, kanban, calendarios, autenticación), rutas de assets y jerarquía del DOM para ensamblar pantallas en un solo prompt.
+                </p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 font-mono text-[11px] text-slate-400 flex items-center justify-between">
+                <span class="truncate">ai/veltra-context.md</span>
+                <span class="text-purple-400 font-bold shrink-0 text-[10px]">39 Plantillas</span>
+              </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-3">
+              <a href="/ai/veltra-context.md" download="veltra-context.md" class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-purple-500 hover:bg-purple-400 text-white font-bold text-xs shadow-lg shadow-purple-500/20 transition-all hover:scale-105 active:scale-95 cursor-pointer">
+                <i data-lucide="download" class="w-4 h-4"></i>
+                <span>Descargar Contexto (.md)</span>
+              </a>
+              <button type="button" onclick="navigator.clipboard.writeText('https://veltra-ui.stivensespinoza.dev/ai/veltra-context.md').then(() => alert('¡Enlace del Contexto copiado al portapapeles!'));" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs transition-colors flex items-center gap-1.5 cursor-pointer" title="Copiar URL">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+                <span>Copiar URL</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- llms.txt standard pill -->
+        <div class="text-center pt-2">
+          <a href="/llms.txt" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono text-slate-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all">
+            <i data-lucide="file-text" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span>Estándar para LLMs disponible en: <strong>veltra-ui.stivensespinoza.dev/llms.txt</strong></span>
+          </a>
         </div>
 
       </div>

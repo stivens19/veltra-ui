@@ -1,0 +1,20 @@
+# VeltraUI Documentation & Architecture Reference
+> Ultra-lightweight, Enterprise-grade Admin UI Suite built with pure Tailwind CSS v4 and Vanilla TypeScript.
+
+## Quick Links
+- Official Website: https://veltra-ui.stivensespinoza.dev
+- GitHub Repository: https://github.com/stivens19/veltra-ui
+- Full Documentation: https://veltra-ui.stivensespinoza.dev/docs.html
+- Live Dashboard: https://veltra-ui.stivensespinoza.dev/dashboard1.html
+
+## AI & Developer Resources
+- AI Skill Reference (Markdown): https://veltra-ui.stivensespinoza.dev/ai/veltra-ai-skill.md
+- Full 39-Template Context (Markdown): https://veltra-ui.stivensespinoza.dev/ai/veltra-context.md
+- Downloadable Bundle (ZIP): https://veltra-ui.stivensespinoza.dev/veltra-ui.zip
+
+## Key Features
+- Pure Tailwind CSS v4 (@import "tailwindcss"; native, zero tailwind.config.js)
+- Zero heavy dependencies (no jQuery, no legacy preprocessors)
+- Persistent Anti-FOUC Dark Mode (localStorage + head script)
+- 39 Ready-to-use HTML Templates
+- Framework-agnostic: Works natively in HTML, Laravel Blade (<x-ui.*>), React, Next.js, Vue, and Angular.
