@@ -44,47 +44,43 @@ function copyDirRecursive(src, dest) {
 
 console.log('\n🚀 [VeltraUI] Synchronizing standalone assets and root dist/...\n');
 
-// 1. Copy apps/docs/dist into root dist/
+// 1. Copy apps/docs/dist into root dist/ (contains compiled HTML, 343KB css/veltra.css, 579KB js/veltra.js, etc.)
 if (fs.existsSync(appsDocsDist)) {
   copyDirRecursive(appsDocsDist, rootDist);
   console.log('  ✓ Cloned apps/docs/dist/ -> root dist/');
 }
 
-// 2. Core Styles (veltra.css)
-const cssSource = path.join(coreStylesDist, 'veltra.css');
-if (fs.existsSync(cssSource)) {
-  // To root dist
-  copyFileSafe(cssSource, path.join(rootDist, 'veltra.css'));
-  copyFileSafe(cssSource, path.join(rootDist, 'css/veltra.css'));
-  // To apps/docs/dist
-  copyFileSafe(cssSource, path.join(appsDocsDist, 'veltra.css'));
-  copyFileSafe(cssSource, path.join(appsDocsDist, 'css/veltra.css'));
+// 2. Also expose root-level shortcuts of the full compiled bundles:
+// dist/veltra.css and dist/veltra.js pointing to the complete compiled CSS and JS
+const compiledCss = path.join(appsDocsDist, 'css/veltra.css');
+const compiledJs = path.join(appsDocsDist, 'js/veltra.js');
+
+if (fs.existsSync(compiledCss)) {
+  copyFileSafe(compiledCss, path.join(rootDist, 'veltra.css'));
 }
 
-// 3. Vanilla JS (veltra.umd.js, veltra.es.js, index.d.ts)
+if (fs.existsSync(compiledJs)) {
+  copyFileSafe(compiledJs, path.join(rootDist, 'veltra.js'));
+}
+
+// 3. Standalone library packages for npm / framework developers (placed in dist/packages/):
+const standaloneCss = path.join(coreStylesDist, 'veltra.css');
+if (fs.existsSync(standaloneCss)) {
+  copyFileSafe(standaloneCss, path.join(rootDist, 'packages/core-styles/veltra.css'));
+}
+
 const umdSource = path.join(vanillaJsDist, 'veltra.umd.js');
 const esSource = path.join(vanillaJsDist, 'veltra.es.js');
 const dtsSource = path.join(vanillaJsDist, 'index.d.ts');
 
 if (fs.existsSync(umdSource)) {
-  // To root dist
-  copyFileSafe(umdSource, path.join(rootDist, 'veltra.js'));
-  copyFileSafe(umdSource, path.join(rootDist, 'js/veltra.js'));
-  copyFileSafe(umdSource, path.join(rootDist, 'js/veltra.umd.js'));
-  // To apps/docs/dist
-  copyFileSafe(umdSource, path.join(appsDocsDist, 'veltra.js'));
-  copyFileSafe(umdSource, path.join(appsDocsDist, 'js/veltra.js'));
-  copyFileSafe(umdSource, path.join(appsDocsDist, 'js/veltra.umd.js'));
+  copyFileSafe(umdSource, path.join(rootDist, 'packages/vanilla-js/veltra.umd.js'));
 }
-
 if (fs.existsSync(esSource)) {
-  copyFileSafe(esSource, path.join(rootDist, 'js/veltra.es.js'));
-  copyFileSafe(esSource, path.join(appsDocsDist, 'js/veltra.es.js'));
+  copyFileSafe(esSource, path.join(rootDist, 'packages/vanilla-js/veltra.es.js'));
 }
-
 if (fs.existsSync(dtsSource)) {
-  copyFileSafe(dtsSource, path.join(rootDist, 'js/veltra.d.ts'));
-  copyFileSafe(dtsSource, path.join(appsDocsDist, 'js/veltra.d.ts'));
+  copyFileSafe(dtsSource, path.join(rootDist, 'packages/vanilla-js/index.d.ts'));
 }
 
 // 4. Create ZIP package for direct user download
