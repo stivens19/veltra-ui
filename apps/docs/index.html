@@ -1,33 +1,16 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full">
+<html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VeltraUI — Suite de Administración Moderna, Ultra-Ligera y Eficiente</title>
-  <meta name="description"
-    content="La suite UI para dashboards de próxima generación construida con Tailwind CSS v4 y Vanilla TypeScript. 39 plantillas listas para producción en HTML, Laravel Blade, React y Angular.">
-  <link rel="canonical" href="https://veltra-ui.stivensespinoza.dev" />
-  <meta property="og:title" content="VeltraUI — Suite de Administración Moderna, Ultra-Ligera y Eficiente">
-  <meta property="og:description"
-    content="La suite UI para dashboards de próxima generación construida con Tailwind CSS v4 y Vanilla TypeScript. 39 plantillas listas para producción.">
-  <meta property="og:url" content="https://veltra-ui.stivensespinoza.dev">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://veltra-ui.stivensespinoza.dev/screenshots/dashboard-1-dark.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/svg+xml" href="/logo.png" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veltra UI - Dashboard v1</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet">
-
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
@@ -35,37 +18,9 @@
     .font-mono {
       font-family: 'JetBrains Mono', monospace;
     }
-
-    /* Fondo de cuadrícula técnico de alta precisión */
-    .vlt-blueprint-grid {
-      background-size: 36px 36px;
-      background-image:
-        linear-gradient(to right, rgba(148, 163, 184, 0.16) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(148, 163, 184, 0.16) 1px, transparent 1px);
-    }
-
-    .dark .vlt-blueprint-grid,
-    [data-theme="dark"] .vlt-blueprint-grid {
-      background-size: 36px 36px;
-      background-image:
-        linear-gradient(to right, rgba(34, 211, 238, 0.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(34, 211, 238, 0.08) 1px, transparent 1px);
-      background-color: #060913;
-    }
-
-    /* Máscara de desvanecimiento radial para que la cuadrícula se integre suavemente */
-    .vlt-grid-mask {
-      mask-image: radial-gradient(ellipse 85% 65% at 50% 15%, black 45%, transparent 95%);
-      -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 15%, black 45%, transparent 95%);
-    }
-
-    /* Brillo de fondo */
-    .hero-glow-spot {
-      background: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.18) 0%, rgba(37, 99, 235, 0.08) 35%, transparent 70%);
-    }
   </style>
 
-  <!-- Script Canónico Anti-FOUC Dark Mode -->
+  <link rel="stylesheet" href="/src/style.css" />
   <script>
     (function () {
       try {
@@ -79,978 +34,1158 @@
       } catch (e) { }
     })();
   </script>
-
-  <link rel="stylesheet" href="/src/style.css" />
 </head>
 
 <body
-  class="bg-slate-50 dark:bg-[#060913] text-slate-800 dark:text-slate-100 antialiased selection:bg-cyan-500 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+  class="vlt-grid-bg text-slate-800 antialiased selection:bg-cyan-500 selection:text-white bg-slate-50 dark:bg-slate-950 dark:text-slate-100">
+  <div class="vlt-wrapper">
+    <!-- Mobile Backdrop -->
+    <div class="vlt-backdrop"></div>
 
-  <!-- CAPA DE FONDO: Cuadrícula Técnica + Radial Glow -->
-  <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-    <!-- Cuadrícula con desvanecimiento -->
-    <div class="absolute inset-0 vlt-blueprint-grid vlt-grid-mask"></div>
-    <!-- Spotlight cyan/blue en el hero -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] hero-glow-spot"></div>
+    <!-- Sidebar Navigation -->
+    <!-- Sidebar Navigation -->
+    <!-- Sidebar Navigation -->
+    <aside
+      class="vlt-sidebar border-r border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md">
+      <!-- Sidebar Brand Header -->
+      <div class="vlt-sidebar-brand">
+        <a href="/dashboard1.html" class="brand-link">
+          <img src="/logo.png" alt="VeltraUI" class="brand-logo" />
+          <span class="brand-text">
+            Veltra<span class="text-cyan-500">UI</span>
+          </span>
+        </a>
+
+      </div>
+
+      <!-- User Panel -->
+      <div class="vlt-sidebar-user">
+        <div class="relative shrink-0">
+          <img class="user-avatar" src="/avatar.jpg" alt="Stivens Espinoza" />
+          <span
+            class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white dark:border-slate-800 rounded-full"></span>
+        </div>
+        <div class="user-info">
+          <p class="user-name">Stivens Espinoza</p>
+          <span class="user-role">Administrator</span>
+        </div>
+      </div>
+
+      <!-- Sidebar Search -->
+      <div class="px-3 py-2">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 pointer-events-none"></i>
+          <input type="text" placeholder="Search menu..."
+            class="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:bg-slate-950 dark:text-slate-100" />
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <ul class="vlt-nav">
+        <li class="vlt-nav-header">MAIN NAVIGATION</li>
+
+        <!-- Item: Dashboard -->
+        <li class="vlt-nav-item is-open">
+          <a class="vlt-nav-link active" data-vlt-toggle="treeview">
+            <i data-lucide="gauge" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Dashboard</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/dashboard1.html" class="vlt-nav-link active font-bold text-cyan-600"><i
+                  data-lucide="circle-dot" class="w-3.5 h-3.5 text-cyan-500"></i><span class="vlt-nav-text">Dashboard
+                  v1</span></a></li>
+            <li class="vlt-nav-item"><a href="/index2.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v2</span></a></li>
+            <li class="vlt-nav-item"><a href="/index3.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Dashboard v3</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Widgets -->
+        <li class="vlt-nav-item">
+          <a href="/widgets.html" class="vlt-nav-link ">
+            <i data-lucide="layout-grid" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Widgets</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-danger">New</span>
+          </a>
+        </li>
+
+        <!-- Item: Layout Options -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="copy" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Layout Options</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">6</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/layout-top-nav.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Top Navigation</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-top-nav-sidebar.html" class="vlt-nav-link "><i
+                  data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Top Nav +
+                  Sidebar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-boxed.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Boxed</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-fixed-sidebar.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Fixed Sidebar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-fixed-navbar.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Fixed Navbar</span></a></li>
+            <li class="vlt-nav-item"><a href="/layout-collapsed-sidebar.html" class="vlt-nav-link "><i
+                  data-lucide="circle" class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Collapsed
+                  Sidebar</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Page Start -->
+        <li class="vlt-nav-item">
+          <a href="/page-start.html" class="vlt-nav-link ">
+            <i data-lucide="play-circle" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Page Start</span>
+          </a>
+        </li>
+        <!-- Item: Documentation -->
+        <li class="vlt-nav-item ">
+          <a href="/docs.html" class="vlt-nav-link text-cyan-600 dark:text-cyan-400 font-semibold">
+            <i data-lucide="book-open" class="vlt-nav-icon text-cyan-500"></i>
+            <span class="vlt-nav-text">Documentation</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-primary">ES/EN</span>
+          </a>
+        </li>
+
+        <li class="vlt-nav-header">COMPONENTS</li>
+
+        <!-- Item: UI Elements -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="palette" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">UI Elements</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/ui-general.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">General</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-icons.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Icons</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-buttons.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Buttons</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-modals.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Modals & Alerts</span></a></li>
+            <li class="vlt-nav-item"><a href="/ui-navbar-tabs.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Navbar & Tabs</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Forms -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="file-edit" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Forms</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/forms-general.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">General Elements</span></a></li>
+            <li class="vlt-nav-item"><a href="/forms-advanced.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Advanced Elements</span></a></li>
+            <li class="vlt-nav-item"><a href="/forms-validation.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Validation</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Item: Tables -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="table" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Tables</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/tables-simple.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Simple Tables</span></a></li>
+            <li class="vlt-nav-item"><a href="/tables-datatables.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">DataTables</span></a></li>
+            <li class="vlt-nav-item"><a href="/tables-jsgrid.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">jsGrid</span></a></li>
+          </ul>
+        </li>
+
+        <li class="vlt-nav-header">EXAMPLES</li>
+
+        <!-- Item: Calendar -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="calendar" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Calendar</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">3</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/calendar.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Calendario General</span></a></li>
+            <li class="vlt-nav-item"><a href="/calendar-team.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Equipo & Reuniones</span></a></li>
+            <li class="vlt-nav-item"><a href="/calendar-workload.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Carga Horaria & Heatmap</span></a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Item: Kanban Board -->
+        <li class="vlt-nav-item">
+          <a href="/kanban.html" class="vlt-nav-link ">
+            <i data-lucide="trello" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Kanban Board</span>
+            <span class="vlt-nav-badge vlt-badge vlt-badge-cyan">7</span>
+          </a>
+        </li>
+
+        <!-- Item: Pages -->
+        <li class="vlt-nav-item ">
+          <a class="vlt-nav-link " data-vlt-toggle="treeview">
+            <i data-lucide="book-open" class="vlt-nav-icon"></i>
+            <span class="vlt-nav-text">Pages</span>
+            <i data-lucide="chevron-right" class="vlt-nav-arrow"></i>
+          </a>
+          <ul class="vlt-nav-treeview">
+            <li class="vlt-nav-item"><a href="/pages-pos.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">POS Terminal</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-invoice.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Invoice</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-profile.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Profile</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-ecommerce.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">E-commerce</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-projects.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Projects</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-contacts.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Contacts</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-pricing.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Pricing</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-faq.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">FAQ</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-login.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Login</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-register.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Register</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-lockscreen.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Lockscreen</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-forgot-password.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Forgot Password</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-404.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Error 404</span></a></li>
+            <li class="vlt-nav-item"><a href="/pages-500.html" class="vlt-nav-link "><i data-lucide="circle"
+                  class="w-3.5 h-3.5 text-slate-400"></i><span class="vlt-nav-text">Error 500</span></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Bottom System Status Pill -->
+      <div class="p-4 border-t border-slate-200/60 dark:border-slate-800">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+          <span class="vlt-pill vlt-pill-emerald py-0.5 px-2.5">
+            <span class="pill-dot"></span>
+            <span>Online</span>
+          </span>
+          <span class="font-mono text-[11px] text-slate-400">v1.0.0</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="vlt-main">
+      <!-- Header -->
+      <header class="vlt-header">
+        <div class="flex items-center gap-3">
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="sidebar" title="Colapsar Menú"><i
+              data-lucide="menu" class="w-4 h-4"></i></button>
+
+          <div class="hidden sm:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
+            <a href="/dashboard1.html"
+              class="px-3 py-1 text-xs rounded-lg bg-white text-cyan-600 shadow-xs border border-slate-200/80 font-bold flex items-center gap-1.5 transition-colors cursor-pointer">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span><span>OP 1</span>
+            </a>
+            <a href="/index2.html"
+              class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <span>OP 2</span>
+            </a>
+            <a href="/pages-pos.html"
+              class="px-3 py-1 text-xs rounded-lg font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/80 flex items-center gap-1.5 transition-colors cursor-pointer">
+              <i data-lucide="shopping-cart" class="w-3.5 h-3.5 text-slate-400"></i><span>POS</span>
+            </a>
+          </div>
+
+          <a href="/docs.html"
+            class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-xl bg-cyan-50 dark:bg-cyan-950/60 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 text-cyan-700 dark:text-cyan-300 border border-cyan-200/80 dark:border-cyan-800 transition-colors shadow-xs"
+            title="Documentation">
+            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+            <span>Documentation</span>
+          </a>
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="search-modal" title="Buscar (Ctrl+K)"><i
+              data-lucide="search" class="w-4 h-4"></i></button>
+        </div>
+
+        <div class="flex items-center gap-1.5">
+          <!-- Messages Dropdown -->
+          <div class="vlt-dropdown hidden sm:inline-block">
+            <button type="button" class="vlt-btn-icon relative" data-vlt-toggle="dropdown" title="Messages">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full"></span>
+            </button>
+            <div class="vlt-dropdown-menu vlt-dropdown-menu-lg">
+              <div class="vlt-dropdown-header"><span class="font-bold text-slate-800 dark:text-slate-100">3
+                  Messages</span></div>
+              <a href="#" class="vlt-dropdown-item">
+                <img class="w-8 h-8 rounded-full object-cover shrink-0"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces"
+                  alt="Avatar" />
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="font-bold text-slate-900 dark:text-white truncate">Brad Diesel</span>
+                    <span class="text-[10px] text-rose-500 font-semibold">4 hrs</span>
+                  </div>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">Llamada técnica a las 4:00 PM...
+                  </p>
+                </div>
+              </a>
+              <div class="vlt-dropdown-footer"><a href="#">Ver todos los mensajes</a></div>
+            </div>
+          </div>
+
+          <!-- Notifications Dropdown -->
+          <div class="vlt-dropdown">
+            <button type="button" class="vlt-btn-icon relative" data-vlt-toggle="dropdown" title="Notifications">
+              <i data-lucide="bell" class="w-4 h-4"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-amber-500 rounded-full"></span>
+            </button>
+            <div class="vlt-dropdown-menu vlt-dropdown-menu-md">
+              <div class="vlt-dropdown-header"><span class="font-bold text-slate-800 dark:text-slate-100">15
+                  Notificaciones</span></div>
+              <a href="#" class="vlt-dropdown-item"><i data-lucide="mail"
+                  class="w-4 h-4 text-cyan-500 mr-2 shrink-0"></i><span class="flex-1 text-xs">4 nuevos
+                  mensajes</span></a>
+              <a href="#" class="vlt-dropdown-item"><i data-lucide="user-plus"
+                  class="w-4 h-4 text-emerald-500 mr-2 shrink-0"></i><span class="flex-1 text-xs">8
+                  solicitudes</span></a>
+              <div class="vlt-dropdown-footer"><a href="#">Ver todas las notificaciones</a></div>
+            </div>
+          </div>
+
+          <!-- Fullscreen Toggle -->
+          <button type="button" class="vlt-btn-icon hidden sm:inline-flex" data-vlt-toggle="fullscreen"
+            title="Pantalla Completa"><i data-lucide="maximize" class="w-4 h-4"></i></button>
+
+          <!-- Theme Toggle -->
+          <button type="button" class="vlt-btn-icon" data-vlt-toggle="theme" title="Alternar Tema Claro/Oscuro"><i
+              data-lucide="sun-medium" class="w-4 h-4"></i></button>
+
+          <!-- User Menu -->
+          <div class="vlt-dropdown">
+            <button type="button"
+              class="flex items-center gap-2 p-1 pl-1.5 pr-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ml-1 cursor-pointer"
+              data-vlt-toggle="dropdown">
+              <img class="w-7 h-7 rounded-full object-cover ring-2 ring-cyan-500/40" src="/avatar.jpg"
+                alt="Stivens Espinoza" />
+              <div class="hidden md:block text-left text-xs leading-tight">
+                <span class="font-bold text-slate-800 dark:text-slate-100 block">Stivens Espinoza</span>
+                <span class="text-[10px] text-slate-500 dark:text-slate-400">Admin</span>
+              </div>
+            </button>
+            <div class="vlt-dropdown-menu w-56">
+              <div class="px-4 py-3 border-b border-slate-100 dark:border-slate-800">
+                <p class="text-xs text-slate-500 dark:text-slate-400">Conectado como</p>
+                <p class="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">admin@example.com</p>
+              </div>
+              <a href="/pages-profile.html" class="vlt-dropdown-item"><i data-lucide="user"
+                  class="w-4 h-4 mr-2 text-slate-400"></i>Perfil</a>
+              <a href="/pages-invoice.html" class="vlt-dropdown-item"><i data-lucide="receipt"
+                  class="w-4 h-4 mr-2 text-slate-400"></i>Facturación</a>
+              <div class="vlt-dropdown-divider"></div>
+              <a href="/pages-login.html" class="vlt-dropdown-item text-rose-500 hover:text-rose-600"><i
+                  data-lucide="log-out" class="w-4 h-4 mr-2"></i>Cerrar Sesión</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Header (Breadcrumb & Title) -->
+      <section class="vlt-content-header">
+        <div>
+          <h1 class="vlt-page-title">Dashboard v1</h1>
+        </div>
+        <nav class="vlt-breadcrumb">
+          <a href="#">Home</a>
+          <span>/</span>
+          <span class="active">Dashboard v1</span>
+        </nav>
+      </section>
+
+      <!-- Main Dashboard Content -->
+      <main class="vlt-content space-y-8">
+
+        <!-- ACTIVE VIEW: DASHBOARD V1 -->
+        <div data-view-panel="active-dashboard" class="space-y-8">
+          <!-- ROW 1: Key Performance Indicators -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <!-- Box 1: New Orders -->
+            <div class="vlt-stat-box vlt-stat-box-cyan">
+              <div class="vlt-stat-box-inner">
+                <div class="stat-top">
+                  <div class="stat-icon-wrapper">
+                    <i data-lucide="shopping-bag"></i>
+                  </div>
+                  <span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-[10px]">
+                    <span class="pill-dot"></span>
+                    <span>+12%</span>
+                  </span>
+                </div>
+                <div class="stat-value">150</div>
+                <div class="stat-title">New Orders</div>
+                <div class="stat-meta text-cyan-600 dark:text-cyan-400">
+                  <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
+                  <span>Trending up this week</span>
+                </div>
+              </div>
+              <a href="#" class="vlt-stat-box-footer">
+                <span>More info</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 footer-arrow"></i>
+              </a>
+            </div>
+
+            <!-- Box 2: Bounce Rate -->
+            <div class="vlt-stat-box vlt-stat-box-emerald">
+              <div class="vlt-stat-box-inner">
+                <div class="stat-top">
+                  <div class="stat-icon-wrapper">
+                    <i data-lucide="bar-chart-2"></i>
+                  </div>
+                  <span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-[10px]">
+                    <span class="pill-dot"></span>
+                    <span>-3.5%</span>
+                  </span>
+                </div>
+                <div class="stat-value">53<sup class="text-lg font-normal">%</sup></div>
+                <div class="stat-title">Bounce Rate</div>
+                <div class="stat-meta text-emerald-600 dark:text-emerald-400">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                  <span>Optimized rate</span>
+                </div>
+              </div>
+              <a href="#" class="vlt-stat-box-footer">
+                <span>More info</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 footer-arrow"></i>
+              </a>
+            </div>
+
+            <!-- Box 3: User Registrations -->
+            <div class="vlt-stat-box vlt-stat-box-amber">
+              <div class="vlt-stat-box-inner">
+                <div class="stat-top">
+                  <div class="stat-icon-wrapper">
+                    <i data-lucide="user-plus"></i>
+                  </div>
+                  <span class="vlt-tag-code text-[10px] py-0 px-2">+44 New</span>
+                </div>
+                <div class="stat-value">44</div>
+                <div class="stat-title">User Registrations</div>
+                <div class="stat-meta text-amber-600 dark:text-amber-400">
+                  <i data-lucide="users" class="w-3.5 h-3.5"></i>
+                  <span>Active verified accounts</span>
+                </div>
+              </div>
+              <a href="#" class="vlt-stat-box-footer">
+                <span>More info</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 footer-arrow"></i>
+              </a>
+            </div>
+
+            <!-- Box 4: Unique Visitors -->
+            <div class="vlt-stat-box vlt-stat-box-rose">
+              <div class="vlt-stat-box-inner">
+                <div class="stat-top">
+                  <div class="stat-icon-wrapper">
+                    <i data-lucide="pie-chart"></i>
+                  </div>
+                  <span class="vlt-pill vlt-pill-slate py-0.5 px-2 text-[10px]">Global</span>
+                </div>
+                <div class="stat-value">65,240</div>
+                <div class="stat-title">Unique Visitors</div>
+                <div class="stat-meta text-rose-600 dark:text-rose-400">
+                  <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+                  <span>Worldwide traffic</span>
+                </div>
+              </div>
+              <a href="#" class="vlt-stat-box-footer">
+                <span>More info</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 footer-arrow"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- ROW 1.5: MAIN SALES AREA CHART & TRAFFIC DOUGHNUT (Chart.js) -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Sales Area Chart (Span 2) -->
+            <div class="lg:col-span-2 vlt-card border border-slate-200/80 bg-white shadow-xs">
+              <div class="vlt-card-header p-5 border-b border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div class="p-2 rounded-xl bg-cyan-50 text-cyan-600">
+                    <i data-lucide="trending-up" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-800 text-sm">Sales & Revenue Performance</h3>
+                    <p class="text-xs text-slate-400">Monthly gross volume vs targeted trajectory</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl text-xs font-semibold">
+                  <button type="button"
+                    class="px-2.5 py-1 rounded-lg bg-white text-cyan-600 font-bold shadow-xs">2026</button>
+                  <button type="button" class="px-2.5 py-1 rounded-lg text-slate-500 hover:text-slate-800">2025</button>
+                </div>
+              </div>
+              <div class="p-5">
+                <div class="relative h-72 w-full">
+                  <canvas id="chart-sales-v1"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Traffic by Device Sources Doughnut (Span 1) -->
+            <div class="vlt-card border border-slate-200/80 bg-white shadow-xs flex flex-col">
+              <div class="vlt-card-header p-5 border-b border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div class="p-2 rounded-xl bg-cyan-50 text-cyan-600">
+                    <i data-lucide="pie-chart" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-800 text-sm">Traffic by Device</h3>
+                    <p class="text-xs text-slate-400">Total 65,240 visitors</p>
+                  </div>
+                </div>
+                <span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-[10px]">Realtime</span>
+              </div>
+              <div class="p-5 flex-1 flex flex-col justify-center">
+                <div class="relative h-52 w-full">
+                  <canvas id="chart-traffic-v1"></canvas>
+                </div>
+                <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-100 text-center text-xs">
+                  <div>
+                    <span class="inline-block w-2 h-2 rounded-full bg-cyan-500 mr-1"></span>
+                    <span class="text-slate-500 text-[11px]">Desktop</span>
+                    <p class="font-extrabold text-slate-800">55%</p>
+                  </div>
+                  <div>
+                    <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1"></span>
+                    <span class="text-slate-500 text-[11px]">Mobile</span>
+                    <p class="font-extrabold text-slate-800">35%</p>
+                  </div>
+                  <div>
+                    <span class="inline-block w-2 h-2 rounded-full bg-amber-400 mr-1"></span>
+                    <span class="text-slate-500 text-[11px]">Tablet</span>
+                    <p class="font-extrabold text-slate-800">10%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 2: Latest Orders Table & Browser Usage / Quick Stats -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Col 1 (Span 2): Latest Orders Table Card -->
+            <div class="lg:col-span-2 space-y-6">
+              <div class="vlt-card">
+                <div class="vlt-card-header">
+                  <div class="vlt-card-title">
+                    <i data-lucide="shopping-cart" class="w-5 h-5 text-cyan-500"></i>
+                    <span>Latest Orders</span>
+                  </div>
+                  <div class="vlt-card-tools">
+                    <button type="button" class="vlt-btn-icon" data-vlt-card="collapse" title="Collapse">
+                      <i data-lucide="minus" class="w-4 h-4"></i>
+                    </button>
+                    <button type="button" class="vlt-btn-icon" data-vlt-card="maximize" title="Maximize">
+                      <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                    </button>
+                    <button type="button" class="vlt-btn-icon" data-vlt-card="remove" title="Remove">
+                      <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="vlt-card-body p-0">
+                  <div class="vlt-table-container">
+                    <table class="vlt-table">
+                      <thead>
+                        <tr>
+                          <th>Order ID</th>
+                          <th>Item</th>
+                          <th>Status</th>
+                          <th>Popularity</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><a href="#" class="font-bold text-cyan-600 hover:underline">OR9842</a></td>
+                          <td>Call of Duty IV</td>
+                          <td><span class="vlt-badge vlt-badge-success">Shipped</span></td>
+                          <td><span
+                              class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">90%</span></td>
+                        </tr>
+                        <tr>
+                          <td><a href="#" class="font-bold text-cyan-600 hover:underline">OR1848</a></td>
+                          <td>Samsung Smart TV</td>
+                          <td><span class="vlt-badge vlt-badge-warning">Pending</span></td>
+                          <td><span
+                              class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">70%</span></td>
+                        </tr>
+                        <tr>
+                          <td><a href="#" class="font-bold text-cyan-600 hover:underline">OR7429</a></td>
+                          <td>iPhone 15 Pro</td>
+                          <td><span class="vlt-badge vlt-badge-danger">Delivered</span></td>
+                          <td><span
+                              class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">85%</span></td>
+                        </tr>
+                        <tr>
+                          <td><a href="#" class="font-bold text-cyan-600 hover:underline">OR9844</a></td>
+                          <td>PlayStation 5 Console</td>
+                          <td><span class="vlt-badge vlt-badge-cyan">Processing</span></td>
+                          <td><span
+                              class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">60%</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vlt-card-footer flex items-center justify-between">
+                  <a href="#" class="vlt-btn vlt-btn-secondary vlt-btn-sm font-semibold">Place New Order</a>
+                  <a href="#" class="vlt-btn vlt-btn-ghost vlt-btn-sm font-semibold text-cyan-600">View All Orders</a>
+                </div>
+              </div>
+
+              <!-- Horizontal Info Boxes -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="vlt-info-box">
+                  <div class="vlt-info-box-icon bg-cyan-500">
+                    <i data-lucide="cpu"></i>
+                  </div>
+                  <div class="vlt-info-box-content">
+                    <div class="info-title">CPU Traffic</div>
+                    <div class="info-value">10<small class="text-sm font-normal">%</small></div>
+                  </div>
+                </div>
+
+                <div class="vlt-info-box">
+                  <div class="vlt-info-box-icon bg-emerald-500">
+                    <i data-lucide="thumbs-up"></i>
+                  </div>
+                  <div class="vlt-info-box-content">
+                    <div class="info-title">Likes</div>
+                    <div class="info-value">41,410</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Col 2 (Span 1): Browser Usage & Direct Chat Cards -->
+            <div class="space-y-6">
+              <!-- Browser Usage Card -->
+              <div class="vlt-card">
+                <div class="vlt-card-header">
+                  <div class="vlt-card-title">
+                    <i data-lucide="pie-chart" class="w-5 h-5 text-cyan-500"></i>
+                    <span>Browser Usage</span>
+                  </div>
+                  <div class="vlt-card-tools">
+                    <button type="button" class="vlt-btn-icon" data-vlt-card="collapse">
+                      <i data-lucide="minus" class="w-4 h-4"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="vlt-card-body space-y-4">
+                  <div>
+                    <div class="flex justify-between text-xs font-bold mb-1.5">
+                      <span class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+                        <span>Chrome</span>
+                      </span>
+                      <span class="text-cyan-500 font-mono">65%</span>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2">
+                      <div class="bg-cyan-500 h-2 rounded-full" style="width: 65%"></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between text-xs font-bold mb-1.5">
+                      <span class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                        <span>Firefox</span>
+                      </span>
+                      <span class="text-rose-500 font-mono">18%</span>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2">
+                      <div class="bg-rose-500 h-2 rounded-full" style="width: 18%"></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between text-xs font-bold mb-1.5">
+                      <span class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <span>Safari</span>
+                      </span>
+                      <span class="text-emerald-500 font-mono">12%</span>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2">
+                      <div class="bg-emerald-500 h-2 rounded-full" style="width: 12%"></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between text-xs font-bold mb-1.5">
+                      <span class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                        <span>Edge / Others</span>
+                      </span>
+                      <span class="text-amber-500 font-mono">5%</span>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2">
+                      <div class="bg-amber-500 h-2 rounded-full" style="width: 5%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="vlt-card-footer">
+                  <a href="#" class="vlt-btn vlt-btn-secondary w-full text-xs">
+                    <span>View Full Analytics</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Direct Chat Card -->
+              <div class="vlt-card">
+                <div class="vlt-card-header">
+                  <div class="vlt-card-title">
+                    <i data-lucide="message-square" class="w-5 h-5 text-emerald-500"></i>
+                    <span>Direct Chat</span>
+                  </div>
+                  <div class="vlt-card-tools">
+                    <span class="vlt-badge vlt-badge-cyan">3</span>
+                    <button type="button" class="vlt-btn-icon" data-vlt-card="collapse">
+                      <i data-lucide="minus" class="w-4 h-4"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="vlt-card-body p-4 space-y-3">
+                  <!-- Message Left -->
+                  <div class="flex items-start gap-2.5">
+                    <img class="w-7 h-7 rounded-full object-cover shrink-0"
+                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces"
+                      alt="Avatar" />
+                    <div
+                      class="bg-slate-100 dark:bg-slate-800 p-2.5 rounded-2xl rounded-tl-none text-xs text-slate-700 dark:text-slate-300">
+                      <p class="font-bold text-[11px] text-cyan-600 mb-0.5">Stivens Espinoza</p>
+                      <p>Is this template really responsive?</p>
+                    </div>
+                  </div>
+
+                  <!-- Message Right -->
+                  <div class="flex items-start justify-end gap-2.5">
+                    <div class="bg-cyan-500 text-white p-2.5 rounded-2xl rounded-tr-none text-xs">
+                      <p class="font-bold text-[11px] text-white/90 mb-0.5">Sarah Bullock</p>
+                      <p>Yes, works cleanly on desktop and mobile!</p>
+                    </div>
+                    <img class="w-7 h-7 rounded-full object-cover shrink-0"
+                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces"
+                      alt="Avatar" />
+                  </div>
+                </div>
+                <div class="vlt-card-footer p-3">
+                  <div class="flex items-center gap-2">
+                    <input type="text" placeholder="Type message..."
+                      class="flex-1 px-3 py-1.5 text-xs rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-cyan-500" />
+                    <button type="button" class="vlt-btn vlt-btn-primary vlt-btn-sm">Send</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-view-panel="view-widgets" class="space-y-8 hidden">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="vlt-card p-4 border border-cyan-200/70 bg-cyan-50/50 flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-2xl bg-cyan-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-cyan-500/20">
+                <i data-lucide="bookmark" class="w-6 h-6"></i></div>
+              <div>
+                <p class="text-xs font-semibold text-slate-500 uppercase">Bookmarks</p>
+                <p class="text-xl font-extrabold text-slate-900">41,410</p>
+              </div>
+            </div>
+            <div class="vlt-card p-4 border border-emerald-200/70 bg-emerald-50/50 flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-emerald-500/20">
+                <i data-lucide="thumbs-up" class="w-6 h-6"></i></div>
+              <div>
+                <p class="text-xs font-semibold text-slate-500 uppercase">Likes</p>
+                <p class="text-xl font-extrabold text-slate-900">120,400</p>
+              </div>
+            </div>
+            <div class="vlt-card p-4 border border-amber-200/70 bg-amber-50/50 flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-amber-500/20">
+                <i data-lucide="message-square" class="w-6 h-6"></i></div>
+              <div>
+                <p class="text-xs font-semibold text-slate-500 uppercase">Comments</p>
+                <p class="text-xl font-extrabold text-slate-900">13,648</p>
+              </div>
+            </div>
+            <div class="vlt-card p-4 border border-rose-200/70 bg-rose-50/50 flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-2xl bg-rose-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-rose-500/20">
+                <i data-lucide="share-2" class="w-6 h-6"></i></div>
+              <div>
+                <p class="text-xs font-semibold text-slate-500 uppercase">Shares</p>
+                <p class="text-xl font-extrabold text-slate-900">93,139</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-view-panel="view-ui-elements" class="space-y-8 hidden">
+          <div class="vlt-card p-6 border border-slate-200/80 bg-white space-y-6">
+            <h3 class="font-bold text-slate-800 text-lg border-b border-slate-100 pb-3">Buttons & Actions</h3>
+            <div class="flex flex-wrap items-center gap-3">
+              <button type="button" class="vlt-btn vlt-btn-primary">Primary Cyan</button>
+              <button type="button" class="vlt-btn vlt-btn-secondary">Secondary Slate</button>
+              <button type="button" class="vlt-btn vlt-btn-emerald">Success Emerald</button>
+              <button type="button" class="vlt-btn vlt-btn-amber">Warning Amber</button>
+              <button type="button" class="vlt-btn vlt-btn-rose">Danger Rose</button>
+              <button type="button" class="vlt-btn vlt-btn-outline">Outline Button</button>
+            </div>
+            <h3 class="font-bold text-slate-800 text-lg border-b border-slate-100 pb-3 pt-4">Pills & Badges</h3>
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="vlt-pill vlt-pill-cyan py-1 px-3 text-xs"><span class="pill-dot"></span>Active Status</span>
+              <span class="vlt-pill vlt-pill-emerald py-1 px-3 text-xs"><span class="pill-dot"></span>Success
+                Verified</span>
+              <span class="vlt-pill vlt-pill-amber py-1 px-3 text-xs"><span class="pill-dot"></span>Attention
+                Required</span>
+              <span class="vlt-badge vlt-badge-cyan">Badge 12</span>
+              <span class="vlt-badge vlt-badge-danger">New</span>
+            </div>
+          </div>
+        </div>
+
+        <div data-view-panel="view-forms" class="space-y-8 hidden">
+          <div class="vlt-card border border-slate-200/80 bg-white max-w-3xl">
+            <div class="vlt-card-header p-5 border-b border-slate-100">
+              <h3 class="font-bold text-slate-800 text-base">Quick Form Elements</h3>
+            </div>
+            <div class="p-6 space-y-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Email Address</label>
+                <input type="email" placeholder="stivens@espinoza.dev"
+                  class="w-full px-3.5 py-2 text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-cyan-500 text-slate-800 dark:bg-slate-950 dark:text-slate-100" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Role / Category</label>
+                <select
+                  class="w-full px-3.5 py-2 text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-cyan-500 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+                  <option>Software Architect</option>
+                  <option>Fullstack Engineer</option>
+                  <option>DevOps Specialist</option>
+                </select>
+              </div>
+              <div class="flex items-center gap-2 pt-2">
+                <input type="checkbox" id="terms" checked
+                  class="w-4 h-4 text-cyan-600 rounded border-slate-300 focus:ring-cyan-500" />
+                <label for="terms" class="text-xs font-semibold text-slate-700">Receive system and telemetry
+                  notifications</label>
+              </div>
+            </div>
+            <div
+              class="vlt-card-footer p-4 bg-slate-50 border-t border-slate-100 flex justify-end gap-3 dark:bg-slate-950 dark:text-slate-100">
+              <button type="button" class="vlt-btn vlt-btn-secondary">Cancel</button>
+              <button type="button" class="vlt-btn vlt-btn-primary">Save Changes</button>
+            </div>
+          </div>
+        </div>
+
+        <div data-view-panel="view-tables" class="space-y-8 hidden">
+          <div class="vlt-card border border-slate-200/80 bg-white">
+            <div
+              class="vlt-card-header p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h3 class="font-bold text-slate-800 text-base">Interactive DataTables</h3>
+                <p class="text-xs text-slate-400">Live filterable dataset with instant search</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="search" class="w-4 h-4 text-slate-400"></i>
+                <input id="datatable-filter" type="text" placeholder="Search table..."
+                  class="px-3 py-1.5 text-xs rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-cyan-500 text-slate-800 dark:bg-slate-950 dark:text-slate-100" />
+              </div>
+            </div>
+            <div class="vlt-table-container">
+              <table class="vlt-table">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Registered</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="datatable-body">
+                  <tr>
+                    <td class="font-bold text-slate-800">Stivens Espinoza</td>
+                    <td>Fullstack Architect</td>
+                    <td><span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-xs">Active</span></td>
+                    <td>12 Nov 2026</td>
+                    <td><button type="button" class="vlt-btn vlt-btn-secondary vlt-btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold text-slate-800">Sarah Bullock</td>
+                    <td>Frontend Lead</td>
+                    <td><span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-xs">Online</span></td>
+                    <td>10 Nov 2026</td>
+                    <td><button type="button" class="vlt-btn vlt-btn-secondary vlt-btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold text-slate-800">Carlos Mendez</td>
+                    <td>Backend Specialist</td>
+                    <td><span class="vlt-pill vlt-pill-amber py-0.5 px-2 text-xs">Pending</span></td>
+                    <td>08 Nov 2026</td>
+                    <td><button type="button" class="vlt-btn vlt-btn-secondary vlt-btn-sm">Edit</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div data-view-panel="view-calendar" class="space-y-8 hidden">
+          <div class="vlt-card p-6 border border-slate-200/80 bg-white">
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+              <h3 class="font-bold text-slate-800 text-lg">August 2026</h3>
+              <div class="flex items-center gap-2">
+                <button type="button" class="vlt-btn vlt-btn-secondary vlt-btn-sm">&larr; Prev</button>
+                <button type="button" class="vlt-btn vlt-btn-secondary vlt-btn-sm">Next &rarr;</button>
+              </div>
+            </div>
+            <div class="grid grid-cols-7 gap-2 text-center text-xs font-bold text-slate-400 uppercase mb-3">
+              <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+            </div>
+            <div class="grid grid-cols-7 gap-2 text-xs">
+              <div
+                class="h-20 p-2 rounded-xl bg-slate-50 border border-slate-100 font-bold text-slate-400 dark:bg-slate-950 dark:text-slate-100">
+                1</div>
+              <div
+                class="h-20 p-2 rounded-xl bg-slate-50 border border-slate-100 font-bold text-slate-400 dark:bg-slate-950 dark:text-slate-100">
+                2</div>
+              <div class="h-20 p-2 rounded-xl bg-white border border-slate-200 font-bold text-slate-700">3</div>
+              <div class="h-20 p-2 rounded-xl bg-white border border-slate-200 font-bold text-slate-700"><span
+                  class="block">4</span><span
+                  class="vlt-pill vlt-pill-cyan py-0.5 px-1.5 text-[9px] mt-1 block truncate">Sprint Review</span></div>
+              <div class="h-20 p-2 rounded-xl bg-white border border-slate-200 font-bold text-slate-700">5</div>
+              <div class="h-20 p-2 rounded-xl bg-cyan-50 border border-cyan-200 font-bold text-cyan-700"><span
+                  class="block">6 Today</span><span
+                  class="vlt-pill vlt-pill-emerald py-0.5 px-1.5 text-[9px] mt-1 block truncate">Release v1.0</span>
+              </div>
+              <div class="h-20 p-2 rounded-xl bg-white border border-slate-200 font-bold text-slate-700">7</div>
+            </div>
+          </div>
+        </div>
+
+        <div data-view-panel="view-kanban" class="space-y-8 hidden">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Col 1: To Do -->
+            <div
+              class="vlt-card p-4 border border-slate-200/80 bg-slate-50/60 space-y-3 dark:bg-slate-950 dark:text-slate-100">
+              <div class="flex items-center justify-between font-bold text-slate-800 text-sm"><span>To Do</span><span
+                  class="vlt-badge vlt-badge-cyan">2</span></div>
+              <div class="p-3.5 bg-white rounded-xl border border-slate-200/80 shadow-xs space-y-2">
+                <span class="vlt-pill vlt-pill-amber py-0.5 px-2 text-[10px]">High Priority</span>
+                <p class="font-bold text-xs text-slate-800">Add Dark Mode Switcher unit tests</p>
+                <p class="text-[11px] text-slate-400">Ensure WCAG color contrast matches specification.</p>
+              </div>
+            </div>
+            <!-- Col 2: In Progress -->
+            <div
+              class="vlt-card p-4 border border-slate-200/80 bg-slate-50/60 space-y-3 dark:bg-slate-950 dark:text-slate-100">
+              <div class="flex items-center justify-between font-bold text-slate-800 text-sm"><span>In
+                  Progress</span><span class="vlt-badge vlt-badge-cyan">1</span></div>
+              <div class="p-3.5 bg-white rounded-xl border border-slate-200/80 shadow-xs space-y-2">
+                <span class="vlt-pill vlt-pill-cyan py-0.5 px-2 text-[10px]">VeltraUI</span>
+                <p class="font-bold text-xs text-slate-800">Refactor Treeview Controller</p>
+                <p class="text-[11px] text-slate-400">Add smooth animations and breadcrumb synchronization.</p>
+              </div>
+            </div>
+            <!-- Col 3: Done -->
+            <div
+              class="vlt-card p-4 border border-slate-200/80 bg-slate-50/60 space-y-3 dark:bg-slate-950 dark:text-slate-100">
+              <div class="flex items-center justify-between font-bold text-slate-800 text-sm"><span>Done</span><span
+                  class="vlt-badge vlt-badge-cyan">3</span></div>
+              <div class="p-3.5 bg-white rounded-xl border border-slate-200/80 shadow-xs space-y-2">
+                <span class="vlt-pill vlt-pill-emerald py-0.5 px-2 text-[10px]">Completed</span>
+                <p class="font-bold text-xs text-slate-800">Pure Light Theme Palette Integration</p>
+                <p class="text-[11px] text-slate-400">Removed heavy dark containers and set electric cyan branding.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-view-panel="generic-view" class="space-y-8 hidden">
+          <div class="vlt-card p-8 border border-slate-200/80 bg-white text-center max-w-xl mx-auto space-y-4">
+            <div
+              class="w-16 h-16 rounded-3xl bg-cyan-50 text-cyan-600 flex items-center justify-center mx-auto shadow-sm">
+              <i data-lucide="sparkles" class="w-8 h-8"></i></div>
+            <h3 class="view-title text-xl font-extrabold text-slate-800">Section Demo</h3>
+            <p class="view-subtitle text-xs text-slate-500 leading-relaxed">This section is fully configured in
+              VeltraUI.</p>
+            <div class="pt-2">
+              <button type="button" class="vlt-btn vlt-btn-primary"
+                onclick="document.querySelector('[data-target=\'view-dashboard-v1\']').click()">Back to
+                Dashboard</button>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="vlt-footer">
+        <div class="flex items-center gap-2">
+          <span><strong>Copyright &copy; 2026 <a href="#" class="text-cyan-600 hover:underline">Veltra UI</a>.</strong>
+            All rights reserved.</span>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-semibold">
+          <b>Version</b> 1.0.0
+        </div>
+      </footer>
+    </div>
   </div>
 
-  <!-- HEADER / NAVBAR FLOTANTE EN CÁPSULA (ISLAND NAVBAR) -->
-  <header class="sticky top-4 z-50 max-w-7xl mx-auto px-4 sm:px-6 w-full">
-    <div
-      class="rounded-2xl sm:rounded-full bg-white/75 dark:bg-slate-900/75 backdrop-blur-2xl border border-slate-200/90 dark:border-slate-800/90 shadow-2xl shadow-slate-900/5 dark:shadow-cyan-950/20 px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4 transition-all">
-
-      <!-- Brand Logo & Pill -->
-      <a href="/index.html" class="flex items-center gap-2.5 group">
-        <img src="/logo.png" alt="VeltraUI"
-          class="h-8 w-auto object-contain transition-transform group-hover:scale-105" />
-        <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">
-          Veltra<span class="text-cyan-500">UI</span>
-        </span>
-        <span
-          class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-extrabold uppercase rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/25">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          v1.0
-        </span>
-      </a>
-
-      <!-- Center Nav Links (Pills con micro-interacciones) -->
-      <nav
-        class="hidden lg:flex items-center gap-1 p-1 rounded-full bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-xs font-semibold text-slate-600 dark:text-slate-300">
-        <a href="#templates"
-          class="px-3.5 py-1.5 rounded-full hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-white dark:hover:bg-slate-900 hover:shadow-xs transition-all flex items-center gap-1.5">
-          <i data-lucide="layers" class="w-3.5 h-3.5 text-cyan-500"></i>
-          <span>Plantillas (39)</span>
-        </a>
-        <a href="#features"
-          class="px-3.5 py-1.5 rounded-full hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-white dark:hover:bg-slate-900 hover:shadow-xs transition-all flex items-center gap-1.5">
-          <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Características</span>
-        </a>
-        <a href="#integrations"
-          class="px-3.5 py-1.5 rounded-full hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-white dark:hover:bg-slate-900 hover:shadow-xs transition-all flex items-center gap-1.5">
-          <i data-lucide="terminal" class="w-3.5 h-3.5 text-emerald-500"></i>
-          <span>Integración</span>
-        </a>
-        <a href="#vibe-coding"
-          class="px-3.5 py-1.5 rounded-full hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-white dark:hover:bg-slate-900 hover:shadow-xs transition-all flex items-center gap-1.5">
-          <i data-lucide="bot" class="w-3.5 h-3.5 text-purple-400"></i>
-          <span>Vibe Coding &amp; IA</span>
-        </a>
-        <a href="/docs.html"
-          class="px-3.5 py-1.5 rounded-full text-cyan-600 dark:text-cyan-400 font-bold hover:bg-white dark:hover:bg-slate-900 hover:shadow-xs transition-all flex items-center gap-1.5">
-          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-          <span>Documentación</span>
-        </a>
-      </nav>
-
-      <!-- Right Action Tools -->
-      <div class="flex items-center gap-2 sm:gap-2.5">
-
-        <!-- Theme Toggle -->
-        <button type="button"
-          class="w-9 h-9 rounded-full border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-800/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-500/40 transition-all cursor-pointer shadow-xs"
-          data-vlt-toggle="theme" title="Alternar Modo Claro / Oscuro">
-          <i data-lucide="sun-medium" class="w-4 h-4"></i>
-        </button>
-
-        <!-- GitHub Link -->
-          <a href="https://github.com/stivens19/veltra-ui" target="_blank" rel="noopener noreferrer"
-            class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-800/80 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-cyan-500 hover:border-cyan-500/40 transition-all shadow-xs">
-            <i data-lucide="github" class="w-3.5 h-3.5"></i>
-            <span>GitHub</span>
-          </a>
-
-          <!-- Download ZIP CTA -->
-          <a href="/veltra-ui.zip" download="veltra-ui-v1.0.0.zip"
-            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-bold shadow-md shadow-cyan-500/25 transition-all hover:scale-105 active:scale-95">
-            <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span class="hidden sm:inline">Descargar</span>
-            <span>ZIP</span>
-          </a>
-
-      </div>
-    </div>
-  </header>
-
-  <main class="flex-1">
-
-    <!-- HERO SECTION -->
-    <section class="relative pt-16 pb-20 md:pt-24 md:pb-32 overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-
-        <!-- Eyebrow Badge -->
-        <div
-          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-600 dark:text-cyan-400 text-xs font-bold tracking-wide animate-pulse">
-          <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
-          <span>VeltraUI v1.0 • Suite de Administración 100% Nativa y Open Source</span>
-        </div>
-
-        <!-- Headline -->
-        <h1
-          class="text-4xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1] max-w-5xl mx-auto">
-          El Panel de Administración <span
-            class="bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 bg-clip-text text-transparent">Ultra-Ligero</span>,
-          Moderno y Rápido.
-        </h1>
-
-        <!-- Subtitle -->
-        <p class="text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-          Construido desde cero con <strong>Tailwind CSS v4</strong> y <strong>TypeScript Vanilla</strong>. Más de 39
-          plantillas diseñadas al píxel, listas para producción en <strong>HTML</strong>, <strong>Laravel
-            Blade</strong>, <strong>React</strong> y <strong>Angular</strong> sin preprocesadores pesados.
-        </p>
-
-        <!-- CTA Action Buttons -->
-        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
-
-          <!-- CTA 1: Live Preview -->
-          <a href="/dashboard1.html"
-            class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black text-sm shadow-xl shadow-cyan-500/30 transition-all hover:scale-105 active:scale-95 cursor-pointer">
-            <i data-lucide="play" class="w-4 h-4 fill-slate-950"></i>
-            <span>Explorar Plantillas (Live Preview)</span>
-          </a>
-
-          <!-- CTA 2: Download ZIP -->
-          <a href="/veltra-ui.zip" download="veltra-ui-v1.0.0.zip"
-            class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-white font-bold text-sm shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all hover:scale-105 active:scale-95 cursor-pointer">
-            <i data-lucide="download" class="w-4 h-4 text-cyan-500"></i>
-            <span>Descargar ZIP (v1.0.0)</span>
-          </a>
-
-          <!-- CTA 3: Documentation -->
-          <a href="/docs.html"
-            class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-sm transition-all hover:scale-105 active:scale-95">
-            <i data-lucide="book-open" class="w-4 h-4"></i>
-            <span>Documentación</span>
-          </a>
-
-          <!-- CTA 4: GitHub -->
-            <a href="https://github.com/stivens19/veltra-ui" target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-md transition-all hover:scale-105 active:scale-95">
-              <i data-lucide="github" class="w-4 h-4"></i>
-              <span>GitHub Repo</span>
-            </a>
-
-        </div>
-
-        <!-- Quick Specs Strip -->
-        <div
-          class="pt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-semibold text-slate-500 dark:text-slate-400">
-          <div class="flex items-center gap-2">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
-            <span>Cero dependencias pesadas</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
-            <span>Tailwind CSS v4 & LightningCSS</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
-            <span>Anti-FOUC Dark Mode Persistente</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
-            <span>Licencia MIT Permisiva</span>
-          </div>
-        </div>
-
-        <!-- Hero Preview Mockup Frame -->
-        <div class="pt-8 max-w-6xl mx-auto">
-          <div
-            class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2 sm:p-3 shadow-2xl shadow-cyan-500/10">
-            <!-- Window Bar with Interactive Template Switcher -->
-            <div
-              class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 px-4 py-3 bg-slate-100 dark:bg-slate-800/80 rounded-2xl mb-2 text-xs">
-              <div class="flex items-center gap-3">
-                <div class="flex items-center gap-1.5 shrink-0">
-                  <span class="w-3 h-3 rounded-full bg-rose-500"></span>
-                  <span class="w-3 h-3 rounded-full bg-amber-500"></span>
-                  <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-                </div>
-                <div id="hero-tabs"
-                  class="flex items-center gap-1 bg-white/70 dark:bg-slate-900/60 p-1 rounded-xl border border-slate-200/60 dark:border-slate-700/60 overflow-x-auto text-[11px] font-semibold">
-                  <button type="button" data-hero-tab="dashboard-1" data-href="/dashboard1.html"
-                    class="hero-tab-btn px-3 py-1 rounded-lg transition-colors bg-cyan-500 text-slate-950 font-bold shadow-sm">Dashboard
-                    v1</button>
-                  <button type="button" data-hero-tab="dashboard-2" data-href="/index2.html"
-                    class="hero-tab-btn px-3 py-1 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Analytics
-                    v2</button>
-                  <button type="button" data-hero-tab="kanban" data-href="/kanban.html"
-                    class="hero-tab-btn px-3 py-1 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Kanban</button>
-                  <button type="button" data-hero-tab="pos" data-href="/pages-pos.html"
-                    class="hero-tab-btn px-3 py-1 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">POS</button>
-                  <button type="button" data-hero-tab="calendar" data-href="/calendar.html"
-                    class="hero-tab-btn px-3 py-1 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Calendario</button>
-                </div>
-              </div>
-
-              <div class="flex items-center justify-end gap-2 shrink-0">
-                <a id="hero-live-link" href="/dashboard1.html"
-                  class="px-3.5 py-1.5 text-[11px] font-bold rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition-colors flex items-center gap-1.5 shadow-sm">
-                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                  <span>Ver en Pantalla Completa</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- Preview Image Frame with Live Captures -->
-            <a id="hero-image-wrapper" href="/dashboard1.html"
-              class="group relative block w-full rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 shadow-inner">
-              <img id="hero-img-light" src="/screenshots/dashboard-1-light.png"
-                class="w-full h-auto block dark:hidden object-cover transition-opacity duration-300"
-                alt="VeltraUI Dashboard Preview">
-              <img id="hero-img-dark" src="/screenshots/dashboard-1-dark.png"
-                class="w-full h-auto hidden dark:block object-cover transition-opacity duration-300"
-                alt="VeltraUI Dashboard Preview">
-              <div
-                class="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                <span
-                  class="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-xs shadow-2xl border border-slate-200 dark:border-slate-700 flex items-center gap-2 transform group-hover:scale-105 transition-transform">
-                  <i data-lucide="sparkles" class="w-4 h-4 text-cyan-500"></i>
-                  <span>Hacer clic para abrir plantilla interactiva</span>
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- HIGHLIGHT STATS SECTION -->
-    <section class="border-y border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div class="space-y-1">
-            <div class="text-3xl sm:text-4xl font-black text-cyan-600 dark:text-cyan-400 font-mono">39+</div>
-            <div class="text-xs font-semibold text-slate-500 dark:text-slate-400">Plantillas HTML Listas</div>
-          </div>
-          <div class="space-y-1">
-            <div class="text-3xl sm:text-4xl font-black text-blue-600 dark:text-blue-400 font-mono">17</div>
-            <div class="text-xs font-semibold text-slate-500 dark:text-slate-400">Componentes CSS Puros</div>
-          </div>
-          <div class="space-y-1">
-            <div class="text-3xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400 font-mono">241 KB</div>
-            <div class="text-xs font-semibold text-slate-500 dark:text-slate-400">Bundle CSS Completo</div>
-          </div>
-          <div class="space-y-1">
-            <div class="text-3xl sm:text-4xl font-black text-purple-600 dark:text-purple-400 font-mono">0 ms</div>
-            <div class="text-xs font-semibold text-slate-500 dark:text-slate-400">FOUC Flash en Dark Mode</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TEMPLATES SHOWCASE SECTION -->
-    <section id="templates" class="py-20 lg:py-28">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-
-        <div class="text-center space-y-3 max-w-3xl mx-auto">
-          <span
-            class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
-            CATÁLOGO COMPLETO
-          </span>
-          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-            Diseñado para Cualquier Tipo de Aplicación Empresarial
-          </h2>
-          <p class="text-sm text-slate-600 dark:text-slate-400">
-            Haz clic en cualquiera de las tarjetas para abrir la demostración en vivo de la plantilla.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Card 1: Dashboard v1 -->
-          <a href="/dashboard1.html"
-            class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-cyan-500/50 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div
-                class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-                <img src="/screenshots/dashboard-1-light.png"
-                  class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300"
-                  alt="Dashboard v1 Analytics" loading="lazy">
-                <img src="/screenshots/dashboard-1-dark.png"
-                  class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300"
-                  alt="Dashboard v1 Analytics" loading="lazy">
-                <span
-                  class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-950/70 text-white backdrop-blur-sm border border-white/10">v1.0</span>
-              </div>
-              <div class="space-y-2">
-                <h3
-                  class="text-base font-bold text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">
-                  Dashboard v1 — Analytics & Ventas
-                </h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Panel maestro con Stat Boxes dinámicos, gráficos de Chart.js interactivos, historial de transacciones
-                  y resumen ejecutivo de métricas.
-                </p>
-              </div>
-            </div>
-            <div
-              class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-cyan-600 dark:text-cyan-400">
-              <span>Abrir Plantilla</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </a>
-
-          <!-- Card 2: Dashboard v2 -->
-          <a href="/index2.html"
-            class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-blue-500/50 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div
-                class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-                <img src="/screenshots/dashboard-2-light.png"
-                  class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300"
-                  alt="Dashboard v2 Finanzas" loading="lazy">
-                <img src="/screenshots/dashboard-2-dark.png"
-                  class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300"
-                  alt="Dashboard v2 Finanzas" loading="lazy">
-                <span
-                  class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-950/70 text-white backdrop-blur-sm border border-white/10">v2.0</span>
-              </div>
-              <div class="space-y-2">
-                <h3
-                  class="text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-500 transition-colors">
-                  Dashboard v2 — Métricas & Finanzas
-                </h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Enfoque financiero corporativo con gráficos de barras de ingresos mensuales, estado de flujo de caja y
-                  monitoreo de clientes activos.
-                </p>
-              </div>
-            </div>
-            <div
-              class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-blue-600 dark:text-blue-400">
-              <span>Abrir Plantilla</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </a>
-
-          <!-- Card 3: Dashboard v3 -->
-          <a href="/index3.html"
-            class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-indigo-500/50 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div
-                class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-                <img src="/screenshots/dashboard-3-light.png"
-                  class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300"
-                  alt="Dashboard v3 KPI" loading="lazy">
-                <img src="/screenshots/dashboard-3-dark.png"
-                  class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300"
-                  alt="Dashboard v3 KPI" loading="lazy">
-                <span
-                  class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-950/70 text-white backdrop-blur-sm border border-white/10">v3.0</span>
-              </div>
-              <div class="space-y-2">
-                <h3
-                  class="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-500 transition-colors">
-                  Dashboard v3 — KPI & Rendimiento
-                </h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Diseñado para monitoreo en tiempo real, KPIs de rendimiento del servidor, conversión de embudos y
-                  cuotas comerciales.
-                </p>
-              </div>
-            </div>
-            <div
-              class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-indigo-600 dark:text-indigo-400">
-              <span>Abrir Plantilla</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </a>
-
-          <!-- Card 4: POS System -->
-          <a href="/pages-pos.html"
-            class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-emerald-500/50 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div
-                class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-                <img src="/screenshots/pos-light.png"
-                  class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300"
-                  alt="Punto de Venta POS" loading="lazy">
-                <img src="/screenshots/pos-dark.png"
-                  class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300"
-                  alt="Punto de Venta POS" loading="lazy">
-                <span
-                  class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-600 text-white">POS</span>
-              </div>
-              <div class="space-y-2">
-                <h3
-                  class="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">
-                  Punto de Venta (POS System)
-                </h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Terminal interactiva de ventas con selección de productos por categorías, cálculo en vivo de IVA,
-                  descuentos e impresión de ticket.
-                </p>
-              </div>
-            </div>
-            <div
-              class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-emerald-600 dark:text-emerald-400">
-              <span>Abrir Plantilla</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </a>
-
-          <!-- Card 5: Kanban Board -->
-          <a href="/kanban.html"
-            class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-purple-500/50 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div
-                class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-                <img src="/screenshots/kanban-light.png"
-                  class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300"
-                  alt="Tablero Kanban" loading="lazy">
-                <img src="/screenshots/kanban-dark.png"
-                  class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300"
-                  alt="Tablero Kanban" loading="lazy">
-                <span
-                  class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-purple-600 text-white">Ágil</span>
-              </div>
-              <div class="space-y-2">
-                <h3
-                  class="text-base font-bold text-slate-900 dark:text-white group-hover:text-purple-500 transition-colors">
-                  Tablero Kanban Interactivo
-                </h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Gestión ágil de tareas con columnas para Por Hacer, En Progreso, Revisión y Finalizado con tarjetas
-                  visuales de prioridad y avatares.
-                </p>
-              </div>
-            </div>
-            <div
-              class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-purple-600 dark:text-purple-400">
-              <span>Abrir Plantilla</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </a>
-
-          <!-- Card 6: Calendarios -->
-          <a href="/calendar.html"
-            class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div
-                class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-                <img src="/screenshots/calendar-light.png"
-                  class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300"
-                  alt="Calendario" loading="lazy">
-                <img src="/screenshots/calendar-dark.png"
-                  class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300"
-                  alt="Calendario" loading="lazy">
-                <span
-                  class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-600 text-white">Eventos</span>
-              </div>
-              <div class="space-y-2">
-                <h3
-                  class="text-base font-bold text-slate-900 dark:text-white group-hover:text-amber-500 transition-colors">
-                  Calendario de Equipo & Eventos
-                </h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Organización de agenda mensual con eventos arrastrables, filtros de color por departamento y vista de
-                  carga de trabajo de equipo.
-                </p>
-              </div>
-            </div>
-            <div
-              class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-amber-600 dark:text-amber-400">
-              <span>Abrir Plantilla</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </a>
-
-          <!-- Card 7: DataTables -->
-          <a href="/tables-datatables.html"
-            class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-cyan-500/50 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div
-                class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-                <img src="/screenshots/datatables-light.png"
-                  class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300"
-                  alt="DataTables" loading="lazy">
-                <img src="/screenshots/datatables-dark.png"
-                  class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300"
-                  alt="DataTables" loading="lazy">
-                <span
-                  class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-cyan-600 text-white">Tablas</span>
-              </div>
-              <div class="space-y-2">
-                <h3
-                  class="text-base font-bold text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">
-                  Tablas Avanzadas & DataTables
-                </h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Tablas con ordenamiento en vivo, filtrado dinámico por columnas, paginación reactiva y exportación de
-                  datos lista.
-                </p>
-              </div>
-            </div>
-            <div
-              class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-cyan-600 dark:text-cyan-400">
-              <span>Abrir Plantilla</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </a>
-
-          <!-- Card 8: Formularios & Validación -->
-          <a href="/forms-validation.html"
-            class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-rose-500/50 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div
-                class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-                <img src="/screenshots/forms-light.png"
-                  class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300"
-                  alt="Formularios" loading="lazy">
-                <img src="/screenshots/forms-dark.png"
-                  class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300"
-                  alt="Formularios" loading="lazy">
-                <span
-                  class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-rose-600 text-white">Forms</span>
-              </div>
-              <div class="space-y-2">
-                <h3
-                  class="text-base font-bold text-slate-900 dark:text-white group-hover:text-rose-500 transition-colors">
-                  Formularios & Validación Reactiva
-                </h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Inputs estilizados, interruptores toggles, selectores flotantes, áreas de carga de archivos (dropzone)
-                  y estados de validación en tiempo real.
-                </p>
-              </div>
-            </div>
-            <div
-              class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-rose-600 dark:text-rose-400">
-              <span>Abrir Plantilla</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </a>
-
-          <!-- Card 9: Facturas & Invoice -->
-          <a href="/pages-invoice.html"
-            class="group p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-emerald-500/50 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div
-                class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-                <img src="/screenshots/invoice-light.png"
-                  class="w-full h-full object-cover object-top block dark:hidden group-hover:scale-105 transition-transform duration-300"
-                  alt="Facturación" loading="lazy">
-                <img src="/screenshots/invoice-dark.png"
-                  class="w-full h-full object-cover object-top hidden dark:block group-hover:scale-105 transition-transform duration-300"
-                  alt="Facturación" loading="lazy">
-                <span
-                  class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-600 text-white">Factura</span>
-              </div>
-              <div class="space-y-2">
-                <h3
-                  class="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">
-                  Facturación & Invoice Imprimible
-                </h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Factura comercial formateada al estándar de impresión con desglose de impuestos, formas de pago y
-                  botón directo de impresión PDF.
-                </p>
-              </div>
-            </div>
-            <div
-              class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-emerald-600 dark:text-emerald-400">
-              <span>Abrir Plantilla</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </a>
-
-        </div>
-
-        <div class="text-center pt-4">
-          <a href="/docs.html#catalog"
-            class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all">
-            <span>Ver las 39 plantillas en el catálogo interactivo de la documentación</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CORE FEATURES SECTION -->
-    <section id="features"
-      class="py-20 lg:py-28 bg-slate-100/50 dark:bg-slate-900/30 border-y border-slate-200/80 dark:border-slate-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
-
-        <div class="text-center space-y-3 max-w-3xl mx-auto">
-          <span
-            class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
-            CARACTERÍSTICAS
-          </span>
-          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-            Por qué usar VeltraUI
-          </h2>
-          <p class="text-sm text-slate-600 dark:text-slate-400">
-            Diseñado para ofrecer una arquitectura limpia, ligera y lista para producción en tus proyectos.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <div
-            class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div
-              class="w-10 h-10 rounded-2xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center font-bold">
-              <i data-lucide="zap-off" class="w-5 h-5"></i>
-            </div>
-            <h4 class="font-bold text-base text-slate-900 dark:text-white">Arquitectura 100% Nativa</h4>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Sin compiladores pesados ni binarios que ralenticen tu build. Todo utiliza CSS Nesting nativo del
-              W3C y variables CSS vivas en tiempo de ejecución.
-            </p>
-          </div>
-
-          <div
-            class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div
-              class="w-10 h-10 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold">
-              <i data-lucide="wind" class="w-5 h-5"></i>
-            </div>
-            <h4 class="font-bold text-base text-slate-900 dark:text-white">Tailwind CSS v4 Nativo</h4>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Olvídate de <code>tailwind.config.js</code>. Funciona con <code>@import "tailwindcss";</code> nativo y
-              compila a hipervelocidad mediante LightningCSS y Vite 6.
-            </p>
-          </div>
-
-          <div
-            class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div
-              class="w-10 h-10 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold">
-              <i data-lucide="moon" class="w-5 h-5"></i>
-            </div>
-            <h4 class="font-bold text-base text-slate-900 dark:text-white">Modo Oscuro Anti-FOUC</h4>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Cero parpadeos blancos molestos al recargar. Un script canónico autoejecutable en el
-              <code>&lt;head&gt;</code> evalúa el tema y sincroniza localStorage al instante.
-            </p>
-          </div>
-
-          <div
-            class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div
-              class="w-10 h-10 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
-              <i data-lucide="layers" class="w-5 h-5"></i>
-            </div>
-            <h4 class="font-bold text-base text-slate-900 dark:text-white">17 Componentes Puros</h4>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Cards con colapso, maximizado a pantalla completa y eliminación fade-out, modales con tecla ESC,
-              acordeones treeview y pestañas fluidas.
-            </p>
-          </div>
-
-          <div
-            class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div
-              class="w-10 h-10 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">
-              <i data-lucide="share-2" class="w-5 h-5"></i>
-            </div>
-            <h4 class="font-bold text-base text-slate-900 dark:text-white">Portabilidad Multi-Framework</h4>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Úsalo en Laravel Blade mediante componentes <code>&lt;x-ui.*&gt;</code>, o cópialo a React, Next.js, Vue y
-              Angular sin cambiar tu flujo de desarrollo.
-            </p>
-          </div>
-
-          <div
-            class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div
-              class="w-10 h-10 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
-              <i data-lucide="shield-check" class="w-5 h-5"></i>
-            </div>
-            <h4 class="font-bold text-base text-slate-900 dark:text-white">Licencia Permisiva MIT</h4>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              100% de libertad para proyectos personales, comerciales, SaaS o aplicaciones internas de clientes. Sin
-              regalías ni restricciones ocultas.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- INTEGRATIONS CODE SECTION -->
-    <section id="integrations" class="py-20 lg:py-28">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-
-        <div class="text-center space-y-3 max-w-3xl mx-auto">
-          <span
-            class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-            INTEGRACIÓN SENCILLA
-          </span>
-          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-            Listo Para Usar en Cualquier Entorno
-          </h2>
-          <p class="text-sm text-slate-600 dark:text-slate-400">
-            Dos archivos limpios (<code>css/veltra.css</code> y <code>js/veltra.js</code>) es todo lo que necesitas.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-          <!-- Box 1: Laravel Blade -->
-          <div
-            class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-            <div class="flex items-center gap-3">
-              <div
-                class="w-9 h-9 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center font-bold">
-                <i data-lucide="code" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-base text-slate-900 dark:text-white">Integración en Laravel Blade</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400">resources/views/layouts/app.blade.php</p>
-              </div>
-            </div>
-            <pre
-              class="p-4 rounded-2xl bg-slate-950 text-xs font-mono overflow-x-auto text-rose-300 leading-relaxed border border-slate-800"><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="es"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;Mi App Laravel&lt;/title&gt;
-    &lt;!-- Estilos VeltraUI con Tailwind v4 precompilado --&gt;
-    &lt;link rel="stylesheet" href="{{ asset('css/veltra.css') }}"&gt;
-&lt;/head&gt;
-&lt;body class="bg-slate-50 dark:bg-slate-950"&gt;
-    @yield('content')
-    &lt;script defer src="{{ asset('js/veltra.js') }}"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-          </div>
-
-          <!-- Box 2: React / Next.js -->
-          <div
-            class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-            <div class="flex items-center gap-3">
-              <div
-                class="w-9 h-9 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold">
-                <i data-lucide="atom" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-base text-slate-900 dark:text-white">Integración en React / Vite</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400">src/main.jsx o src/App.tsx</p>
-              </div>
-            </div>
-            <pre
-              class="p-4 rounded-2xl bg-slate-950 text-xs font-mono overflow-x-auto text-cyan-300 leading-relaxed border border-slate-800"><code>import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-
-// Importa los estilos de VeltraUI en un solo paso:
-import './css/veltra.css';
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  &lt;App /&gt;
-);</code></pre>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- VIBE CODING & AI AGENTS SECTION -->
-    <section id="vibe-coding" class="py-20 lg:py-28 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-white relative overflow-hidden border-t border-slate-800">
-      <!-- Glow ambient background -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-cyan-500/15 via-purple-500/15 to-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative">
-        
-        <!-- Section Header -->
-        <div class="text-center space-y-3 max-w-3xl mx-auto">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-cyan-500/10 text-cyan-400 border border-cyan-500/25 tracking-wide">
-            <i data-lucide="bot" class="w-3.5 h-3.5"></i>
-            <span>VIBE CODING &amp; AGENTES DE IA</span>
-          </span>
-          <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white">
-            Diseñado para Programar con IA
-          </h2>
-          <p class="text-sm sm:text-base text-slate-400 leading-relaxed">
-            ¿Usas <strong class="text-white">Cursor</strong>, <strong class="text-white">Claude Code</strong>, <strong class="text-white">Windsurf</strong> o <strong class="text-white">Copilot</strong>? Dale a tu modelo de lenguaje la referencia exacta de tokens, componentes y plantillas de VeltraUI para que genere vistas sin errores ni alucinaciones.
-          </p>
-        </div>
-
-        <!-- Two Downloadable AI Resource Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          
-          <!-- Card 1: AI Skill Reference -->
-          <div class="p-8 rounded-3xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 shadow-2xl transition-all flex flex-col justify-between group relative">
-            <div class="space-y-5">
-              <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform">
-                <i data-lucide="sparkles" class="w-6 h-6"></i>
-              </div>
-              <div>
-                <span class="text-[10px] font-black uppercase tracking-wider text-cyan-400 block mb-1">Para Cursor Rules, Antigravity &amp; Skills</span>
-                <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                  Skill de Arquitectura VeltraUI
-                </h3>
-                <p class="text-xs text-slate-400 leading-relaxed mt-2">
-                  Reglas de arquitectura, lista de tokens CSS maestros (<code class="text-cyan-300">--vlt-*</code>), anatomía del layout canónico, componentes nativos y directivas para que el agente escriba código limpio en Tailwind CSS v4.
-                </p>
-              </div>
-              <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 font-mono text-[11px] text-slate-400 flex items-center justify-between">
-                <span class="truncate">ai/veltra-ai-skill.md</span>
-                <span class="text-cyan-400 font-bold shrink-0 text-[10px]">Markdown / YAML</span>
-              </div>
-            </div>
-
-            <div class="pt-6 mt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-3">
-              <a href="/ai/veltra-ai-skill.md" download="veltra-ai-skill.md" class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 transition-all hover:scale-105 active:scale-95 cursor-pointer">
-                <i data-lucide="download" class="w-4 h-4"></i>
-                <span>Descargar Skill (.md)</span>
-              </a>
-              <button type="button" onclick="navigator.clipboard.writeText('https://veltra-ui.stivensespinoza.dev/ai/veltra-ai-skill.md').then(() => alert('¡Enlace del Skill copiado al portapapeles!'));" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs transition-colors flex items-center gap-1.5 cursor-pointer" title="Copiar URL">
-                <i data-lucide="copy" class="w-4 h-4"></i>
-                <span>Copiar URL</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Card 2: 39-Template Context File -->
-          <div class="p-8 rounded-3xl bg-slate-900/90 border border-slate-800 hover:border-purple-500/50 shadow-2xl transition-all flex flex-col justify-between group relative">
-            <div class="space-y-5">
-              <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform">
-                <i data-lucide="database" class="w-6 h-6"></i>
-              </div>
-              <div>
-                <span class="text-[10px] font-black uppercase tracking-wider text-purple-400 block mb-1">Contexto Global de Plantillas</span>
-                <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
-                  Contexto de las 39 Plantillas
-                </h3>
-                <p class="text-xs text-slate-400 leading-relaxed mt-2">
-                  Índice completo de todos los archivos HTML (dashboards, widgets, POS, facturas, kanban, calendarios, autenticación), rutas de assets y jerarquía del DOM para ensamblar pantallas en un solo prompt.
-                </p>
-              </div>
-              <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 font-mono text-[11px] text-slate-400 flex items-center justify-between">
-                <span class="truncate">ai/veltra-context.md</span>
-                <span class="text-purple-400 font-bold shrink-0 text-[10px]">39 Plantillas</span>
-              </div>
-            </div>
-
-            <div class="pt-6 mt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-3">
-              <a href="/ai/veltra-context.md" download="veltra-context.md" class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-purple-500 hover:bg-purple-400 text-white font-bold text-xs shadow-lg shadow-purple-500/20 transition-all hover:scale-105 active:scale-95 cursor-pointer">
-                <i data-lucide="download" class="w-4 h-4"></i>
-                <span>Descargar Contexto (.md)</span>
-              </a>
-              <button type="button" onclick="navigator.clipboard.writeText('https://veltra-ui.stivensespinoza.dev/ai/veltra-context.md').then(() => alert('¡Enlace del Contexto copiado al portapapeles!'));" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs transition-colors flex items-center gap-1.5 cursor-pointer" title="Copiar URL">
-                <i data-lucide="copy" class="w-4 h-4"></i>
-                <span>Copiar URL</span>
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- llms.txt standard pill -->
-        <div class="text-center pt-2">
-          <a href="/llms.txt" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono text-slate-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all">
-            <i data-lucide="file-text" class="w-3.5 h-3.5 text-cyan-400"></i>
-            <span>Estándar para LLMs disponible en: <strong>veltra-ui.stivensespinoza.dev/llms.txt</strong></span>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- BIG CTA SECTION -->
-    <section
-      class="py-20 bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950 text-white relative overflow-hidden">
-      <div class="absolute -right-24 -bottom-24 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none">
-      </div>
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative">
-        <h2 class="text-3xl sm:text-5xl font-black tracking-tight">
-          ¿Listo para crear tu próximo dashboard de nivel empresarial?
-        </h2>
-        <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          Descarga la distribución compilada ahora mismo o explora todas las plantillas en vivo desde tu navegador.
-        </p>
-
-        <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="/veltra-ui.zip" download="veltra-ui-v1.0.0.zip"
-            class="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black text-base shadow-xl shadow-cyan-500/25 transition-all hover:scale-105 active:scale-95">
-            <i data-lucide="download" class="w-5 h-5"></i>
-            <span>Descargar ZIP Completo (v1.0.0)</span>
-          </a>
-
-          <a href="/dashboard1.html"
-            class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/15 text-white font-bold text-base border border-white/20 transition-all hover:scale-105 active:scale-95">
-            <i data-lucide="play" class="w-5 h-5"></i>
-            <span>Ver Demo en Vivo</span>
-          </a>
-
-          <a href="/docs.html"
-            class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 text-cyan-300 font-bold text-base border border-cyan-500/30 transition-all hover:scale-105 active:scale-95">
-            <i data-lucide="book-open" class="w-5 h-5"></i>
-            <span>Ir a la Documentación</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer
-    class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-10 text-xs text-slate-500 dark:text-slate-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-
-      <div class="flex items-center gap-3">
-        <img src="/logo.png" alt="VeltraUI" class="w-6 h-6 object-contain" />
-        <p>© 2026 <strong class="text-slate-900 dark:text-white font-bold">VeltraUI</strong>. Distribuido bajo Licencia
-          Permisiva MIT. Creado por <strong>Stivens Espinoza</strong>.</p>
-      </div>
-
-      <div class="flex flex-wrap items-center gap-6">
-        <a href="/dashboard1.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Dashboard
-          v1</a>
-        <a href="/index2.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Dashboard v2</a>
-        <a href="/index3.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Dashboard v3</a>
-        <a href="/docs.html"
-          class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors font-bold">Documentación</a>
-        <a href="https://github.com/stivens19/veltra-ui" target="_blank" rel="noopener noreferrer"
-          class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">GitHub</a>
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- Scripts -->
   <script type="module" src="/src/main.js"></script>
-  <script>
-    // Hero preview interactive switcher
-    document.addEventListener('DOMContentLoaded', () => {
-      const tabs = document.querySelectorAll('.hero-tab-btn');
-      const imgLight = document.getElementById('hero-img-light');
-      const imgDark = document.getElementById('hero-img-dark');
-      const liveLink = document.getElementById('hero-live-link');
-      const imageWrapper = document.getElementById('hero-image-wrapper');
+  <!-- Search Command Palette Modal -->
+  <div id="vlt-search-modal"
+    class="fixed inset-0 z-50 hidden flex-col items-center justify-start pt-16 sm:pt-24 px-4 bg-slate-950/50 backdrop-blur-sm transition-opacity">
+    <div
+      class="vlt-modal-card w-full max-w-xl bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      <!-- Search Input Header -->
+      <div class="flex items-center px-4 py-3.5 border-b border-slate-100 dark:border-slate-800 gap-3">
+        <i data-lucide="search" class="w-5 h-5 text-cyan-500 shrink-0"></i>
+        <input id="vlt-modal-search-input" type="text" placeholder="Buscar páginas, dashboards, componentes..."
+          class="w-full bg-transparent text-sm text-slate-800 dark:text-slate-100 outline-none placeholder:text-slate-400"
+          autocomplete="off" />
+        <kbd
+          class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono font-bold bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-slate-400">ESC</kbd>
+        <button type="button" class="vlt-btn-icon text-slate-400 hover:text-slate-700 dark:hover:text-white"
+          data-vlt-close="search-modal" title="Cerrar">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
 
-      tabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
-          e.preventDefault();
-          const key = tab.getAttribute('data-hero-tab');
-          const href = tab.getAttribute('data-href');
+      <!-- Quick Navigation / Search Results List -->
+      <div id="vlt-search-results" class="max-h-80 overflow-y-auto p-2 space-y-1">
+        <div class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400">Páginas &amp; Dashboards
+        </div>
+        <a href="/dashboard1.html"
+          class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="gauge" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Dashboard v1 (E-Commerce &amp; KPIs)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Principal</span>
+        </a>
+        <a href="/index2.html"
+          class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="bar-chart-3" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Dashboard v2 (Ventas &amp; Finanzas)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Analítica</span>
+        </a>
+        <a href="/index3.html"
+          class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="activity" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Dashboard v3 (Métricas &amp; Tienda)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Reportes</span>
+        </a>
+        <a href="/widgets.html"
+          class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="layout-grid" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Widgets Showcase (Tarjetas &amp; Cursos)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">UI</span>
+        </a>
+        <a href="/forms.html"
+          class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="edit-3" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Formularios Generales &amp; Avanzados</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Inputs</span>
+        </a>
+        <a href="/tables.html"
+          class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="table" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Tablas &amp; DataTables con Filtro en Vivo</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Datos</span>
+        </a>
+        <div
+          class="px-3 pt-3 pb-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-t border-slate-100 dark:border-slate-800">
+          Opciones de Diseño (Layouts)</div>
+        <a href="/layout-collapsed-sidebar.html"
+          class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="sidebar" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Collapsed Sidebar Layout (Modo Mini)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Layout</span>
+        </a>
+        <a href="/layout-fixed-sidebar.html"
+          class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="panel-left-close"
+              class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Fixed Sidebar Layout (Barra Fija)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Layout</span>
+        </a>
+        <a href="/layout-top-nav.html"
+          class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="maximize" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Top Navigation Layout (Barra Superior)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Layout</span>
+        </a>
+        <a href="/layout-boxed.html"
+          class="flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-slate-800/80 hover:text-cyan-700 group transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="box" class="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform"></i>
+            <span>Boxed Layout (Contenedor Enmarcado)</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Layout</span>
+        </a>
+      </div>
 
-          // Update active button state
-          tabs.forEach(t => {
-            t.classList.remove('bg-cyan-500', 'text-slate-950', 'font-bold', 'shadow-sm');
-            t.classList.add('text-slate-600', 'dark:text-slate-300');
-          });
-          tab.classList.remove('text-slate-600', 'dark:text-slate-300');
-          tab.classList.add('bg-cyan-500', 'text-slate-950', 'font-bold', 'shadow-sm');
-
-          // Switch image sources
-          if (imgLight) imgLight.src = `/screenshots/${key}-light.png`;
-          if (imgDark) imgDark.src = `/screenshots/${key}-dark.png`;
-          if (liveLink) liveLink.href = href;
-          if (imageWrapper) imageWrapper.href = href;
-        });
-      });
-    });
-  </script>
+      <!-- Modal Footer -->
+      <div
+        class="px-4 py-2.5 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-400 dark:bg-slate-950 dark:text-slate-100">
+        <span>Navegar con <kbd
+            class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono">↑</kbd>
+          <kbd
+            class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono">↓</kbd></span>
+        <span>Cerrar con <kbd
+            class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono">ESC</kbd></span>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
