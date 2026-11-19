@@ -1,0 +1,58 @@
+name: Auto Release & Tagging
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Semantic Release & Asset Distribution
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12.18.0
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build All Distribution Assets
+        run: pnpm run build:all
+
+      - name: Determine Next Semantic Tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: patch
+          tag_prefix: v
+          initial_version: 1.0.0
+
+      - name: Create GitHub Release with Dist Assets
+        uses: softprops/action-gh-release@v2
+        if: steps.tag_version.outputs.new_tag != ''
+        with:
+          tag_name: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+          generate_release_notes: true
+          files: |
+            dist/veltra.css
+            dist/veltra.js
+            dist/veltra-ui.zip

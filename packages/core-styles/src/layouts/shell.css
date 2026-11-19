@@ -20,7 +20,9 @@ body.vlt-layout-boxed {
 }
 
 [data-theme="dark"].vlt-layout-boxed,
-[data-theme="dark"] body.vlt-layout-boxed {
+.dark.vlt-layout-boxed,
+[data-theme="dark"] body.vlt-layout-boxed,
+.dark body.vlt-layout-boxed {
     background-color: #0b1120;
 }
 

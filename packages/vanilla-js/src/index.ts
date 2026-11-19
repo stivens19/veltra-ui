@@ -47,6 +47,10 @@ export class VeltraUI {
             }
             try {
                 localStorage.setItem('veltra-theme', theme);
+                localStorage.setItem('appearance', theme);
+                localStorage.setItem('flux.appearance', theme);
+                document.cookie = `appearance=${theme};path=/;max-age=31536000;SameSite=Lax`;
+                document.cookie = `flux.appearance=${theme};path=/;max-age=31536000;SameSite=Lax`;
             } catch (e) {}
 
             // Update icon on all theme toggle buttons
